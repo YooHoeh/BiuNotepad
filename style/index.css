@@ -1,0 +1,265 @@
+@charset "utf-8";
+html,
+body {
+    /* width: 100%; */
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    position: relative;
+    margin: 0 auto;
+    background: #3081B9;
+    overflow: hidden;
+    font-size: 170px;
+    font-family: "Helvetica";
+}
+
+.class1 {
+    position: absolute;
+    top: -283px;
+    left: -366px;
+    width: 839px;
+    height: 681px;
+    background: #7CB2D8;
+    transform: rotate(-45deg);
+}
+
+.class1 p {
+    position: relative;
+    bottom: -279px;
+    right: -238px;
+    color: #eee;
+    cursor: pointer;
+}
+
+.class2 {
+    position: absolute;
+    top: 523px;
+    left: -216px;
+    width: 767px;
+    height: 474px;
+    background: #116FB5;
+    transform: rotate(-45deg);
+}
+
+.class3 {
+    position: absolute;
+    top: 783px;
+    left: 270px;
+    width: 779px;
+    height: 352px;
+    background: #06324F;
+    transform: rotate(45deg);
+}
+
+.class4 {
+    position: absolute;
+    top: 368px;
+    left: 252px;
+    width: 851px;
+    height: 298px;
+    background: #349EE8;
+    transform: rotate(45deg);
+}
+
+.class5 {
+    position: absolute;
+    top: -2px;
+    left: 696px;
+    width: 995px;
+    height: 239px;
+    background: #06324F;
+    color: #eee;
+    transform: rotate(-45deg);
+    transition: transform 0.4s, z-index 0.4s, top 0.4s,left 0.4s,height 0.4s;
+    font-size: 20px;
+}
+.class5 a{
+    position: absolute;
+    text-decoration: none;
+    bottom: 5px;
+    right: 5px;
+    color: #bbb;
+    font-size: 16px;
+    
+}
+.class5 a:hover{
+    color: #349EE8;
+}
+.class5 dl {
+    position: absolute;
+    left: 0px;
+    top: 60%;
+    width: 800px;
+    transform: translate(0, -69%);
+}
+.class5 dd{
+    text-align: center;
+    display: inline-block;
+}
+
+.class5 .register,
+.class5 .login {
+    /* display: none; */
+    width: 100%;
+    transition: display 0.2s;
+    color: #eee;
+}
+
+.class5 input[type=text],
+.class5 input[type=password] {
+    /* float: right; */
+    margin: 15px;
+    width: 300px;
+    height: 30px;
+    background-color: transparent;
+    border: 0;
+    border-bottom: 2px solid #eee;
+}
+.class5 input.code{
+    width:100px;
+}
+.class5 input[type=submit] {
+    position: absolute;
+    right: -50px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: 0;
+    background-color: transparent;
+    font-size: 80px;
+}
+
+.class5 input[type=submit]:hover {
+    color: #349EE8;
+}
+
+.class5 input:valid {
+    color: #eee;
+}
+.class5 .captcha{
+    position: absolute;
+    width:120px;
+    height:30px;
+    bottom: 15px;
+    left: 300px;
+}
+.class5 .close {
+    position: absolute;
+    right: -25px;
+    top: -25px;
+    width: 50px;
+    height: 50px;
+    background: silver;
+    border-radius: 25px;
+    box-shadow: 2px 2px 5px 0px black;
+    cursor: pointer;
+}
+
+.class5 .close:hover {
+    background: red;
+}
+
+.class5 .close:before {
+    position: absolute;
+    content: '';
+    width: 30px;
+    height: 10px;
+    background: white;
+    transform: rotate(45deg);
+    top: 20px;
+    left: 10px;
+}
+
+.class5 .close:after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 10px;
+    background: white;
+    transform: rotate(-45deg);
+    top: 20px;
+    left: 10px;
+}
+
+.class6 {
+    position: absolute;
+    top: 439px;
+    left: 971px;
+    width: 229px;
+    height: 229px;
+    background: #0A5386;
+    transform: rotate(-45deg);
+}
+
+.class7 {
+    position: absolute;
+    top: 665px;
+    left: 914px;
+    width: 584px;
+    height: 356px;
+    background: #094B7C;
+    transform: rotate(-45deg);
+    z-index: 3;
+}
+
+.class8 {
+    position: absolute;
+    top: 600px;
+    left: 1001px;
+    width: 1223px;
+    height: 263px;
+    background: #1485D5;
+    transform: rotate(45deg);
+}
+
+.class9 {
+    position: absolute;
+    top: -111px;
+    left: 1316px;
+    width: 721px;
+    height: 421px;
+    background: #A3C2D7;
+    transform: rotate(135deg);
+}
+
+.class10 {
+    position: absolute;
+    top: 891px;
+    left: 1289px;
+    width: 420px;
+    height: 420px;
+    background: #6A96B9;
+    transform: rotate(-135deg);
+}
+
+.class11 {
+    position: absolute;
+    top: 294px;
+    left: 1658px;
+    width: 420px;
+    height: 420px;
+    background: #6A96B9;
+    transform: rotate(-135deg);
+}
+
+.class12 {
+    position: absolute;
+    top: -147px;
+    left: 589px;
+    width: 389px;
+    height: 458px;
+    background: #3081B9;
+    transform: rotate(-315deg);
+}
+
+body>div {
+    box-shadow: 0px 0px 15px 0 black;
+    transition: box-shadow 0.3s, z-index 0.3s;
+}
+
+body>div:hover {
+    box-shadow: 10px 10px 10px 0 black;
+    z-index: 5;
+}
