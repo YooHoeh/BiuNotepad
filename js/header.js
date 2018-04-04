@@ -1,0 +1,9 @@
+var date = document.getElementById("date");
+var currentDate = new Date();
+var day = currentDate.getDate().toString();
+var month = currentDate.getMonth().toString();
+var year = currentDate.getFullYear().toString();
+// var kuud = ["January","February","March","April","May ","June","July","August","September","October","November","December"]
+var kuud = ["一","二","三","四","五","六","七","八","九","十","十一","十二"]
+month = kuud[month];
+date.innerText = year + " " + month + "月 " + day+ "日";

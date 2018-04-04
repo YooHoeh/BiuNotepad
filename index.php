@@ -7,7 +7,6 @@
 //************ */
 
 
-require 'include/captcha.class.php';
 ?>
 
 <html lang="en">
@@ -31,7 +30,7 @@ require 'include/captcha.class.php';
   <div class="class4"></div>
   <div class="class5">
 
-    <form action="index.php?action=login" class="login" method="post" style="display:none;">
+    <form action="main.html" class="login" method="post" style="display:none;">
       <dl>
         <dd>
           UserID:
@@ -44,12 +43,12 @@ require 'include/captcha.class.php';
         <dd>
           verification code:
           <input type="text" class="code" name="code" placeholder="Tpye the code">
-          <img src="include/captcha.php" class="captcha" style="width:120px;height:30px" />
+          <img src="include/captcha.php" class="captcha" />
         </dd>
       </dl>
       <input type="submit" value="Submit">
     </form>
-    <form action="index.php?action=register" class="register" method="post" style="display:none;">
+    <form action="main.html" class="register" method="post" style="display:none;">
       <dl>
         <dd>
           UserID:
@@ -69,7 +68,7 @@ require 'include/captcha.class.php';
         </dd>
       </dl>
       <input type="submit" value="Submit" />
-      <img src="include/captcha.php" class="captcha" style="width:120px;height:30px" />
+      <img src="include/captcha.php" class="captcha"  />
       
     </form>
     
@@ -83,6 +82,25 @@ require 'include/captcha.class.php';
   <div class="class10"></div>
   <div class="class11"></div>
   <div class="class12"></div>
-</body>
 
+</body>
+<?php
+ echo $_SESSION['an'];
+?>
+
+<script>
+function rec() {
+  
+var an = '<?php echo $code; ?>';
+if(an == "null"){//注意此处为"null"非null
+  console.log("null");
+  console.log("222");
+}else{
+  console.log(an);
+  console.log("123");
+}
+  
+
+}
+</script>
 </html>

@@ -1,0 +1,77 @@
+<!DOCTYPE</html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./layui/css/layui.css">
+  <link href="./style/main.css" rel="stylesheet">
+  <script src="./layui/layui.js"></script>
+  <title>Biu本</title>
+</head>
+
+
+<body>
+  <div class="navbar">
+    <div class="paev">Biu记事本</div>
+    <div class="middle-box">
+      <div class="line"></div>
+      <div class="date" id="date"></div>
+      <div class="line line-rigth"></div>
+    </div>
+    <div class="contact"><i class="fa fa-share-alt"></i>   
+      <div class="contact-tooltip">
+        <a href="#" target="_blank">
+          <i class="fa fa-qq"></i>
+        </a>
+        <a href="#" target="_blank">
+          <i class="fa fa-weixin"></i>
+        </a>
+        <a href="https://github.com/YooHoeh" target="_blank">
+          <i class="fa fa-github"></i>
+        </a>
+      </div>
+    </div>
+    <a href="index.php">
+    <i class="fa fa-sign-out"></i>
+    </a>
+
+  </div>
+
+
+  <div class="main-container">
+    <div class="card todo">
+      <div class="card-header">
+        <input id="new-item" type="text" disabled placeholder="笔记">
+        <a class="btn-circle" id="btn-add">
+          <span class="tooltip">添加笔记</span>
+          <i id="plus" class="material-icons">add</i>
+        </a>
+      </div>
+      <hr>
+      <ul id="todoList" class="todo-list"></ul>
+      <ul id="doneList" class="done-list"></ul>
+      <a class="btn-circle done-show" id="doneShow" onclick="doneListShow()">
+        <span class="tooltip">废纸篓</span>
+        <i id="doneShowIcon" class="material-icons">done_all</i>
+      </a>
+      <a class="btn-circle done-hide" id="doneHide" onclick="doneListHide()">
+        <i class="material-icons">done_all</i>
+      </a>
+    </div>
+
+    <div class="card notes">
+      <textarea id="notes"  placeholder="随写板"></textarea>
+    </div>
+    <div class="card tags">
+      <textarea placeholder="标签部分"></textarea>
+    </div>
+    <div class="card clender">
+      <textarea placeholder="日历部分"></textarea>
+    </div>
+
+  </div>
+</body>
+<script src="js/header.js"></script>
+</html>

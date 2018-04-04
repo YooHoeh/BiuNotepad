@@ -44,7 +44,7 @@ $(function () {
     $('img.captcha').click(function () {
         var s = "include/captcha.php?tm="+Math.random();
         $('img.captcha').attr("src",s);
-        
+        rec();
     });
 });
 // window.onload=function(){
