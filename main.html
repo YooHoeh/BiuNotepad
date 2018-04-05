@@ -42,11 +42,11 @@
 
   <div class="main-container">
     <div class="card todo">
-      <div class="card-header">
+      <div class="card-header"> <a href="edit.html"><i class="fa fa-align-justify"></i></a>
         <input id="new-item" type="text" disabled placeholder="笔记">
         <a class="btn-circle" id="btn-add">
           <span class="tooltip">添加笔记</span>
-          <i id="plus" class="material-icons">add</i>
+          <i id="plus" class="fa fa-plus"></i>
         </a>
       </div>
       <hr>
@@ -54,7 +54,7 @@
       <ul id="doneList" class="done-list"></ul>
       <a class="btn-circle done-show" id="doneShow" onclick="doneListShow()">
         <span class="tooltip">废纸篓</span>
-        <i id="doneShowIcon" class="material-icons">done_all</i>
+        <i id="doneShowIcon" class="fa fa-trash"></i>
       </a>
       <a class="btn-circle done-hide" id="doneHide" onclick="doneListHide()">
         <i class="material-icons">done_all</i>

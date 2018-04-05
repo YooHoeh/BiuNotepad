@@ -4,8 +4,8 @@ body {
   background: url("../img/bg.jpg") no-repeat fixed center;
   -webkit-background-size: cover;
   background-size: cover;
-
-  height: 1400px;
+ /* overflow-y:hidden; */
+  height: 880px;
 }
 
 ::-webkit-scrollbar {
@@ -155,7 +155,7 @@ hr {
 }
 
 .todo {
-  left: 14.5%;
+  left: 15%;
   height: 820px;
 }
 
@@ -335,18 +335,18 @@ input:disabled{
   background: #fff;
 }
 .notes {
-  right: 14.5%;
+  right: 15%;
 
 }
 .tags {
-  right: 33.1%;
-  top: 30%;
+  right: 33.4%;
+  bottom: 7%;
   width: 300px
 }
 
 .clender {
-  right: 14.5%;
-  top: 30%;
+  right: 15%;
+  bottom:7%;
   width: 320px
 }
 textarea {
@@ -434,6 +434,9 @@ textarea:focus {
 }
 
 @media screen and (max-width: 1324px) and (min-width: 1124px ) {
+  bady {
+    overflow-y: scroll;
+  }
   .card {
     width: 250px;
     height: 250px;
@@ -486,9 +489,8 @@ textarea:focus {
 }
 
 @media screen and (max-width: 1124px) {
-
-  body {
-
+  bady {
+    overflow-y: scroll;
   }
   .main-container {
     margin-top: 415px;
@@ -521,28 +523,4 @@ textarea:focus {
   }
 
 
-
-}
-/*以下是google*/
-@font-face {
-  font-family: 'Material Icons';
-  font-style: normal;
-  font-weight: 400;
-  src: url(https://fonts.gstatic.com/s/materialicons/v36/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
-}
-
-.material-icons {
-  font-family: 'Material Icons';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 24px;
-  line-height: 1;
-  letter-spacing: normal;
-  text-transform: none;
-  display: inline-block;
-  white-space: nowrap;
-  word-wrap: normal;
-  direction: ltr;
-  -moz-font-feature-settings: 'liga';
-  -moz-osx-font-smoothing: grayscale;
 }
