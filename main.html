@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="./layui/css/layui.css">
   <link href="./style/main.css" rel="stylesheet">
   <script src="./layui/layui.js"></script>
-  <title>Biu本</title>
+  <title>Biu记事本</title>
 </head>
 
 
@@ -57,7 +57,7 @@
         <i id="doneShowIcon" class="fa fa-trash"></i>
       </a>
       <a class="btn-circle done-hide" id="doneHide" onclick="doneListHide()">
-        <i class="material-icons">done_all</i>
+        <i class="material-icons"></i>
       </a>
     </div>
 
@@ -67,11 +67,14 @@
     <div class="card tags">
       <textarea placeholder="标签部分"></textarea>
     </div>
-    <div class="card clender">
-      <textarea placeholder="日历部分"></textarea>
+    <div class="card clender site-demo-laydate">
+      <div class="site-demo-laydate">
+        <div class="layui-inline" id="test-n1"></div>
+      </div>
     </div>
 
   </div>
 </body>
 <script src="js/header.js"></script>
+<script src="js/clender.js"></script>
 </html>
