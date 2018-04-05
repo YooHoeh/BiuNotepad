@@ -31,7 +31,7 @@ hr {
   left: 0;
   height: 64px;
   width: 100%;
-  background-color: #6b99bb;
+  background-color: #1170b4;
   color: #fff;
   font-size: 32px;
   z-index: 5;
@@ -167,7 +167,7 @@ hr {
   border-radius: 50%;
   text-align: center;
   color: white;
-  background: #26a69a;
+  background: #7eb3db;
   z-index: 2;
   -webkit-box-shadow: 0 3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2);
   box-shadow: 0 3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2);
@@ -219,7 +219,7 @@ hr {
 .done-show i {
   margin-top: 9px;
   font-size: 24px;
-  color: #26a69a;
+  color: #7eb3db;
 }
 
 .done-hide i {
@@ -229,7 +229,7 @@ hr {
 }
 
 .done-show:hover {
-  background: #219186;
+  background: #1170b4;
   -webkit-transition: 0.2s;
   transition: 0.2s;
   -webkit-box-shadow: 0 3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2);
@@ -248,7 +248,7 @@ hr {
 
 }
 .card-header .btn-circle:hover{
-  background: #00838f;
+  background: #1170b4;
   -webkit-transition: 0.2s;
   transition: 0.2s;
 }

@@ -20,7 +20,8 @@
       <div class="date" id="date"></div>
       <div class="line line-rigth"></div>
     </div>
-    <div class="contact"><i class="fa fa-share-alt"></i>   
+    <div class="contact">
+      <i class="fa fa-share-alt"></i>
       <div class="contact-tooltip">
         <a href="#" target="_blank">
           <i class="fa fa-qq"></i>
@@ -34,15 +35,20 @@
       </div>
     </div>
     <a href="index.php">
-    <i class="fa fa-sign-out"></i>
+      <i class="fa fa-sign-out"></i>
     </a>
 
   </div>
 
 
   <div class="main-container">
-    <div class="card todo">
-      <div class="card-header"> <a href="edit.html"><i class="fa fa-align-justify"></i></a>
+    
+    <!-- 笔记列表 -->
+    <div class="card todo layui-anim layui-anim-upbit">
+      <div class="card-header">
+        <a href="edit.html">
+          <i class="fa fa-align-justify"></i>
+        </a>
         <input id="new-item" type="text" disabled placeholder="笔记">
         <a class="btn-circle" id="btn-add">
           <span class="tooltip">添加笔记</span>
@@ -61,20 +67,27 @@
       </a>
     </div>
 
-    <div class="card notes">
-      <textarea id="notes"  placeholder="随写板"></textarea>
+    <!-- 随写板 -->
+    <div class="card notes layui-anim layui-anim-upbit">
+      <textarea id="notes" placeholder="随写板"></textarea>
     </div>
-    <div class="card tags">
+
+
+    <!-- 标签导航 -->
+    <div class="card tags layui-anim layui-anim-upbit">
       <textarea placeholder="标签部分"></textarea>
     </div>
-    <div class="card clender site-demo-laydate">
-      <div class="site-demo-laydate">
-        <div class="layui-inline" id="test-n1"></div>
-      </div>
+
+
+
+    <!-- 日历导航 -->
+    <div class="card clender site-demo-laydate layui-anim layui-anim-upbit">
+      <div class="layui-inline" id="test-n1"></div>
     </div>
 
   </div>
 </body>
 <script src="js/header.js"></script>
 <script src="js/clender.js"></script>
+
 </html>

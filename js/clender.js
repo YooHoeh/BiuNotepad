@@ -4,5 +4,6 @@ layui.use('laydate', function () {
     laydate.render({
         elem: '#test-n1'
         , position: 'static'
+        , theme: '#7eb3db'
     });
 })

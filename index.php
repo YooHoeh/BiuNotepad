@@ -23,7 +23,7 @@
 
 <body>
   <div class="class1">
-    <p>Login</p>
+    <p >Login</p>
   </div>
   <div class="class2"></div>
   <div class="class3"></div>
