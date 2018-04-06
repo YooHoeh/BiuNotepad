@@ -43,56 +43,56 @@
     <a href="index.php">
       <i class="fa fa-sign-out"></i>
     </a>
-    
+
   </div>
-  
-  
-  <div class="layui-fluid main-container ">
+
+
+  <div class="layui-container main-container ">
     <div class="layui-row">
-    </div>
-    
-    <!-- 笔记列表 -->
-    <div class="card todo layui-anim layui-anim-upbit ">
-      <div class="card-header">
-        <a href="edit.html">
-          <i class="fa fa-align-justify"></i>
+
+      <!-- 笔记列表 -->
+      <div class="card todo layui-anim layui-anim-upbit layui-col-md6 layui-col-sm6">
+        <div class="card-header">
+          <a href="edit.html">
+            <i class="fa fa-align-justify"></i>
+          </a>
+          <input id="new-item" type="text" disabled placeholder="笔记">
+          <a class="btn-circle" id="btn-add">
+            <span class="tooltip">添加笔记</span>
+            <i id="plus" class="fa fa-plus"></i>
+          </a>
+        </div>
+        <hr>
+        <ul id="todoList" class="todo-list"></ul>
+        <ul id="doneList" class="done-list"></ul>
+        <a class="btn-circle done-show" id="doneShow" onclick="doneListShow()">
+          <span class="tooltip">废纸篓</span>
+          <i id="doneShowIcon" class="fa fa-trash"></i>
         </a>
-        <input id="new-item" type="text" disabled placeholder="笔记">
-        <a class="btn-circle" id="btn-add">
-          <span class="tooltip">添加笔记</span>
-          <i id="plus" class="fa fa-plus"></i>
+        <a class="btn-circle done-hide" id="doneHide" onclick="doneListHide()">
+          <i class="material-icons"></i>
         </a>
       </div>
-      <hr>
-      <ul id="todoList" class="todo-list"></ul>
-      <ul id="doneList" class="done-list"></ul>
-      <a class="btn-circle done-show" id="doneShow" onclick="doneListShow()">
-        <span class="tooltip">废纸篓</span>
-        <i id="doneShowIcon" class="fa fa-trash"></i>
-      </a>
-      <a class="btn-circle done-hide" id="doneHide" onclick="doneListHide()">
-        <i class="material-icons"></i>
-      </a>
+
+      <!-- 随写板 -->
+      <div class="card notes layui-anim layui-anim-upbit  layui-col-md6 layui-col-sm6">
+        <textarea id="notes" placeholder="随写板"></textarea>
+      </div>
+
+
+      <!-- 标签导航 -->
+      <div class="card tags layui-anim layui-anim-upbit layui-col-md3 layui-col-sm12">
+        <textarea placeholder="标签部分"></textarea>
+      </div>
+
+
+
+      <!-- 日历导航 -->
+      <div class="card clender site-demo-laydate layui-anim layui-anim-upbit layui-col-md3 layui-col-sm12" id="clender">
+        <!-- <div class="layui-inline" id="test-n1"></div> -->
+      </div>
+
     </div>
-    
-    <!-- 随写板 -->
-    <div class="card notes layui-anim layui-anim-upbit">
-      <textarea id="notes" placeholder="随写板"></textarea>
-    </div>
-    
-    
-    <!-- 标签导航 -->
-    <div class="card tags layui-anim layui-anim-upbit">
-      <textarea placeholder="标签部分"></textarea>
-    </div>
-    
-    
-    
-    <!-- 日历导航 -->
-    <div class="card clender site-demo-laydate layui-anim layui-anim-upbit " id="test-n1">
-      <!-- <div class="layui-inline" id="test-n1"></div> -->
-    </div>
-    
   </div>
 </body>
 <!-- header部分js -->

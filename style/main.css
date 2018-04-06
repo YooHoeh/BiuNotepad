@@ -47,7 +47,9 @@ hr {
   user-select: none;
   -webkit-user-select: none;
 }
-
+.fa-sign-out:hover {
+  color: #06324f;
+}
 .middle-box{
   position: absolute;
   text-align: center;
@@ -122,6 +124,7 @@ hr {
 }
 .contact-tooltip i:hover{
   cursor: pointer;
+  color: #07304e;
 }
 
 
@@ -131,6 +134,7 @@ hr {
   text-align: center;
   position: relative;
   height: 100%;
+  width: 100%;
 }
 
 .card {
@@ -174,7 +178,6 @@ hr {
 }
 
 .done-show {
-
   background: white;
   z-index: 4;
   bottom: 14px;
@@ -339,8 +342,11 @@ input:disabled{
 
 }
 .tags {
-  right: 33.4%;
-  bottom: 7%;
+  position: relative;
+  right: -50%;
+  top: 105%;
+/* float: right; */
+  /* bottom: 70%; */
   width: 300px
 }
 
@@ -400,10 +406,7 @@ textarea:focus {
     width: 300px;
     height: 300px;
   }
-  .schedule {
-    left: 50%;
-    margin-left: -150px;
-  }
+
   ul {
     max-height: 238px;
   }
@@ -428,16 +431,10 @@ textarea:focus {
   li .btn {
     right: 12px;
   }
-  .schedule-list li .summary {
-    width: 200px;
-  }
+
 }
 
-<<<<<<< HEAD
-/* @media screen and (max-width: 1324px) and (min-width: 1124px ) {
-=======
- @media screen and (max-width: 1324px) and (min-width: 1124px ) {
->>>>>>> fcc44f88f7b0ecc7e094096c18d1b9e9479a1c34
+x@media screen and (max-width: 1324px) and (min-width: 1124px ) {
   bady {
     overflow-y: scroll;
   }
@@ -445,10 +442,7 @@ textarea:focus {
     width: 250px;
     height: 250px;
   }
-  .schedule {
-    left: 50%;
-    margin-left: -125px;
-  }
+
   ul {
     max-height: 197px;
   }
@@ -490,13 +484,8 @@ textarea:focus {
   textarea:focus {
     font-size: 14px;
   }
-<<<<<<< HEAD
-} */
-=======
-} 
->>>>>>> fcc44f88f7b0ecc7e094096c18d1b9e9479a1c34
-
-@media screen and (max-width: 1124px) {
+}
+/* @media screen and (max-width: 1124px) {
   bady {
     overflow-y: scroll;
   }
@@ -527,8 +516,7 @@ textarea:focus {
   }
 
   .contact {
-    /* display: none; */
   }
 
 
-}
+} */
