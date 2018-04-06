@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50721
 File Encoding         : 65001
 
-Date: 2018-04-04 00:46:39
+Date: 2018-04-06 09:41:22
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -20,7 +20,7 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 DROP TABLE IF EXISTS `comment`;
 CREATE TABLE `comment` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `userid` int(11) NOT NULL,
   `noteid` int(11) NOT NULL,
   `content` text NOT NULL,
@@ -45,7 +45,7 @@ CREATE TABLE `comment` (
 -- ----------------------------
 DROP TABLE IF EXISTS `mark`;
 CREATE TABLE `mark` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `userid` int(11) NOT NULL,
   `markName` text NOT NULL,
   `isStart` tinyint(4) NOT NULL,
@@ -66,7 +66,7 @@ CREATE TABLE `mark` (
 -- ----------------------------
 DROP TABLE IF EXISTS `note`;
 CREATE TABLE `note` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `userid` int(11) NOT NULL,
   `content` text NOT NULL,
   `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -95,7 +95,7 @@ CREATE TABLE `note` (
 -- ----------------------------
 DROP TABLE IF EXISTS `notebook`;
 CREATE TABLE `notebook` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `userid` int(11) NOT NULL,
   `bookName` text NOT NULL,
   `isShare` tinyint(4) NOT NULL DEFAULT '0',
@@ -119,13 +119,13 @@ CREATE TABLE `notebook` (
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` text,
   `password` text NOT NULL,
   `email` text NOT NULL,
   `creataTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user
