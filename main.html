@@ -9,7 +9,7 @@
   <link href="./style/main.css" rel="stylesheet">
   <script src="./layui/layui.js"></script>
   <!-- 让IE8/9支持媒体查询，从而兼容响应式布局 -->
-<!--[if lt IE 9]>
+  <!--[if lt IE 9]>
   <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
   <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
@@ -28,11 +28,12 @@
     <div class="contact">
       <i class="fa fa-share-alt"></i>
       <div class="contact-tooltip">
-        <a href="#" target="_blank">
+        <a href="" target="_blank">
           <i class="fa fa-qq"></i>
         </a>
-        <a href="#" target="_blank">
-          <i class="fa fa-weixin"></i>
+        <a class="jiathis_button_weixin" target="_blank">
+          <i class="fa fa-weixin">
+          </i>
         </a>
         <a href="https://github.com/YooHoeh" target="_blank">
           <i class="fa fa-github"></i>
@@ -42,59 +43,63 @@
     <a href="index.php">
       <i class="fa fa-sign-out"></i>
     </a>
-
+    
   </div>
-
-
+  
+  
   <div class="layui-fluid main-container ">
     <div class="layui-row">
     </div>
-
-      <!-- 笔记列表 -->
-      <div class="card todo layui-anim layui-anim-upbit ">
-        <div class="card-header">
-          <a href="edit.html">
-            <i class="fa fa-align-justify"></i>
-          </a>
-          <input id="new-item" type="text" disabled placeholder="笔记">
-          <a class="btn-circle" id="btn-add">
-            <span class="tooltip">添加笔记</span>
-            <i id="plus" class="fa fa-plus"></i>
-          </a>
-        </div>
-        <hr>
-        <ul id="todoList" class="todo-list"></ul>
-        <ul id="doneList" class="done-list"></ul>
-        <a class="btn-circle done-show" id="doneShow" onclick="doneListShow()">
-          <span class="tooltip">废纸篓</span>
-          <i id="doneShowIcon" class="fa fa-trash"></i>
+    
+    <!-- 笔记列表 -->
+    <div class="card todo layui-anim layui-anim-upbit ">
+      <div class="card-header">
+        <a href="edit.html">
+          <i class="fa fa-align-justify"></i>
         </a>
+        <input id="new-item" type="text" disabled placeholder="笔记">
+        <a class="btn-circle" id="btn-add">
+          <span class="tooltip">添加笔记</span>
+          <i id="plus" class="fa fa-plus"></i>
+        </a>
+      </div>
+      <hr>
+      <ul id="todoList" class="todo-list"></ul>
+      <ul id="doneList" class="done-list"></ul>
+      <a class="btn-circle done-show" id="doneShow" onclick="doneListShow()">
+        <span class="tooltip">废纸篓</span>
+        <i id="doneShowIcon" class="fa fa-trash"></i>
+      </a>
       <a class="btn-circle done-hide" id="doneHide" onclick="doneListHide()">
         <i class="material-icons"></i>
       </a>
     </div>
-
+    
     <!-- 随写板 -->
     <div class="card notes layui-anim layui-anim-upbit">
       <textarea id="notes" placeholder="随写板"></textarea>
     </div>
-
-
+    
+    
     <!-- 标签导航 -->
     <div class="card tags layui-anim layui-anim-upbit">
       <textarea placeholder="标签部分"></textarea>
     </div>
-
-
-
+    
+    
+    
     <!-- 日历导航 -->
     <div class="card clender site-demo-laydate layui-anim layui-anim-upbit " id="test-n1">
       <!-- <div class="layui-inline" id="test-n1"></div> -->
     </div>
-
+    
   </div>
 </body>
+<!-- header部分js -->
 <script src="js/header.js"></script>
+<!-- 日历部分js -->
 <script src="js/clender.js"></script>
+<!-- 微信分享js -->
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1" charset="utf-8"></script>
 
 </html>
