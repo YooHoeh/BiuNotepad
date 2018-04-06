@@ -433,7 +433,11 @@ textarea:focus {
   }
 }
 
+<<<<<<< HEAD
 /* @media screen and (max-width: 1324px) and (min-width: 1124px ) {
+=======
+ @media screen and (max-width: 1324px) and (min-width: 1124px ) {
+>>>>>>> fcc44f88f7b0ecc7e094096c18d1b9e9479a1c34
   bady {
     overflow-y: scroll;
   }
@@ -486,7 +490,11 @@ textarea:focus {
   textarea:focus {
     font-size: 14px;
   }
+<<<<<<< HEAD
 } */
+=======
+} 
+>>>>>>> fcc44f88f7b0ecc7e094096c18d1b9e9479a1c34
 
 @media screen and (max-width: 1124px) {
   bady {

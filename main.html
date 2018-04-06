@@ -8,6 +8,11 @@
   <link rel="stylesheet" href="./layui/css/layui.css">
   <link href="./style/main.css" rel="stylesheet">
   <script src="./layui/layui.js"></script>
+  <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+<!--[if lt IE 9]>
+  <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+  <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
   <title>Biu记事本</title>
 </head>
 
@@ -41,27 +46,29 @@
   </div>
 
 
-  <div class="main-container">
-    
-    <!-- 笔记列表 -->
-    <div class="card todo layui-anim layui-anim-upbit">
-      <div class="card-header">
-        <a href="edit.html">
-          <i class="fa fa-align-justify"></i>
+  <div class="layui-fluid main-container ">
+    <div class="layui-row">
+    </div>
+
+      <!-- 笔记列表 -->
+      <div class="card todo layui-anim layui-anim-upbit ">
+        <div class="card-header">
+          <a href="edit.html">
+            <i class="fa fa-align-justify"></i>
+          </a>
+          <input id="new-item" type="text" disabled placeholder="笔记">
+          <a class="btn-circle" id="btn-add">
+            <span class="tooltip">添加笔记</span>
+            <i id="plus" class="fa fa-plus"></i>
+          </a>
+        </div>
+        <hr>
+        <ul id="todoList" class="todo-list"></ul>
+        <ul id="doneList" class="done-list"></ul>
+        <a class="btn-circle done-show" id="doneShow" onclick="doneListShow()">
+          <span class="tooltip">废纸篓</span>
+          <i id="doneShowIcon" class="fa fa-trash"></i>
         </a>
-        <input id="new-item" type="text" disabled placeholder="笔记">
-        <a class="btn-circle" id="btn-add">
-          <span class="tooltip">添加笔记</span>
-          <i id="plus" class="fa fa-plus"></i>
-        </a>
-      </div>
-      <hr>
-      <ul id="todoList" class="todo-list"></ul>
-      <ul id="doneList" class="done-list"></ul>
-      <a class="btn-circle done-show" id="doneShow" onclick="doneListShow()">
-        <span class="tooltip">废纸篓</span>
-        <i id="doneShowIcon" class="fa fa-trash"></i>
-      </a>
       <a class="btn-circle done-hide" id="doneHide" onclick="doneListHide()">
         <i class="material-icons"></i>
       </a>
@@ -81,8 +88,8 @@
 
 
     <!-- 日历导航 -->
-    <div class="card clender site-demo-laydate layui-anim layui-anim-upbit">
-      <div class="layui-inline" id="test-n1"></div>
+    <div class="card clender site-demo-laydate layui-anim layui-anim-upbit " id="test-n1">
+      <!-- <div class="layui-inline" id="test-n1"></div> -->
     </div>
 
   </div>
