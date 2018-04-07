@@ -6,7 +6,6 @@
 //Version:1.3
 //************ */
 
-
 ?>
 
 <html lang="en">
@@ -24,6 +23,9 @@
 
 
 <body>
+  <div class="notice">
+    <p></p>
+  </div>
   <div class="class1">
     <p>Login</p>
   </div>
@@ -36,15 +38,15 @@
       <dl>
         <dd>
           UserID:
-          <input type="text" name="id" placeholder="           Type Your ID">
+          <input type="text"  name="id" placeholder="           Type Your ID">
         </dd>
         <dd>
           Password:
-          <input type="text" naem='psk' placeholder="   Tpye Your Passkey">
+          <input type="text" naem='psk' placeholder="   Type Your Passkey">
         </dd>
         <dd>
           verification code:
-          <input type="text" class="code" name="code" placeholder="Tpye the code">
+          <input type="text" class="code" name="code" placeholder="Type the code">
           <img src="include/captcha.php" class="captcha" />
         </dd>
       </dl>
@@ -54,7 +56,7 @@
       <dl>
         <dd>
           UserID:
-          <input type="text" name="setid" placeholder="Create Your Id " />
+          <input type="text" name="setid" placeholder="Create Your ID " />
         </dd>
         <dd>
           Password:
@@ -66,7 +68,7 @@
         </dd>
         <dd>
           verification code:
-          <input type="text" class="code" name="code" placeholder="Tpye the code">
+          <input type="text" class="code" name="code" placeholder="Type the code">
           <img src="include/captcha.php" class="captcha"  />
         </dd>
       </dl>
@@ -92,7 +94,6 @@
 
 <script>
 function rec() {
-  
 var an = '<?php echo $code; ?>';
 if(an == "null"){//注意此处为"null"非null
   console.log("null");

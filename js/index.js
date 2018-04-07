@@ -46,7 +46,14 @@ $(function () {
         $('img.captcha').attr("src",s);
         rec();
     });
+    $('#id').click(alarm("jjjj"));
 });
+function alarm(str) {
+    borad = document.getElementsByClassName("notice")[0];
+    borad.CSS.display = "block";
+    borad.children.text=str;
+    
+}
 // window.onload=function(){
 
 //     document.getElementsByClassName('captcha')[0].onclick=function() {
