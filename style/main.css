@@ -42,6 +42,11 @@ hr {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
+.user {
+  position: absolute;
+  left: 15px;
+  top: 5px;
+}
 .title {
   font-family: 'Work Sans', sans-serif;
   margin-top: 12px;
@@ -50,8 +55,8 @@ hr {
   user-select: none;
   -webkit-user-select: none;
 }
-
-.fa-sign-out:hover {
+.fa-window-maximize:hover,
+.fa-user:hover {
   color: #06324f;
 }
 
@@ -94,10 +99,11 @@ hr {
 
 .contact {
   font-family: 'Work Sans', sans-serif;
-  position: absolute;
+  /* position: absolute; */
+  float: right;
   padding: 20px;
   top: 0;
-  right: 15%;
+  right: 30%;
   font-size: 20px;
   user-select: none;
   -webkit-user-select: none;
@@ -135,7 +141,35 @@ hr {
   cursor: pointer;
   color: #07304e;
 }
-
+.navbar .search {
+  position: absolute;
+  top:9px;
+  right: 15%;
+  margin: 4px;
+  width: 8%;
+  height: 30px;
+  border: 1px solid #26a69a;
+  border-radius: 30px;
+  background-color: #fff;
+  
+}
+.search input[type="text"] {
+  margin-left: 15px;
+  width: 60%;
+  height: 100%;
+  border: none;
+  font-size: 15px;
+}
+.search input:focus {
+  width: 80%;
+}
+.search i {
+  font-size: 25px;
+  position: absolute;
+  right: 5%;
+  height: 80%;
+  color: #1485d5;
+}
 .main-container {
   margin-top: 6%;
   text-align: center;
@@ -391,6 +425,29 @@ textarea:focus {
   transition: 0.2s;
 }
 
+#tags {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  margin: 10px auto;
+}
+
+#tags a {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  color:#7eb3db;
+  font-weight: bold;
+  padding: 3px 6px;
+  text-decoration: none;
+}
+
+#tags a:hover {
+  border: 1px solid #eee;
+  background: #000;
+  border-radius: 5px;
+}
+
 #clender .layui-laydate-main {
   width: 100%;
   height: 90%;
@@ -515,9 +572,15 @@ textarea:focus {
   .card-header input {
     width: 200px;
   }
+  .search {
+    position: relative;
+    top: -100%;
+    margin-top: -100px;
+    left: 50%;
+  }
   .card {
     position: relative;
-    left: 50%;
+    left: 45%;
     margin-left: -150px;
     margin-top: 14px;
     top: 10%;
@@ -525,11 +588,11 @@ textarea:focus {
   .todo {
     height: 470px;
   }
-  .tags {
-  }
+  .tags {}
   .notes {
     /* display: none; */
   }
+  .user,
   .contact,
   .title {
     display: none;

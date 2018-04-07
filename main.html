@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="./layui/css/layui.css">
   <link href="./style/main.css" rel="stylesheet">
   <script src="./layui/layui.js"></script>
+  <script src="./js/lrtk.js"></script>
   <!-- 让IE8/9支持媒体查询，从而兼容响应式布局 -->
   <!--[if lt IE 9]>
   <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
@@ -40,9 +41,14 @@
         </a>
       </div>
     </div>
-    <a href="index.php">
-      <i class="fa fa-sign-out"></i>
-    </a>
+    <div class="search">
+      <input type="text" name="" id=""><a href="#"><i class="fa fa-search"></i></a>
+    </div>
+    <div class="user">
+      <a href="index.php">
+        <i class="fa fa-user"></i>
+      </a>
+    </div>
   </div>
 
 
@@ -53,7 +59,7 @@
       <div class="card todo layui-anim layui-anim-upbit ">
         <div class="card-header">
           <a href="edit.html">
-            <i class="fa fa-align-justify"></i>
+            <i class="fa fa-window-maximize"></i>
           </a>
           <input id="new-item" type="text" disabled placeholder="笔记">
           <a class="btn-circle" id="btn-add">
@@ -81,7 +87,20 @@
 
       <!-- 标签导航 -->
       <div class="card tags layui-anim layui-anim-upbit ">
-        <textarea placeholder="标签部分"></textarea>
+          <div id="tags">
+              <a href="#" target="_blank">起名取名</a>
+              <a href="#" target="_blank">宣传策划</a>
+              <a href="#" target="_blank">网游试玩</a>
+              <a href="#" target="_blank">宣传设计</a>
+              <a href="#" target="_blank">配音配词</a>
+              <a href="#" target="_blank">产品推广</a>
+              <a href="#" target="_blank">网络营销</a>
+              <a href="#" target="_blank">动漫设计</a>
+              <a href="#" target="_blank">招聘求职</a>
+              <a href="#" target="_blank">家居装修</a>
+              <a href="#" target="_blank">影视创作</a>
+              <a href="#" target="_blank">照片美化</a>
+              </div>
       </div>
 
 
