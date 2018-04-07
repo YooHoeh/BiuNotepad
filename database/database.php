@@ -125,5 +125,4 @@ class connetMysqli{
 		mysqli_close($this->link);
 	}
 }
-
 ?>
