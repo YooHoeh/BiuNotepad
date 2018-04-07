@@ -16,14 +16,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="style/index.css" rel="stylesheet">
+  <link rel="stylesheet" href="./layui/css/layui.css">
   <script src="js/jquery.min.js"></script>
   <script src="js/index.js"></script>
+  <script src="./layui/layui.js"></script>
 </head>
 
 
 <body>
   <div class="class1">
-    <p >Login</p>
+    <p>Login</p>
   </div>
   <div class="class2"></div>
   <div class="class3"></div>
@@ -65,10 +67,10 @@
         <dd>
           verification code:
           <input type="text" class="code" name="code" placeholder="Tpye the code">
+          <img src="include/captcha.php" class="captcha"  />
         </dd>
       </dl>
       <input type="submit" value="Submit" />
-      <img src="include/captcha.php" class="captcha"  />
       
     </form>
     

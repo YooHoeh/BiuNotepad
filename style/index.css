@@ -12,7 +12,6 @@ body {
     margin: 0 auto;
     background: #3081B9;
     overflow: hidden;
-    font-size: 170px;
     font-family: "Helvetica";
 }
 
@@ -27,8 +26,9 @@ body {
 }
 
 .class1 p {
+    font-size: 170px;
     position: relative;
-    bottom: -279px;
+    bottom: -430px;
     right: -238px;
     color: #eee;
     cursor: pointer;
@@ -96,8 +96,10 @@ body {
     transform: translate(0, -69%);
 }
 .class5 dd{
-    text-align: center;
-    display: inline-block;
+    /* text-align: center; */
+    display: block;
+    margin-left: 15%;
+
 }
 
 .class5 .register,
@@ -119,7 +121,7 @@ body {
     border-bottom: 2px solid #eee;
 }
 .class5 input.code{
-    width:100px;
+    width:150px;
 }
 .class5 input[type=submit] {
     position: absolute;
@@ -202,7 +204,7 @@ body {
     height: 356px;
     background: #094B7C;
     transform: rotate(-45deg);
-    z-index: 3;
+    /* z-index: 3; */
 }
 
 .class8 {
