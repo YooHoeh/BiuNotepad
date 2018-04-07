@@ -340,18 +340,17 @@ input:disabled{
 }
 .notes {
   right: 15%;
-
 }
 .tags {
-  right: -50%;
-  top: 105%;
-  width: 300px
+  right: 30.5%;
+  top: 47%;
+  width: 19%;
 }
 
 .clender {
   right: 15%;
   bottom:7%;
-  width: 320px
+  width: 14.9%;
 }
 textarea {
   height: inherit;
