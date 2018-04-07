@@ -376,7 +376,7 @@ input:disabled {
 
 textarea {
   height: inherit;
-  width: inherit;
+  width: 100%;
   border: none;
   resize: none;
   padding: 20px;
@@ -389,6 +389,11 @@ textarea:focus {
   outline: 0;
   -webkit-transition: 0.2s;
   transition: 0.2s;
+}
+
+#clender .layui-laydate-main {
+  width: 100%;
+  height: 90%;
 }
 
 /*
@@ -427,8 +432,8 @@ textarea:focus {
 
 @media screen and (max-width: 1550px) {
   .card {
-    width: 300px;
-    height: 300px;
+    width: 40%;
+    height: 50%;
   }
   ul {
     max-height: 238px;
@@ -518,11 +523,12 @@ textarea:focus {
     top: 10%;
   }
   .todo {
+    height: 470px;
   }
   .tags {
   }
   .notes {
-    display: none;
+    /* display: none; */
   }
   .contact,
   .title {
