@@ -21,17 +21,17 @@ class connetMysqli{
 		mysqli_select_db($this->link,'dome');
 		//设置字符集
 		mysqli_query($this->link, "set names 'utf8'");
-		echo "连接";
+		//echo "连接";
 	}
 	
 //---------------------------------------------------------------	
 	//执行SQL语句
 	public function runSQL($sql){
 		$a = mysqli_query($this->link,"$sql");
-		if(!$a){
+		if($a){
 			return $a;
 		}
-		echo mysqli_error();
+		echo mysqli_error($this->link);
 		
 	}
 	
@@ -125,7 +125,5 @@ class connetMysqli{
 		mysqli_close($this->link);
 	}
 }
-	
-	
-	//$con = new connetMysqli();
+
 ?>
