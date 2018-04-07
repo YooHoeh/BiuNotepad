@@ -7,7 +7,7 @@ body {
  /* overflow-y:hidden; */
   height: 880px;
 }
-
+/* 隐藏滚动条 */
 ::-webkit-scrollbar {
     display: none;
 }
@@ -24,6 +24,7 @@ hr {
   border-bottom: 1px solid #e0e0e0;
 }
 
+/* 导航栏部分 */
 .navbar {
 
   position: fixed;
@@ -85,7 +86,7 @@ hr {
   text-align: center;
 }
 
-
+/* 分享 */
 .contact {
   font-family: 'Work Sans', sans-serif;
   position: absolute;
@@ -342,11 +343,8 @@ input:disabled{
 
 }
 .tags {
-  position: relative;
   right: -50%;
   top: 105%;
-/* float: right; */
-  /* bottom: 70%; */
   width: 300px
 }
 
