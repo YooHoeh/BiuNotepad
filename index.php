@@ -14,17 +14,17 @@
   <title></title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="style/index.css" rel="stylesheet">
-  <link rel="stylesheet" href="./layui/css/layui.css">
-  <script src="js/jquery.min.js"></script>
-  <script src="js/index.js"></script>
+  <link href="./style/index.css" rel="stylesheet">
+  <link rel="./stylesheet" href="./layui/css/layui.css">
+  <script src="./js/jquery.min.js"></script>
+  <script src="./js/index.js"></script>
   <script src="./layui/layui.js"></script>
 </head>
 
 
 <body>
   <div class="notice">
-    <p>asd</p>
+    <p></p>
   </div>
   <div class="class1">
     <p>Login</p>
@@ -88,9 +88,6 @@
   <div class="class12"></div>
 
 </body>
-<?php
- echo $_SESSION['an'];
-?>
 
 <script>
 function rec() {
