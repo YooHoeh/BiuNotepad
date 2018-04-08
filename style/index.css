@@ -23,6 +23,12 @@ body {
     height: 50px;
     width: 20%;
     display:none;
+    text-align:center;
+}
+.notice p {
+    line-height:50px;
+    font-size: 15px;
+    color:white;
 }
 .class1 {
     position: absolute;

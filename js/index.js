@@ -30,13 +30,13 @@ $(function () {
             $(".class5").css({ "transform": "translate(-50%,-50%)", "height": "300px" });
             $('.register').fadeIn('400');
             $('.login').fadeOut('400');
-            $('.tab').text("Existing accounts? Login directly>>>");
+            $('.tab').text("已有账户？点此登录>>>");
             return false;
         } else {
             $(".class5").css({ "transform": "translate(-50%,-50%)", "height": "239px" });
             $('.register').fadeOut('400');
             $('.login').fadeIn('400');
-            $('.tab').text("No acount?To register>>>");
+            $('.tab').text("没有账户？点此注册>>>");
             return false;
         }
     });
@@ -46,17 +46,19 @@ $(function () {
         $('img.captcha').attr("src",s);
         rec();
     });
-    $('#id').click(alarm("jjjj"));
-});
-function alarm(str) {
-    borad = document.getElementsByClassName("notice")[0];
-    borad.CSS.display = "block";
-    borad.children.text=str;
-    
-}
-// window.onload=function(){
 
-//     document.getElementsByClassName('captcha')[0].onclick=function() {
-//         this.src='include/captcha.php?tm='+Math.random();
-//     };
-// }
+});
+
+// 显示文字通知
+function alarm(str) {
+   var tip =$(".notice");
+   if (tip.css("display") == "block") {
+    return false;
+   }
+   tip.fadeIn('1000')
+   .children().text(str);
+
+   setTimeout(() => {
+   tip.fadeOut('1000');
+   }, 1000);
+}

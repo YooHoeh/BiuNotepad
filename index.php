@@ -8,7 +8,7 @@
 
 ?>
 
-<html lang="en">
+<html>
 
 <head>
   <title></title>
@@ -24,7 +24,7 @@
 
 <body>
   <div class="notice">
-    <p></p>
+    <p>asd</p>
   </div>
   <div class="class1">
     <p>Login</p>
@@ -34,41 +34,41 @@
   <div class="class4"></div>
   <div class="class5">
 
-    <form action="main.html" class="login" method="post" style="display:none;">
+    <form action="main.html" class="login layui-form" method="post" style="display:none;">
       <dl>
-        <dd>
-          UserID:
-          <input type="text"  name="id" placeholder="           Type Your ID">
+        <dd  >
+          用户名:
+          <input type="text"  name="id" onclick=alarm('ID为注册电子邮箱') placeholder="电子邮箱">
         </dd>
         <dd>
-          Password:
-          <input type="text" naem='psk' placeholder="   Type Your Passkey">
+          密 &nbsp 码:
+          <input type="text" naem='psk' placeholder="请输入密码">
         </dd>
         <dd>
-          verification code:
-          <input type="text" class="code" name="code" placeholder="Type the code">
+          验证码:
+          <input type="text" class="code" name="code" placeholder="输入右侧中的字符">
           <img src="include/captcha.php" class="captcha" />
         </dd>
       </dl>
       <input type="submit" value="Submit">
     </form>
-    <form action="main.html" class="register" method="post" style="display:none;">
+    <form action="main.html" class="register  layui-form" method="post" style="display:none;">
       <dl>
         <dd>
-          UserID:
-          <input type="text" name="setid" placeholder="Create Your ID " />
+          用户名:
+          <input type="text" name="setid" onclick=alarm('请输入您的电子邮箱') placeholder="电子邮箱 " />
         </dd>
         <dd>
-          Password:
-          <input type="password" name="psk" placeholder="Set Your Password" />
+          密 &nbsp 码:
+          <input type="password" name="psk" placeholder="设置您的密码" />
         </dd>
         <dd>
-          Type Again:
-          <input type="password" name="confirmpsk" placeholder="Confirm Your Password" />
+          确认密码:
+          <input type="password" name="confirmpsk" placeholder="确认您的密码" />
         </dd>
         <dd>
-          verification code:
-          <input type="text" class="code" name="code" placeholder="Type the code">
+          验证码:
+          <input type="text" class="code" name="code" placeholder="请输入右侧中的字符">
           <img src="include/captcha.php" class="captcha"  />
         </dd>
       </dl>
@@ -77,7 +77,7 @@
     </form>
     
     <div class="close"></div>
-    <a href="index.php" class="tab">No acount?To register>>></a>
+    <a href="index.php" class="tab">没有账户？点此注册>>></a>
   </div>
   <div class="class6"></div>
   <div class="class7"></div>
