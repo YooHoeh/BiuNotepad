@@ -400,6 +400,7 @@ input:disabled {
   /* top: 47.3%; */
   bottom: 7%;
   width: 19%;
+  overflow: hidden;
 }
 
 .clender {
@@ -425,14 +426,8 @@ textarea:focus {
   transition: 0.2s;
 }
 
-#tags {
-  height: 100%;
-  width: 100%;
-  position: relative;
-  margin: 10px auto;
-}
 
-#tags a {
+.tags a {
   position: absolute;
   top: 0px;
   left: 0px;

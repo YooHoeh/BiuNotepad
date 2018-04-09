@@ -7,7 +7,7 @@ var active = false;
 var lasta = 1;
 var lastb = 1;
 var distr = true;
-var tspeed = 1;
+var tspeed = 3;
 var size = 150;
 
 var mouseX=0;
@@ -23,7 +23,7 @@ window.onload=function ()
 	var i=0;
 	var oTag=null;
 	
-	oDiv=document.getElementById('tags');
+	oDiv=document.getElementsByClassName('tags')[0];
 	
 	aA=oDiv.getElementsByTagName('a');
 	
