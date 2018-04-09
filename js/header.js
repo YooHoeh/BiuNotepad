@@ -32,3 +32,12 @@ for (var i in p) {
 s = "http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?" + s;
 document.getElementsByClassName("fa-qq")[0].parentElement.setAttribute("href", s);
 
+layui.use('element', function(){
+    var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
+    
+    //监听导航点击
+    element.on('nav(demo)', function(elem){
+      //console.log(elem)
+      layer.msg(elem.text());
+    });
+  });

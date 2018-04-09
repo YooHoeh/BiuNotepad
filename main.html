@@ -45,9 +45,11 @@
       <input type="text" name="" id=""><a href="#"><i class="fa fa-search"></i></a>
     </div>
     <div class="user">
-      <a href="index.php">
         <i class="fa fa-user"></i>
-      </a>
+        <dl class="layui-nav-child">
+            <dd><a href="">账户设置</a></dd>
+            <dd><a href="">注销</a></dd>
+          </dl>
     </div>
   </div>
 
@@ -120,3 +122,14 @@
 
 
 </html>
+<script>
+  layui.use('element', function(){
+    var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
+    
+    //监听导航点击
+    element.on('nav(demo)', function(elem){
+      //console.log(elem)
+      layer.msg(elem.text());
+    });
+  });
+</script>
