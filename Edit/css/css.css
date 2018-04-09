@@ -1,0 +1,99 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+html{
+	height:100%;
+}
+body{
+	height:100%;
+	background-image: url(../img/bg.jpg);
+    background-size: cover;
+}
+.header{
+	position:fixed;
+	top:0;
+	width:100%;
+	height:70px;
+	background-color: #1170b4;
+	text-align: center;
+}
+.header .note{
+	position:relative;
+	left:15%;
+	padding: 5px;
+	margin: 10px;
+	height: 40px;
+	width: 150px;
+	float: left;
+	text-align: center;
+}
+.header .date{
+	position: relative;
+	top: 0;
+	left:35%;
+	padding: 10px;
+	margin: 5px;
+	height: 40px;
+	width: 200px;
+	text-align: center;
+	float: left;
+}
+.header .share{
+	position: relative;
+	top: 0;
+	right:15%;
+	padding: 10px;
+	margin:5px;
+	height: 40px;
+	width: 150px;
+	text-align: center;
+	float: right;
+}
+.link div{
+	position:relative;
+	margin: 5px;;
+	top: 80px;
+	float:right;
+	width: 35px;
+	height: 35px;
+	text-align: center;
+	background-color: #fff;
+}
+.function div{
+	position: relative;
+	top:140px;
+	float: left;
+	left:10%;
+	width: 75px;
+	height: 35px;
+	text-align: center;
+	background-color: #fff;
+	/*-webkit-background-origin: 1px solid red;
+	background-origin: 1px solid red;
+	-webkit-border-radius: 5pxss;
+	-moz-border-radius: 5pxs;
+	border-radius: 5pxs;*/
+}
+.edit{
+	position: fixed;
+    float: left;
+    left:10%;
+	top:180px;
+	width: 80%;
+	height:740px;
+	background-color: #fff;
+	text-align: center;
+}
+.function .icon1{
+	color:#79aed5;
+}
+.link .link1{
+	color:#79aed5;
+}
+.edit input[type="text"]{
+	border-style:solid;
+	border-width:medium;
+	border:0;
+	border-bottom:2px solid black;
+}
