@@ -51,6 +51,26 @@ class connetMysqli{
 	public function getInsertid(){
 		return mysqli_insert_id($this->link);
 	}
+	//获得标签的id
+	public function getLabelId($userid,$markName){
+		$sql = "select id from mark where userid = '$userid' and markName = '$markName'";
+		$arr = $this->getRow($sql);
+		return $arr['id'];
+	}
+	
+	//获得笔记id
+	public function getNotelId($userid,$content){
+		$sql = "select id from note where userid = '$userid' and content = '$content'";
+		$arr = $this->getRow($sql);
+		return $arr['id'];
+	}
+
+	//获得笔记本id
+	public function getNotebooklId($userid,$bookName){
+		$sql = "select id from notebook where userid = '$userid' and bookName = '$bookName'";
+		$arr = $this->getRow($sql);
+		return $arr['id'];
+	}
 //---------------------------------------------------------------
 
 // 查询某个字段
@@ -104,14 +124,7 @@ class connetMysqli{
 
 //---------------------------------------------------------------	
 	//更新数据
-	public function update($table,$data,$where){
-		//遍历数组，得到每一个字段和字段的值
-		$str='';
-		foreach($data as $key=>$v){
-			$str.="$key='$v',";
-		}
-		$str=rtrim($str,',');
-		//修改SQL语句
+	public function update($table,$str,$where){
 		$sql="update $table set $str where $where";
 		$this->runSQL($sql);
 		//返回受影响的行数
