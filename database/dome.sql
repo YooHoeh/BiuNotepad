@@ -13,6 +13,10 @@ File Encoding         : 65001
 Date: 2018-04-06 09:41:22
 */
 
+CREATE DATABASE dome;
+
+USE dome;
+
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
@@ -48,10 +52,10 @@ CREATE TABLE `mark` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `userid` int(11) NOT NULL,
   `markName` text NOT NULL,
-  `isStart` tinyint(4) NOT NULL,
+  `isStart` tinyint(4) NOT NULL DEFAULT '0',
   `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updteTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `isdelete` tinyint(3) unsigned zerofill NOT NULL DEFAULT '000',
+  `isdelete` tinyint(3) unsigned zerofill NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `userid` (`userid`),
   CONSTRAINT `mark_user` FOREIGN KEY (`userid`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
@@ -74,7 +78,7 @@ CREATE TABLE `note` (
   `markID` text,
   `notbookID` text,
   `remindTime` timestamp NULL DEFAULT NULL,
-  `isStart` tinyint(4) NOT NULL,
+  `isStart` tinyint(4) NOT NULL DEFAULT '0',
   `isShare` tinyint(4) NOT NULL DEFAULT '0',
   `isdelete` tinyint(4) NOT NULL DEFAULT '0',
   `sharedpeople` text,
@@ -102,7 +106,7 @@ CREATE TABLE `notebook` (
   `isDelete` tinyint(4) NOT NULL DEFAULT '0',
   `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updteTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `isStart` tinyint(4) NOT NULL,
+  `isStart` tinyint(4) NOT NULL DEFAULT '0',
   `noteNumber` int(11) NOT NULL DEFAULT '0',
   `sharedpeople` text,
   PRIMARY KEY (`id`),
@@ -130,3 +134,23 @@ CREATE TABLE `user` (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
+
+INSERT INTO user ( username, password,email ) VALUES ( '1', '1','1' );
+
+INSERT INTO user ( username, password,email ) VALUES ( '2', '2','2' );
+
+INSERT INTO NOTEBOOK ( userid, bookname ) VALUES ( 1, '1' );
+
+INSERT INTO NOTEBOOK ( userid, bookname ) VALUES ( 2, '2' );
+
+INSERT INTO note ( userid, content ) VALUES ( 1, '1');
+
+INSERT INTO note ( userid, content) VALUES ( 2, '2' );
+
+INSERT INTO mark ( userid, markName ) VALUES ( 1, '1' );
+
+INSERT INTO mark ( userid, markName ) VALUES (2, '2' );
+
+INSERT INTO comment ( userid, noteid,content ) VALUES ( 1, '1','1' );
+
+INSERT INTO comment ( userid, noteid,content ) VALUES ( 1, '1','1' );
