@@ -10,8 +10,12 @@ Target Server Type    : MYSQL
 Target Server Version : 50721
 File Encoding         : 65001
 
-Date: 2018-04-04 00:46:39
+Date: 2018-04-06 09:41:22
 */
+
+CREATE DATABASE dome;
+
+USE dome;
 
 SET FOREIGN_KEY_CHECKS=0;
 
@@ -20,7 +24,7 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 DROP TABLE IF EXISTS `comment`;
 CREATE TABLE `comment` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `userid` int(11) NOT NULL,
   `noteid` int(11) NOT NULL,
   `content` text NOT NULL,
@@ -45,13 +49,13 @@ CREATE TABLE `comment` (
 -- ----------------------------
 DROP TABLE IF EXISTS `mark`;
 CREATE TABLE `mark` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `userid` int(11) NOT NULL,
   `markName` text NOT NULL,
-  `isStart` tinyint(4) NOT NULL,
+  `isStart` tinyint(4) NOT NULL DEFAULT '0',
   `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updteTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `isdelete` tinyint(3) unsigned zerofill NOT NULL DEFAULT '000',
+  `isdelete` tinyint(3) unsigned zerofill NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `userid` (`userid`),
   CONSTRAINT `mark_user` FOREIGN KEY (`userid`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
@@ -66,7 +70,7 @@ CREATE TABLE `mark` (
 -- ----------------------------
 DROP TABLE IF EXISTS `note`;
 CREATE TABLE `note` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `userid` int(11) NOT NULL,
   `content` text NOT NULL,
   `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -74,7 +78,7 @@ CREATE TABLE `note` (
   `markID` text,
   `notbookID` text,
   `remindTime` timestamp NULL DEFAULT NULL,
-  `isStart` tinyint(4) NOT NULL,
+  `isStart` tinyint(4) NOT NULL DEFAULT '0',
   `isShare` tinyint(4) NOT NULL DEFAULT '0',
   `isdelete` tinyint(4) NOT NULL DEFAULT '0',
   `sharedpeople` text,
@@ -95,14 +99,14 @@ CREATE TABLE `note` (
 -- ----------------------------
 DROP TABLE IF EXISTS `notebook`;
 CREATE TABLE `notebook` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `userid` int(11) NOT NULL,
   `bookName` text NOT NULL,
   `isShare` tinyint(4) NOT NULL DEFAULT '0',
   `isDelete` tinyint(4) NOT NULL DEFAULT '0',
   `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updteTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `isStart` tinyint(4) NOT NULL,
+  `isStart` tinyint(4) NOT NULL DEFAULT '0',
   `noteNumber` int(11) NOT NULL DEFAULT '0',
   `sharedpeople` text,
   PRIMARY KEY (`id`),
@@ -119,14 +123,34 @@ CREATE TABLE `notebook` (
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` text,
   `password` text NOT NULL,
   `email` text NOT NULL,
   `creataTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
+
+INSERT INTO user ( username, password,email ) VALUES ( '1', '1','1' );
+
+INSERT INTO user ( username, password,email ) VALUES ( '2', '2','2' );
+
+INSERT INTO NOTEBOOK ( userid, bookname ) VALUES ( 1, '1' );
+
+INSERT INTO NOTEBOOK ( userid, bookname ) VALUES ( 2, '2' );
+
+INSERT INTO note ( userid, content ) VALUES ( 1, '1');
+
+INSERT INTO note ( userid, content) VALUES ( 2, '2' );
+
+INSERT INTO mark ( userid, markName ) VALUES ( 1, '1' );
+
+INSERT INTO mark ( userid, markName ) VALUES (2, '2' );
+
+INSERT INTO comment ( userid, noteid,content ) VALUES ( 1, '1','1' );
+
+INSERT INTO comment ( userid, noteid,content ) VALUES ( 1, '1','1' );
