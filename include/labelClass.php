@@ -49,18 +49,40 @@
 			$con->closeLink();
 		}
 		//加星标记
-		public static function isStart($userid,$markName){
+		public static function isStart($userid,$markName,$isStart = 1){
 			$con = new connetMysqli();
 			$id_1 = $con->getLabelId($userid, $markName);
-			$sql = "update mark set isStart = 1 where id = '$id_1'";
+			$sql = "update mark set isStart = $isStart where id = '$id_1'";
 			$con->runSQL($sql);
 			$con->closeLink();
+		}
+		//按时间查找--降序
+		public static function timeSearch($userid){
+			$con = new connetMysqli();
+			$arr = array();
+			$sql = "select * from mark where userid = $userid order by updteTime desc";
+			$arr = $con->getAll($sql);
+			$con->closeLink();
+			return $arr;
+		}
+		//按首字符查找--升序
+		public static function fristSearch($userid){
+			$con = new connetMysqli();
+			$arr = array();
+			$sql = "select * from mark where userid = $userid order by markName";
+			$arr = $con->getAll($sql);
+			$con->closeLink();
+			return $arr;
 		}
 	
 	}
 
-//$a3 = new labelClass(3,'1234567');
+//$a3 = new labelClass(4,'234567');
 //labelClass::updateLabel(3, '1234567', '123');
-//labelClass::isStart(3,'123');
+//labelClass::isStart(2,'2',0);
 //labelClass::deleteLabel(3,'123');
+/*$arr = labelClass::fristSearch(4);
+	echo "<pre>";
+	print_r($arr);
+	echo "</pre>";*/
 ?>
