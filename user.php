@@ -12,16 +12,7 @@
     <script src="./layui/layui.js"></script>
 </head>
 <body>
-<ul class="layui-nav">
-  <li class="layui-nav-item layui-this">
-    <a href="javascript:;"><i class="layui-icon">&#xe612;</i>   </a>
-    <dl class="layui-nav-child">
-      <dd><a href=""></a></dd>
-      <dd><a href="">账户设置</a></dd>
-      <dd><a href="">注销</a></dd>
-    </dl>
-  </li>
-</ul>
+	
 </body>
 </html>
 <script src="./js/user.js"></script>

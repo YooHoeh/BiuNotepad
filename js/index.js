@@ -58,7 +58,5 @@ function alarm(str) {
    tip.fadeIn('1000')
    .children().text(str);
 
-   setTimeout(() => {
-   tip.fadeOut('1000');
-   }, 1000);
+   setTimeout(tip.fadeOut('1000'), 1000);
 }
