@@ -10,54 +10,53 @@
 
 session_start();
 include "./include/common.php";
+// 引入验证文件
+include './include/index.func.php';
 
 // 登录状态
 _login_state();
 
 // 开始处理登录状态
-if ('login' == $_GET['action']) {
+if ($_GET['action'] == 'login') {
     // 检查验证码
-       check_code($_POST['code'], $_SESSION['code']);
+    check_code($_POST['code'], $_SESSION['code']);
 
-    // 引入验证文件
-    include 'include/index.func.php';
     
     // 收集数据
     $_clean = [];
     $_clean['id'] = check_ID($_POST['id']);
     $_clean['psk'] = check_password($_POST['psk'], 6);
+	check_login($_clean['id'], $_clean['psk'], 1);
 }
+
+
 if (@$_GET ['action'] == 'register') {
 // 创建一个空数组用于存储合法数据
 	$clean = [ ];
-	// 这个存放入数据库的唯一标识符还有第二个用处，就是登录cookies验证
 	$clean ['uniqid'] = _check_uniqid ( $_POST ['uniqid'], $_SESSION ['uniqid'] );
+
 	// 将过滤后form数据传入数组
-	// check_empty($_POST);
+	check_empty($_POST);
 	$clean ['active'] = _sha1_uniqid ();
-	$clean ['name'] = check_name ( $_POST ['name'], 2, 20 );
-	$clean ['password'] = check_password ( $_POST ['password'], $_POST ['repassword'], 6 );
-	$clean ['studentID'] = check_studentID ( $_POST ['studentID'] );
-	$clean ['classID'] = check_classID ( $_POST ['classID'] );
-	$clean ['major'] = check_string ( $_POST ['major'] );
-	$clean ['tel'] = check_tel ( $_POST ['tel'] );
-	$clean ['address'] = check_string ( $_POST ['address'] );
+//	$clean ['name'] = check_name ( $_POST ['name'], 2, 20 );
+	$clean ['password'] = check_password ( $_POST ['setpsk'], $_POST ['confirmpsk'], 6 );
 	$clean ['email'] = cheak_email ( $_POST ['email'] );
-	$clean ['qq'] = check_qq ( $_POST ['qq'] );
+	
 	// print_r($clean);
 	// 检查身份信息是否已被注册
 	// 在新增之前，要判断用户名是否重复
-	_is_repeat ( "SELECT st_ID FROM Student WHERE st_ID='{$_clean['studentID']}' LIMIT 1", '对不起，此用户已被注册' );
+	_is_repeat ( "SELECT email FROM dome WHERE id='{$_clean['email']}' LIMIT 1", '对不起，此用户已被注册' );
 	// 新增用户
 	
-	_query ( "INSERT INTO Student(		
-											st_name,
-											st_password,
-											st_ID,
+	$conn->runSQL( "INSERT INTO dome(		
+											name,
+											password,
+											email,
 								) VALUES(
 																				
 											'{$clean['name']}',
 											'{$clean['password']}',
+											'{$clean['email']}',
 								)" );
 	_close ();
 	session_destroy ();
@@ -117,7 +116,7 @@ if (@$_GET ['action'] == 'register') {
         </dd>
         <dd>
           密 &nbsp 码:
-          <input type="password" name="psk" placeholder="设置您的密码" />
+          <input type="password" name="setpsk" placeholder="设置您的密码" />
         </dd>
         <dd>
           确认密码:
@@ -146,18 +145,14 @@ if (@$_GET ['action'] == 'register') {
 
 </body>
 
-<script>
-function rec() {
-var an = '<?php echo $code; ?>';
-if(an == "null"){
-  console.log("null");
-  console.log("222");
-}else{
-  console.log(an);
-  console.log("123");
+<script>function rec() {
+	var an = '<?php echo $code; ?>';
+if(an == "null") {
+	console.log("null");
+	console.log("222");
+} else {
+	console.log(an);
+	console.log("123");
 }
-  
 
-}
-</script>
-</html>
+}</script></html>

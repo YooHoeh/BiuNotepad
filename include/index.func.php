@@ -19,12 +19,12 @@ function _setcookies($_username, $status, $_time) {
 		case 'no' :
 			// 浏览器进程
 			setcookie('userID', $_username, null, $_path);
-			setcookie('status', $id_type, null, $_path);
+			setcookie('status', $status, null, $_path);
 			break;
 		case 'yes' :
 			// 一天
 			setcookie('userID', $_username, time() + 604800, $_path);
-			setcookie('status', $id_type, time() + 604800, $_path);
+			setcookie('status', $status, time() + 604800, $_path);
 			break;
 	}
 }
@@ -37,9 +37,9 @@ function _setcookies($_username, $status, $_time) {
  * @param string $password
  *        	密码
  */
-function check_id_type($username, $password, $time) {
+function check_login($username, $password, $time) {
 	$len = strlen($username);
-	if (!!$rows = _fetch_array("select name,password,name from user where name = '$username' and password = '$password' limit 1")) {
+	if (!!$rows = _fetch_array("select email,password,name from user where email= '$username' and password = '$password' limit 1")) {
 		_setcookies($username, "1", $time);
 		_close();
 		session_destroy();
@@ -98,5 +98,19 @@ function check_password($password, $minlen) {
 	}
 	// 返回密码
 	return sha1($password);
+}
+
+
+/**
+ * 判断是否将所有信息填写完毕
+ * @param array $array所传数组
+ */
+function check_empty($array) {
+	foreach ($array as $key => $value) {
+		if ($value == null) {
+			alert_back($key . '为空');
+		}
+
+	}
 }
 ?>

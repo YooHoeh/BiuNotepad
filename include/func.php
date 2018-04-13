@@ -11,7 +11,7 @@
  * _login_state登录状态的判断
  */
 function _login_state() {
-	if (isset($_COOKIE['userID'])) {
+	if (isset($_COOKIE['userID']) && isset($_COOKIE['status'])) {
 		_location("您已登陆", "main.html");
 	}
 }
