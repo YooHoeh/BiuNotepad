@@ -81,6 +81,15 @@
 			$con->closeLink();
 			return $arr;
 		}
+		//模糊查找
+		public static function Search($userid,$str){
+			$con = new connetMysqli();
+			$arr = array();
+			$sql = "select * from note where userid = $userid and content like '%$str%'";
+			$arr = $con->getAll($sql);
+			$con->closeLink();
+			return $arr;
+		}
 		//按记事本查笔记--首字
 		public static function notebookFristSearch($userid,$notebookid){
 			$con = new connetMysqli();
@@ -173,12 +182,13 @@
 //echo noteClass::getState(4,'2345');
 //noteClass::addMark(4, "234567", "3,4");
 //noteClass::deleteMark(4, "234567", "9");
-/*$arr = noteClass::findMark(4, "234567");
+//$arr = noteClass::findMark(4, "234567");
+/*$arr = noteClass::Search(4, "2");
 echo "<pre>";
 	print_r($arr);
 	echo "</pre>";*/
 
-//$a3 = new noteClass(4,'2345',1);
+//$a3 = new noteClass(4,'1352',3);
 //noteClass::updateNote(2, '2', '123');
 //noteClass::isStart(2,'123',1);
 //noteClass::deNote(2,'123');
