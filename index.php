@@ -9,57 +9,61 @@
 
 
 session_start();
-include "./include/common.php";
-// 引入验证文件
-include './include/index.func.php';
+require "./include/common.php";
 
 // 登录状态
-_login_state();
+// _login_state();
 
 // 开始处理登录状态
 if ($_GET['action'] == 'login') {
-    // 检查验证码
-    check_code($_POST['code'], $_SESSION['code']);
-
-    
-    // 收集数据
-    $_clean = [];
-    $_clean['id'] = check_ID($_POST['id']);
-    $_clean['psk'] = check_password($_POST['psk'], 6);
-	check_login($_clean['id'], $_clean['psk'], 1);
+  // 引入验证文件
+  require "./include/index.func.php";
+  // 检查验证码
+  // $an->check_code($_POST['code'], $_SESSION['code']);
+  
+  // 收集数据
+  $_clean = [];
+  $_clean['id'] = check_email($_POST['id']);
+  $_clean['psk'] = check_password($_POST['psk'], $_POST['psk'],6);
+  check_login($_clean['id'], $_clean['psk'], 1,$conn);
+  
 }
 
 
 if (@$_GET ['action'] == 'register') {
-// 创建一个空数组用于存储合法数据
+  // 引入验证文件
+  require "./include/index.func.php";
+ 
+  // 创建一个空数组用于存储合法数据
 	$clean = [ ];
-	$clean ['uniqid'] = _check_uniqid ( $_POST ['uniqid'], $_SESSION ['uniqid'] );
+	// $clean ['uniqid'] = _check_uniqid ( $_POST ['uniqid'], $_SESSION ['uniqid'] );
 
 	// 将过滤后form数据传入数组
 	check_empty($_POST);
-	$clean ['active'] = _sha1_uniqid ();
+	// $clean ['active'] = _sha1_uniqid ();
 //	$clean ['name'] = check_name ( $_POST ['name'], 2, 20 );
 	$clean ['password'] = check_password ( $_POST ['setpsk'], $_POST ['confirmpsk'], 6 );
-	$clean ['email'] = cheak_email ( $_POST ['email'] );
+	$clean ['email'] = check_email ( $_POST ['setid'] );
 	
-	// print_r($clean);
+	print_r($clean);
 	// 检查身份信息是否已被注册
 	// 在新增之前，要判断用户名是否重复
-	_is_repeat ( "SELECT email FROM dome WHERE id='{$_clean['email']}' LIMIT 1", '对不起，此用户已被注册' );
+	_is_repeat ( "SELECT email FROM user WHERE id='{$_clean['email']}' LIMIT 1", '对不起，此用户已被注册' ,$conn);
 	// 新增用户
 	
-	$conn->runSQL( "INSERT INTO dome(		
-											name,
+	$conn->runSQL( "INSERT INTO user(		
+											username,
 											password,
-											email,
+											email
 								) VALUES(
-																				
 											'{$clean['name']}',
 											'{$clean['password']}',
-											'{$clean['email']}',
-								)" );
-	_close ();
-	session_destroy ();
+											'{$clean['email']}'
+                )" );
+               
+	// _close ();
+  session_destroy ();
+ 
 	_location ( '恭喜你，注册成功！', './index.php' );
 } 
 ?>
@@ -98,7 +102,7 @@ if (@$_GET ['action'] == 'register') {
         </dd>
         <dd>
           密 &nbsp 码:
-          <input type="text" naem='psk' placeholder="请输入密码">
+          <input type="text" name='psk' placeholder="请输入密码" onclick=alarm('密码长度大于6位')>
         </dd>
         <dd>
           验证码:
@@ -116,7 +120,7 @@ if (@$_GET ['action'] == 'register') {
         </dd>
         <dd>
           密 &nbsp 码:
-          <input type="password" name="setpsk" placeholder="设置您的密码" />
+          <input type="password" name="setpsk"  onclick=alarm('密码长度大于6位') placeholder="设置您的密码" />
         </dd>
         <dd>
           确认密码:

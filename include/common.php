@@ -10,8 +10,9 @@
 
 
 // 引入函数库
-require 'func.php';
+
 require 'database.php';
+require 'func.php';
 
 // 拒绝低版本PHP
 if (PHP_VERSION < '4.1.0') {
@@ -21,7 +22,8 @@ if (PHP_VERSION < '4.1.0') {
 
 
 // 初始化数据库
-$connn = new connetMysqli();
+global $conn;
+$conn =new connetMysqli();
 
 
               

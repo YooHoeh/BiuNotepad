@@ -7,13 +7,15 @@
  * Date: 2018.4.13
  */
 
+global $conn;
+
 /**
  * _setcookies生成登录cookies
  *
  * @param unknown_type $_username
  * @param unknown_type $_uniqid
  */
-function _setcookies($_username, $status, $_time) {
+function _setcookies($_username, $status, $_time='no') {
 	$_path = "/WebNotePad/";
 	switch ($_time) {
 		case 'no' :
@@ -37,15 +39,15 @@ function _setcookies($_username, $status, $_time) {
  * @param string $password
  *        	密码
  */
-function check_login($username, $password, $time) {
+function check_login($username, $password, $time,$conn) {
 	$len = strlen($username);
-	if (!!$rows = _fetch_array("select email,password,name from user where email= '$username' and password = '$password' limit 1")) {
+	if (!!$rows = $conn->getRow("select email,password,username from user where email= '$username' and password = '$password' limit 1")) {
 		_setcookies($username, "1", $time);
-		_close();
+		$conn->closeLink();
 		session_destroy();
 		_location($rows['name'] . '登陆成功', 'main.html');
 	} else {
-		_close();
+		$conn->closeLink();
 		session_destroy();
 		_location('登录失败', 'index.php');
 	}
@@ -81,24 +83,15 @@ function check_password($firstpassword, $repeatword, $minlen) {
  *        	邮箱地址
  * @return string $string 符合则返回原邮箱否则报错
  */
-function cheak_email($string) {
+function check_email($string) {
 	$string = trim ( $string );
 	if (! preg_match ( '/^[\w\-\.]+@[\w\-\.]+(\.\w+)+$/', $string )) {
-		alert_back ( '邮箱格式不正确' );
+		echo $string;
+		// alert_back ( '邮箱格式不正确' );
 	}
 	return $string ;
 }
 
-/**
- * 判断密码
- */
-function check_password($password, $minlen) {
-	if (strlen($password) < $minlen) {
-		alert_back('密码不能小于' . $minlen . '位！');
-	}
-	// 返回密码
-	return sha1($password);
-}
 
 
 /**

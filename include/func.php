@@ -10,6 +10,7 @@
 /**
  * _login_state登录状态的判断
  */
+ global $conn;
 function _login_state() {
 	if (isset($_COOKIE['userID']) && isset($_COOKIE['status'])) {
 		_location("您已登陆", "main.html");
@@ -35,12 +36,12 @@ function _unsetcookies() {
  *        	$info弹出的警告信息
  */
 function alert_back($info) {
-	echo "<script type='text/javascript'>alarm('$info');history.back();</script>";
+	echo "<script type='text/javascript'>alert('$info');history.back();</script>";
 	exit();
 }
 
 function alert_close($info) {
-	echo "<script type='text/javascript'>alarm('$info');window.close();</script>";
+	echo "<script type='text/javascript'>alert('$info');window.close();</script>";
 	exit();
 }
 
@@ -61,8 +62,17 @@ function _location($info, $url) {
 	if ($info == null) {
 		header('Location:' . $url);
 	} else {
-		echo "<script type='text/javascript'>alarm('$info');location.href='$url';</script>";
+		echo "<script type='text/javascript'>alert('$info');location.href='$url';</script>";
 	}
 	exit();
+}
+
+/**
+ * 检测数据库是否重复
+ */
+function _is_repeat($_sql, $_info,$conn) {
+	if ($conn->getRow ( $_sql )) {
+		alert_back ( $_info );
+	}
 }
 ?>

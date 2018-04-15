@@ -7,6 +7,33 @@
 
 
 $(function () {
+    //form验证
+    var fm = document.getElementsByTagName('form')[0];
+        fm.onsubmit= function() {
+            //密码验证
+            if (fm.password.value.length < 6) {
+                alert("密码不能小于6位");
+                fm.password.value = '';
+                fm.password.focus();
+                return false;
+            }
+            if (fm.password.value != fm.repassword.value) {
+                alert("两次密码不一致");
+                fm.repassword.value = '';
+                fm.repassword.focus();
+                return false;
+            }
+            
+            //邮箱验证
+            if (!/^[\w\-\.]+@[\.\-\w]+(\.\w+)+$/.test(fm.email.value)) {
+                alert("电子邮箱格式错误");
+                fm.email.value = '';
+                fm.email.focus();
+                return false;
+            }
+            
+            return true;
+        };
     //点击login弹出登陆界面
     $(".class1").bind("click", function () {
         $('.register').fadeOut('400');
@@ -46,7 +73,11 @@ $(function () {
         $('img.captcha').attr("src",s);
         rec();
     });
-
+    
+    $('input[name=psk]').click(function(){
+        alarm('密码长度大于6位');
+        alert("12")
+    });
 });
 
 // 显示文字通知
@@ -60,30 +91,6 @@ function alarm(str) {
 
    setTimeout(tip.fadeOut('1000'), 1000);
 }
-//form验证
-var fm = document.getElementsByTagName('form')[0];
-	fm.onsubmit= function() {
-		//密码验证
-		if (fm.password.value.length < 6) {
-			alert("密码不能小于6位");
-			fm.password.value = '';
-			fm.password.focus();
-			return false;
-		}
-		if (fm.password.value != fm.repassword.value) {
-			alert("两次密码不一致");
-			fm.repassword.value = '';
-			fm.repassword.focus();
-			return false;
-		}
-		
-		//邮箱验证
-		if (!/^[\w\-\.]+@[\.\-\w]+(\.\w+)+$/.test(fm.email.value)) {
-			alert("电子邮箱格式错误");
-			fm.email.value = '';
-			fm.email.focus();
-			return false;
-		}
-		
-		return true;
-	};
+function alarmDiv(str) {
+    document.write(str);
+}

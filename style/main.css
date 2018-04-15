@@ -589,6 +589,7 @@ textarea:focus {
   }
   .user,
   .contact,
+  .search,
   .title {
     display: none;
   }
