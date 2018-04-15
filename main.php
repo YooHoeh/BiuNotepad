@@ -1,3 +1,7 @@
+<?php 
+require './include/common.php';
+
+?>
 <html lang="en">
 
 <head>
@@ -33,9 +37,9 @@
         </a>
         <a class="jiathis_button_weixin" target="_blank">
           <i class="fa fa-weixin">
-          </i>
-        </a>
-        <a href="https://github.com/YooHoeh" target="_blank">
+            </i>
+          </a>
+          <a href="https://github.com/YooHoeh" target="_blank">
           <i class="fa fa-github"></i>
         </a>
       </div>
@@ -44,24 +48,24 @@
       <input type="text" name="" id=""><a href="#"><i class="fa fa-search"></i></a>
     </div>
     <div class="user">
-        <i class="fa fa-user"></i>
+      <i class="fa fa-user"></i>
         <dl class="layui-nav-child">
-            <dd><a href="">账户设置</a></dd>
+          <dd><a href="">账户设置</a></dd>
             <dd><a href="">注销</a></dd>
           </dl>
-    </div>
-  </div>
-
-
-  <div class="layui-container main-container ">
-    <div class="layui-row">
-
-      <!-- 笔记列表 -->
-      <div class="card todo layui-anim layui-anim-upbit ">
-        <div class="card-header">
-          <a href="edit.html">
-            <i class="fa fa-window-maximize"></i>
-          </a>
+        </div>
+      </div>
+      
+      
+      <div class="layui-container main-container ">
+        <div class="layui-row">
+          
+          <!-- 笔记列表 -->
+          <div class="card todo layui-anim layui-anim-upbit ">
+            <div class="card-header">
+              <a href="edit.html">
+                <i class="fa fa-window-maximize"></i>
+              </a>
           <input id="new-item" type="text" disabled placeholder="笔记">
           <a class="btn-circle" id="btn-add">
             <span class="tooltip">添加笔记</span>
@@ -79,56 +83,38 @@
           <i class="material-icons"></i>
         </a>
       </div>
-
+      
       <!-- 随写板 -->
       <div class="card notes layui-anim layui-anim-upbit">
         <textarea id="notes" placeholder="随写板"></textarea>
       </div>
-
-
+      
       <!-- 标签导航 -->
       <div class="card tags layui-anim layui-anim-upbit ">
-          <!-- <div id="tags"> -->
-              <a href="#" target="_blank">起名取名</a>
-              <a href="#" target="_blank">宣传策划</a>
-              <a href="#" target="_blank">网游试玩</a>
-              <a href="#" target="_blank">宣传设计</a>
-              <a href="#" target="_blank">配音配词</a>
-              <a href="#" target="_blank">产品推广</a>
-              <a href="#" target="_blank">网络营销</a>
-              <a href="#" target="_blank">动漫设计</a>
-              <a href="#" target="_blank">招聘求职</a>
-              <a href="#" target="_blank">家居装修</a>
-              <a href="#" target="_blank">影视创作</a>
-              <a href="#" target="_blank">照片美化</a>
-              <!-- </div> -->
-      </div>
-
-
-
-      <!-- 日历导航 -->
+          <a href="#" target="_blank">起名取名</a>
+          <a href="#" target="_blank">宣传策划</a>
+          <a href="#" target="_blank">网游试玩</a>
+          <a href="#" target="_blank">宣传设计</a>
+          <a href="#" target="_blank">配音配词</a>
+          <a href="#" target="_blank">产品推广</a>
+          <a href="#" target="_blank">网络营销</a>
+          <a href="#" target="_blank">影视创作</a>
+          <a href="#" target="_blank">照片美化</a>
+        </div>
+            
+            <!-- 日历导航 -->
       <div class="card clender site-demo-laydate layui-anim layui-anim-upbit">
         <div class="layui-inline" id="clender"></div>
       </div>
-
+      
     </div>
   </div>
 </body>
+</html>
+
 <!-- header部分js -->
 <script src="js/header.js"></script>
 <!-- 日历部分js -->
 <script src="js/clender.js"></script>
-
-
-</html>
-<script>
-  layui.use('element', function(){
-    var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
-    
-    //监听导航点击
-    element.on('nav(demo)', function(elem){
-      //console.log(elem)
-      layer.msg(elem.text());
-    });
-  });
-</script>
+<!-- 微信分享api -->
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>

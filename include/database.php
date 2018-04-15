@@ -17,9 +17,6 @@ class connetMysqli{
 		$this->link = new mysqli($this->servername,$this->user,$this->password);
 		if(!$this->link){
 			echo "连接失败";
-		}else{
-
-			echo "连接成功";
 		}
 		//选择数据库
 		mysqli_select_db($this->link,'dome');
