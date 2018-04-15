@@ -7,8 +7,8 @@
  * Date: 2018.4.13
  */
 
-global $conn;
 
+global $conn;
 /**
  * _setcookies生成登录cookies
  *

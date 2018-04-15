@@ -89,7 +89,7 @@ function alarm(str) {
    tip.fadeIn('1000')
    .children().text(str);
 
-   setTimeout(tip.fadeOut('1000'), 1000);
+   setTimeout(function(){tip.fadeOut('1000')}, 2000);
 }
 function alarmDiv(str) {
     document.write(str);

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,11 +8,10 @@
 		<link rel="stylesheet" href="style/css.css" media="all">
 		<link href="style/font-awesome.min.css" rel="stylesheet">
 		<link href="http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-
 	</head>
 	<body>
 		<div class="navbar">
-    		<div class="title">Biu记事本</div>
+    		<div class="title">主页</div>
    		 	<div class="middle-box">
       			<div class="line"></div>
       			<div class="date" id="date"></div>
@@ -46,19 +44,25 @@
 		</div>
 		<div class="function">
 			<div class="icon1">
-				<i class="fa fa-bold fa-lg"></i>
+				<i id="icon01" class="fa fa-bold fa-lg"></i>
 			</div>
 			<div class="icon1">
-				<i class="fa fa-italic fa-lg"></i>
+				<i id="icon02" class="fa fa-italic fa-lg"></i>
 			</div>
 			<div class="icon1">
-				<i class="fa fa-underline fa-lg"></i>
+				<i id="icon03" class="fa fa-underline fa-lg"></i>
 			</div>
 			<div class="icon1">
-				<i class="fa fa-strikethrough fa-lg"></i>
+				<i id="icon04" class="fa fa-strikethrough fa-lg"></i>
 			</div>
 			<div class="icon1">
-				<i class="fa fa-font fa-lg"></i>
+				<i id="icon05" class="fa fa-align-left fa-lg"></i>
+			</div>
+			<div class="icon1">
+				<i id="icon06" class="fa fa-align-center fa-lg"></i>
+			</div>
+			<div class="icon1">
+				<i id="icon07" class="fa fa-align-right fa-lg"></i>
 			</div>
 			<div class="icon1">
 				<i class="fa fa-list-ul fa-lg"></i>
@@ -73,32 +77,30 @@
 				<i class="fa fa-paperclip fa-lg"></i>
 			</div>
 			<div class="icon1">
+				<i class="fa fa-check-square-o fa-lg"></i>
+			</div>
+			<div class="icon1">
 				<i class="fa fa-table fa-lg"></i>
-			</div>
-			<div class="icon1">
-				<i class="fa fa-align-left fa-lg"></i>
-			</div>
-			<div class="icon1">
-				<i class="fa fa-align-justify fa-lg"></i>
-			</div>
-			<div class="icon1">
-				<i class="fa fa-align-right fa-lg"></i>
 			</div>
 			<div>
 				<select>
 					<option value="font">字体类型</option>
-					<option value="font1">宋体</option>
-					<option value="font2">楷体</option>
-					<option value="font3">行书</option>
+					<option value="font1" id="font01">宋体</option>                                                                   
+					<option value="font2" id="font02">Work Sans</option>
+					<option value="font3" id="font03">arial black</option>
 				</select>
 			</div>
+			
 			<div>
 				<select>
 					<option value="size">字体大小</option>
-					<option value="14">14</option>
-					<option value="18">18</option>
-					<option value="20">20</option>
+					<option value="14" id="size01">small</option>
+					<option value="18" id="size02">medium</option>
+					<option value="20" id="size03">large</option>
 				</select>
+			</div>
+			<div class="save">
+				<i class="fa fa-save fa-lg">Save</i>
 			</div>
 		</div>
 		<div class="edit">
@@ -144,18 +146,22 @@
             	    <i class="fa fa-trash fa-lg"></i>
             	</li>
             </fieldset>
-            <select>
+            <fieldset class="label">
+            <select id="newopt">
 				<option value="label">标签</option>
 				<option value="label1">标签1</option>
 				<option value="label2">标签2</option>
 				<option value="label3">标签3</option>
-				<optgroup label="在此输入新标签">
-				<option value="label3">新标签</option>
-				</optgroup>
+				<optgroup label="在此输入新标签"></optgroup>
 			</select>
-			<b>标题:</b>
-			<input type="text" name="title" placeholder="在此输入标题"></input>
-			<textarea>
+			<br><span>新标签:</span>
+			<input type="text" name="newlabel" placeholder="新标题" id="label"></input>
+			<br><input type='button' value='添加' onclick="labelFunction()"></input>
+			</fieldset>
+			
+			<span class="title11"><b>标题:</b>
+			<input type="text" name="title" placeholder="在此输入标题"></input></span>
+			<textarea id="content">
 				请输入...
 			</textarea>
       	</div>
@@ -163,6 +169,6 @@
 	</body>
 <!-- header部分js -->
 <script src="js/header.js"></script>
-<!-- 日历部分js -->
-<script src="js/clender.js"></script>
+<!-- function部分js -->
+<script src="js/function.js"></script>
 </html>
