@@ -10,13 +10,29 @@ require './include/common.php';
   <link href="./font-awesome/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" href="./layui/css/layui.css">
   <link href="./style/main.css" rel="stylesheet">
+  <link rel="stylesheet" href="./style/im.css">
   <script src="./layui/layui.js"></script>
+
   <script src="./js/lrtk.js"></script>
   <!-- 让IE8/9支持媒体查询，从而兼容响应式布局 -->
   <!--[if lt IE 9]>
   <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
   <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
   <![endif]-->
+
+<!-- webIM API -->
+<script src="//cdn.ronghub.com/RongIMLib-2.3.0.js"></script>
+<!-- 在线emoji库 -->
+<script src="//cdn.ronghub.com/RongEmoji-2.2.6.min.js"></script> 
+
+<script src="./libs/utils.js"></script>
+<!-- 文件上传插件 -->
+<script src="./libs/qiniu-upload.js"></script>
+
+<script src="./js/template.js"></script>
+<script src="./js/emoji.js"></script>
+<script src="./js/im.js"></script>
+
   <title>Biu记事本</title>
 </head>
 
@@ -48,13 +64,18 @@ require './include/common.php';
       <input type="text" name="" id=""><a href="#"><i class="fa fa-search"></i></a>
     </div>
     <div class="user">
-      <i class="fa fa-user"></i>
-        <dl class="user-set">
-          <dd><i class= "fa cog" ></i></dd>
-            <dd><i class="fa sign-out"></i></dd>
-        </dl>
-        </div>
-      </div>
+      <i class="fa fa-user"></i> 
+      <ul class="user-set">
+        <li>
+          <i class= "fa fa-cog" >个人中心</i>
+        </li>
+        <li>
+          <i class="fa fa-sign-out">注销账户</i>
+        </li>
+      </ul>
+      </dl>
+     </div>
+    </div>
       
       
       <div class="layui-container main-container ">
@@ -109,9 +130,54 @@ require './include/common.php';
       
     </div>
   </div>
+  <div id="rcs-app"></div>
 </body>
 </html>
+<script>
+  (function(){
+    // var appKey = "lmxuhwaglie3d";
+    // var token = "ZdpYZRXCQeFzRAIUu56rBfZpEJfeQ52I0XbfYS+wJqr5iFkez06FzGmboLbMY1oUabqaSmNNRXa07YQRnuTd7w==";
+    var appKey = "3argexb6r934e";
+    var token = "b/jvjEFD41TIVT0nsf9+L3ryPPkHsvRwWZV8SVI5ICcZ2I5Nl4OdNO01OjZxjjmVlD2dmk4RZ90=";
+    RCS.init({
+        appKey: appKey,
+        token: token,
+        target: document.getElementById('rcs-app'),
+        showConversitionList: true,
+        templates: {
+            button: ['<div class="rongcloud-consult rongcloud-im-consult">',
+                    '   <button onclick="RCS.showCommon()"><span class="rongcloud-im-icon">聊天</span></button>',
+                    '</div>',
+                    '<div class="customer-service" style="display: none;"></div>'].join('')//"templates/button.html",
+            // chat: "templates/chat.html",
+            // closebefore: 'templates/closebefore.html',
+            // conversation: 'templates/conversation.html',
+            // endconversation: 'templates/endconversation.html',
+            // evaluate: 'templates/evaluate.html',
+            // imageView: 'templates/imageView.html',
+            // leaveword: 'templates/leaveword.html',
+            // main: 'templates/main.html',
+            // message: 'templates/message.html',
+            // messageTemplate: 'templates/messageTemplate.html',
+            // userInfo: 'templates/userInfo.html', 
+        },
+        extraInfo: {
+            // 当前登陆用户信息
+            userInfo: {
+                name: "游客",
+                grade: "VIP"
+            },
+            // 产品信息
+            requestInfo: {
+                productId: "123",
+                referrer: "10001",
+                define: "" // 自定义信息
+            }
+        }
+    });
+})()
 
+</script>
 <!-- header部分js -->
 <script src="js/header.js"></script>
 <!-- 日历部分js -->

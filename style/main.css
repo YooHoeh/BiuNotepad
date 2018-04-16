@@ -13,7 +13,7 @@ body {
   display: none;
 }
 
-ul {
+.main-container ul {
   margin: 0;
   max-height: 280px;
   overflow-y: scroll;
@@ -46,19 +46,16 @@ hr {
   position: absolute;
   left: 15px;
   top: 5px;
+  padding: 5px;
 }
-.user dd {
-  /* display: none; */
-  position: relative;
-  left: 10%;
-  
-  width: 100%;
-  font-size: 15px;
-  float: left;
+.user:hover li {
+  visibility: visible;
 }
-.user dd i{
-  /* color */
+.user .user-set li {
+  visibility: hidden;
+  font-size: 30px;
 }
+
 .title {
   font-family: 'Work Sans', sans-serif;
   margin-top: 12px;
@@ -330,7 +327,7 @@ ul.todo-list:empty:after {
   margin: 18px 0 0 0;
 }
 
-ul li {
+.main-container ul li {
   padding: 14.5px 30px;
   font-size: 14px;
   -webkit-transition: 0.2s;
