@@ -7,11 +7,12 @@
 		<title>Edit</title>
 		<link rel="stylesheet" href="style/css.css" media="all">
 		<link href="style/font-awesome.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="style/bootstrap.min.css">
 		<link href="http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 	</head>
 	<body>
 		<div class="navbar">
-    		<div class="title">主页</div>
+    		<div class="title">Biu笔记本</div>
    		 	<div class="middle-box">
       			<div class="line"></div>
       			<div class="date" id="date"></div>
@@ -20,28 +21,24 @@
     		<div class="user">
       			<a href="index.php"><i class="fa fa-user"></i></a>
     		</div>
-    		<div class="share">
-				<i class="fa fa-share fa-lg"></i>
-					<span>分享</span>
-			</div>
+    		<div class="link">
+				<div class="link1">
+					<i class="fa fa-bell fa-lg"></i>
+				</div>
+				<div class="link1">
+					<i class="fa fa-info-circle fa-lg"></i>
+				</div>
+				<div class="link1">
+					<i class="fa fa-star fa-lg"></i>
+				</div>
+				<div class="link1">
+					<i class="fa fa-trash fa-lg"></i>
+				</div>
+				<div class="link1">
+					<i class="fa fa-share-alt fa-lg"></i>
+				</div>
+		    </div>
   		</div>
-		<div class="link">
-			<div class="link1">
-				<i class="fa fa-bell fa-2x"></i>
-			</div>
-			<div class="link1">
-				<i class="fa fa-info-circle fa-2x"></i>
-			</div>
-			<div class="link1">
-				<i class="fa fa-star fa-2x"></i>
-			</div>
-			<div class="link1">
-				<i class="fa fa-trash fa-2x"></i>
-			</div>
-			<div class="link1">
-				<i class="fa fa-share-alt fa-2x"></i>
-			</div>
-		</div>
 		<div class="function">
 			<div class="icon1">
 				<i id="icon01" class="fa fa-bold fa-lg"></i>
@@ -100,53 +97,64 @@
 				</select>
 			</div>
 			<div class="save">
-				<i class="fa fa-save fa-lg">Save</i>
+				<i class="fa fa-save fa-2x">Save</i>
 			</div>
 		</div>
 		<div class="edit">
-			<fieldset class="notebook1">
-            <legend>笔记本1</legend>
-            <ul>
-            	<li>笔记1
-            	    <i class="fa fa-bell fa-lg"></i>
-            	    <i class="fa fa-star fa-lg"></i>
-            	    <i class="fa fa-trash fa-lg"></i>
-            	</li>
-            	<li>笔记2
-            	    <i class="fa fa-bell fa-lg"></i>
-            	    <i class="fa fa-star fa-lg"></i>
-            	    <i class="fa fa-trash fa-lg"></i>
-            	</li>
-            </fieldset>
-            <fieldset class="notebook2">
-            <legend>笔记本2</legend>
-            	<ul>
-            	<li>笔记1
-            	    <i class="fa fa-bell fa-lg"></i>
-            	    <i class="fa fa-star fa-lg"></i>
-            	    <i class="fa fa-trash fa-lg"></i>
-            	</li>
-            	<li>笔记2
-            	    <i class="fa fa-bell fa-lg"></i>
-            	    <i class="fa fa-star fa-lg"></i>
-            	    <i class="fa fa-trash fa-lg"></i>
-            	</li>
-            </fieldset>
-            <fieldset class="notebook3">
-            <legend>笔记本3</legend>
-            	<ul>
-            	<li>笔记1
-            	    <i class="fa fa-bell fa-lg"></i>
-            	    <i class="fa fa-star fa-lg"></i>
-            	    <i class="fa fa-trash fa-lg"></i>
-            	</li>
-            	<li>笔记2
-            	    <i class="fa fa-bell fa-lg"></i>
-            	    <i class="fa fa-star fa-lg"></i>
-            	    <i class="fa fa-trash fa-lg"></i>
-            	</li>
-            </fieldset>
-            <fieldset class="label">
+		<div class="notebook">
+			<div class="panel-group" id="accordion">
+	  		<div class="panel panel-default">
+			<div class="panel-heading" role="tab" id="headingOne">
+		  		<h4 class="panel-title">
+					<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+			 	 		笔记本1
+					</a>
+		  		</h4>
+			</div>
+			<div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+		  		<div class="panel-body">
+					<a>笔记1</a>
+					<a>笔记2</a>
+					<a>笔记3</a>
+		  		</div>
+			</div>
+	  		</div>
+	  		<div class="panel panel-default">
+				<div class="panel-heading" role="tab" id="headingTwo">
+		  		<h4 class="panel-title">
+					<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+			  			笔记本2
+					</a>
+		  		</h4>
+				</div>
+			<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+		  		<div class="panel-body">
+					<a>笔记1</a>
+					<a>笔记2</a>
+					<a>笔记3</a>
+		  		</div>
+			</div>
+	  		</div>
+	  		<div class="panel panel-default">
+				<div class="panel-heading" role="tab" id="headingThree">
+		  			<h4 class="panel-title">
+						<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+			  				笔记本3
+						</a>
+		  			</h4>
+				</div>
+				<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+		  		<div class="panel-body">
+					<a>笔记1</a>
+					<a>笔记2</a>
+					<a>笔记3</a>
+		  		</div>
+				</div>
+	  			</div>
+				</div>
+		</div>
+        	<div class="label">
+            <fieldset>
             <select id="newopt">
 				<option value="label">标签</option>
 				<option value="label1">标签1</option>
@@ -156,19 +164,21 @@
 			</select>
 			<br><span>新标签:</span>
 			<input type="text" name="newlabel" placeholder="新标题" id="label"></input>
-			<br><input type='button' value='添加' onclick="labelFunction()"></input>
+			<br><button class="button" onclick="labelFunction()">Add</button>
 			</fieldset>
-			
+			</div>
 			<span class="title11"><b>标题:</b>
 			<input type="text" name="title" placeholder="在此输入标题"></input></span>
 			<textarea id="content">
 				请输入...
 			</textarea>
-      	</div>
         </div>
 	</body>
 <!-- header部分js -->
 <script src="js/header.js"></script>
 <!-- function部分js -->
 <script src="js/function.js"></script>
+<!-- notebook部分js -->
+<script src="js/jquery-3.2.0.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 </html>

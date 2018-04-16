@@ -65,14 +65,10 @@ require './include/common.php';
     </div>
     <div class="user">
       <i class="fa fa-user"></i> 
-      <ul class="user-set">
-        <li>
-          <i class= "fa fa-cog" >个人中心</i>
-        </li>
-        <li>
-          <i class="fa fa-sign-out">注销账户</i>
-        </li>
-      </ul>
+      <div class="user-set">
+       <a href="" ><i class= "fa fa-cog" ></i>个人中心</a>
+        <a href='index.php'><i class="fa fa-sign-out"></i>注销账户</a>
+      </div>
       </dl>
      </div>
     </div>

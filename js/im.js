@@ -815,11 +815,8 @@
 	//页面显示当前用户信息
 	var showInfo = function(userId){
 		var dialog = document.createElement('h2');
-		dialog.innerText = '当前用户：';
-		var userInfo = document.createElement('span');
-		userInfo.innerText = userId;
-		dialog.appendChild(userInfo);
-		document.body.appendChild(dialog);
+		dialog.innerText = userId;
+		document.getElementsByClassName('user')[0].appendChild(dialog);
 	}
 
 	//对外暴露
