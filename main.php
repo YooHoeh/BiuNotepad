@@ -49,10 +49,10 @@ require './include/common.php';
     </div>
     <div class="user">
       <i class="fa fa-user"></i>
-        <dl class="layui-nav-child">
-          <dd><a href="">账户设置</a></dd>
-            <dd><a href="">注销</a></dd>
-          </dl>
+        <dl class="user-set">
+          <dd><i class= "fa cog" ></i></dd>
+            <dd><i class="fa sign-out"></i></dd>
+        </dl>
         </div>
       </div>
       

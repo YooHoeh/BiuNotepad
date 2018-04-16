@@ -47,6 +47,18 @@ hr {
   left: 15px;
   top: 5px;
 }
+.user dd {
+  /* display: none; */
+  position: relative;
+  left: 10%;
+  
+  width: 100%;
+  font-size: 15px;
+  float: left;
+}
+.user dd i{
+  /* color */
+}
 .title {
   font-family: 'Work Sans', sans-serif;
   margin-top: 12px;
