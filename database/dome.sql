@@ -135,22 +135,56 @@ CREATE TABLE `user` (
 -- Records of user
 -- ----------------------------
 
-INSERT INTO user ( username, password,email ) VALUES ( '1', '1','1' );
+INSERT INTO user ( username, password,email ) VALUES ( '1', '123@qq.com','7c4a8d09ca3762af61e59520943dc26494f8941b' );
 
-INSERT INTO user ( username, password,email ) VALUES ( '2', '2','2' );
+INSERT INTO user ( username, password,email ) VALUES ( '2', '456@qq.com','7c4a8d09ca3762af61e59520943dc26494f8941b' );
 
-INSERT INTO NOTEBOOK ( userid, bookname ) VALUES ( 1, '1' );
+INSERT INTO NOTEBOOK ( userid, bookname ) VALUES ( 1, 'noetbook_test1' );
+INSERT INTO NOTEBOOK ( userid, bookname ) VALUES ( 1, 'noetbook_test2' );
+INSERT INTO NOTEBOOK ( userid, bookname ) VALUES ( 1, 'noetbook_test3' );
+INSERT INTO NOTEBOOK ( userid, bookname ) VALUES ( 1, 'noetbook_test4' );
+INSERT INTO NOTEBOOK ( userid, bookname ) VALUES ( 1, 'noetbook_test5' );
+INSERT INTO NOTEBOOK ( userid, bookname ) VALUES ( 1, 'noetbook_test6' );
+INSERT INTO NOTEBOOK ( userid, bookname ) VALUES ( 1, 'noetbook_test7' );
 
-INSERT INTO NOTEBOOK ( userid, bookname ) VALUES ( 2, '2' );
+INSERT INTO NOTEBOOK ( userid, bookname ) VALUES ( 2, 'noetbook_test1' );
+INSERT INTO NOTEBOOK ( userid, bookname ) VALUES ( 2, 'noetbook_test2' );
+INSERT INTO NOTEBOOK ( userid, bookname ) VALUES ( 2, 'noetbook_test3' );
+INSERT INTO NOTEBOOK ( userid, bookname ) VALUES ( 2, 'noetbook_test4' );
+INSERT INTO NOTEBOOK ( userid, bookname ) VALUES ( 2, 'noetbook_test5' );
+INSERT INTO NOTEBOOK ( userid, bookname ) VALUES ( 2, 'noetbook_test6' );
+INSERT INTO NOTEBOOK ( userid, bookname ) VALUES ( 2, 'noetbook_test7' );
 
-INSERT INTO note ( userid, content ) VALUES ( 1, '1');
+INSERT INTO note ( userid, content ,notebookid) VALUES ( 1, 'noet_test1',1);
+INSERT INTO note ( userid, content ,notebookid) VALUES ( 1, 'noet_test2',1);
+INSERT INTO note ( userid, content ,notebookid) VALUES ( 1, 'noet_test3',1);
+INSERT INTO note ( userid, content ,notebookid) VALUES ( 1, 'noet_test4',1);
+INSERT INTO note ( userid, content ,notebookid) VALUES ( 1, 'noet_test5',1);
+INSERT INTO note ( userid, content ,notebookid) VALUES ( 1, 'noet_test6',1);
+INSERT INTO note ( userid, content ,notebookid) VALUES ( 1, 'noet_test7',1);
 
-INSERT INTO note ( userid, content) VALUES ( 2, '2' );
 
-INSERT INTO mark ( userid, markName ) VALUES ( 1, '1' );
+INSERT INTO note ( userid, content ,notebookid) VALUES ( 1, 'noet_test1',2);
+INSERT INTO note ( userid, content ,notebookid) VALUES ( 1, 'noet_test2',2);
+INSERT INTO note ( userid, content ,notebookid) VALUES ( 1, 'noet_test3',2);
+INSERT INTO note ( userid, content ,notebookid) VALUES ( 1, 'noet_test4',2);
+INSERT INTO note ( userid, content ,notebookid) VALUES ( 1, 'noet_test5',2);
+INSERT INTO note ( userid, content ,notebookid) VALUES ( 1, 'noet_test6',2);
+INSERT INTO note ( userid, content ,notebookid) VALUES ( 1, 'noet_test7',2);
 
-INSERT INTO mark ( userid, markName ) VALUES (2, '2' );
 
-INSERT INTO comment ( userid, noteid,content ) VALUES ( 1, '1','1' );
+INSERT INTO mark ( userid, markName ) VALUES ( 1, 'mark_test1' );
+INSERT INTO mark ( userid, markName ) VALUES ( 1, 'mark_test2' );
+INSERT INTO mark ( userid, markName ) VALUES ( 1, 'mark_test3' );
+INSERT INTO mark ( userid, markName ) VALUES ( 1, 'mark_test4' );
+INSERT INTO mark ( userid, markName ) VALUES ( 1, 'mark_test5' );
+INSERT INTO mark ( userid, markName ) VALUES ( 1, 'mark_test6' );
+INSERT INTO mark ( userid, markName ) VALUES ( 1, 'mark_test7' );
 
-INSERT INTO comment ( userid, noteid,content ) VALUES ( 1, '1','1' );
+INSERT INTO mark ( userid, markName ) VALUES ( 2, 'mark_test1' );
+INSERT INTO mark ( userid, markName ) VALUES ( 2, 'mark_test2' );
+INSERT INTO mark ( userid, markName ) VALUES ( 2, 'mark_test3' );
+INSERT INTO mark ( userid, markName ) VALUES ( 2, 'mark_test4' );
+INSERT INTO mark ( userid, markName ) VALUES ( 2, 'mark_test5' );
+INSERT INTO mark ( userid, markName ) VALUES ( 2, 'mark_test6' );
+INSERT INTO mark ( userid, markName ) VALUES ( 2, 'mark_test7' );
