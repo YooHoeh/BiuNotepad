@@ -72,8 +72,6 @@ require './include/common.php';
       </dl>
      </div>
     </div>
-      
-      
       <div class="layui-container main-container ">
         <div class="layui-row">
           

@@ -64,46 +64,46 @@
 //---------------------------------------------------------------	
 		//查找方法
 		//按时间查找--降序
-		public static function timeSearch($userid){
+		public static function timeSearch($userid,$isdelete = 0){
 			$con = new connetMysqli();
 			$arr = array();
-			$sql = "select * from note where userid = $userid order by updteTime desc";
+			$sql = "select * from note where userid = $userid and isdelete = $isdelete order by updteTime desc";
 			$arr = $con->getAll($sql);
 			$con->closeLink();
 			return $arr;
 		}
 		//按首字符查找--升序
-		public static function fristSearch($userid){
+		public static function fristSearch($userid,$isdelete = 0){
 			$con = new connetMysqli();
 			$arr = array();
-			$sql = "select * from note where userid = $userid order by content";
+			$sql = "select * from note where userid = $userid and isdelete = $isdelete order by content";
 			$arr = $con->getAll($sql);
 			$con->closeLink();
 			return $arr;
 		}
 		//模糊查找
-		public static function Search($userid,$str){
+		public static function Search($userid,$str,$isdelete = 0){
 			$con = new connetMysqli();
 			$arr = array();
-			$sql = "select * from note where userid = $userid and content like '%$str%'";
+			$sql = "select * from note where userid = $userid and content like '%$str%' and isdelete = $isdelete";
 			$arr = $con->getAll($sql);
 			$con->closeLink();
 			return $arr;
 		}
 		//按记事本查笔记--首字
-		public static function notebookFristSearch($userid,$notebookid){
+		public static function notebookFristSearch($userid,$notebookid,$isdelete = 0){
 			$con = new connetMysqli();
 			$arr = array();
-			$sql = "select * from note where userid = $userid and notebookid = $notebookid order by content";
+			$sql = "select * from note where userid = $userid and notebookid = $notebookid and isdelete = $isdelete order by content";
 			$arr = $con->getAll($sql);
 			$con->closeLink();
 			return $arr;
 		}
 		//按记事本查笔记--时间
-		public static function notebookTimeSearch($userid,$notebookid){
+		public static function notebookTimeSearch($userid,$notebookid,$isdelete = 0){
 			$con = new connetMysqli();
 			$arr = array();
-			$sql = "select * from note where userid = $userid and notebookid = $notebookid order by updteTime desc";
+			$sql = "select * from note where userid = $userid and notebookid = $notebookid and isdelete = $isdelete order by updteTime desc";
 			$arr = $con->getAll($sql);
 			$con->closeLink();
 			return $arr;

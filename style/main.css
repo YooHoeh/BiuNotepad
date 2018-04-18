@@ -48,13 +48,16 @@ hr {
   top: 5px;
   padding: 5px;
 }
+
 .user h2 {
   font-size: 20px;
   display: inline;
 }
+
 .user-set i {
   margin-right: 10px;
 }
+
 .user-set a {
   /* position: relative; */
   color: #fff;
@@ -62,18 +65,23 @@ hr {
   top: 5px;
   /* width: 100px; */
 }
+
 .user-set a:hover {
   color: #000;
 }
-.user-set a:hover i{
+
+.user-set a:hover i {
   color: #000;
 }
+
 .user:hover div.user-set {
   display: block;
 }
+
 .user:hover h2 {
   display: none;
 }
+
 .user .user-set {
   top: 8px;
   display: none;
@@ -203,6 +211,10 @@ hr {
 
 .search input:focus {
   width: 80%;
+}
+
+.search input:focus {
+  width:
 }
 
 .search i {
@@ -453,7 +465,7 @@ input:disabled {
 }
 
 textarea {
-  height: inherit;
+  height: 100%;
   width: 100%;
   border: none;
   resize: none;
@@ -490,11 +502,7 @@ textarea:focus {
   height: 90%;
 }
 
-/*
-
-    #############      动画      ###############
-
-*/
+/* #############      动画      ############### */
 
 @-webkit-keyframes lendab {
   0% {
@@ -518,16 +526,43 @@ textarea:focus {
   }
 }
 
-/*
+/* #############     响应式      ############### */
 
-    #############     响应式      ###############
-
-*/
-
-@media screen and (max-width: 1550px) {
+@media screen and (max-width: 1550px) and (min-width:1324px) {
+  body {
+    height: 100%;
+  }
+  .main-container {
+    /* bottom: 4%; */
+    /* margin-top: -2%; */
+    height: 86%;
+  }
   .card {
-    width: 40%;
+    width: 35%;
+    /* height: 50%; */
+  }
+  .todo {
+    left: 15%;
+    height: 90%;
+  }
+  .clender {
+    display: none;
+    /* right: 15%; */
+  }
+  #clender .layui-laydate-main {
+    max-width: 100%;
+    width: 100%;
+    height: 85%;
+  }
+  .tags {
+    width: 33%;
     height: 50%;
+    bottom: 9.3%;
+    right: 15%;
+  }
+  .notes {
+    height: 36%;
+    width: 33%;
   }
   ul {
     max-height: 238px;
@@ -554,11 +589,38 @@ textarea:focus {
 }
 
 @media screen and (max-width: 1324px) and (min-width: 1124px) {
-  bady {
-    overflow-y: scroll;
+  html,
+  body {
+    /* height: 100%; */
+    overflow-y: hidden;
+  }
+  .main-container {
+    /* height: 80%; */
   }
   .card {
-    height: 40%;
+    height: 42%;
+  }
+  .todo {
+    width: 43%;
+  }
+  /* .tags, */
+  .clender{
+    top:0;
+    width: 26%;
+    height: 41%;
+  }
+  .tags {
+    bottom: 15%;
+    width: 34.6%;
+    left: 15%;
+  }
+  .notes {
+    bottom: 15%;
+  }
+  .layui-laydate-main {
+    width: 100%;
+    border: none;
+    height: 99%;
   }
   ul {
     max-height: 197px;
@@ -600,35 +662,30 @@ textarea:focus {
 }
 
 @media screen and (max-width: 1124px) {
-  bady {
+  html,
+  body {
+    width: 100%;
+    height: 100%;
     overflow-y: scroll;
   }
   .main-container {
-    margin-top: 15%;
-  }
-  .card-header input {
-    width: 200px;
-  }
-  .search {
-    position: relative;
-    top: -100%;
-    margin-top: -100px;
-    left: 50%;
-  }
-  .card {
-    position: relative;
-    left: 45%;
-    margin-left: -150px;
-    margin-top: 14px;
-    top: 10%;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    margin: 0;
+    border: none;
   }
   .todo {
-    height: 470px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
   }
-  .tags {}
-  .notes {
-    /* display: none; */
-  }
+  .navbar,
+  .clender,
+  .tags,
+  .notes,
   .user,
   .contact,
   .search,
