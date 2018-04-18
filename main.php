@@ -123,6 +123,13 @@ require './include/common.php';
       </div>
       
     </div>
+    <div class="hideNav">
+      <i class= "totodo fa fa-book"></i>
+      <i class= "totags fa fa-bookmark"></i>
+      <i class= "tonote fa fa-sticky-note"></i>
+      <i class= "toclender fa fa-calendar"></i>
+      <i class= "tochat fa fa-comments-o"></i>
+    </div>
   </div>
   <div id="rcs-app"></div>
 </body>

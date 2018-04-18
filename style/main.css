@@ -179,6 +179,24 @@ hr {
   padding: 15px;
   color: white;
 }
+.hideNav {
+  position:absolute;
+  bottom: 0;
+  width: 100%;
+  height: 10%;
+  background-color:#0096f9;
+  font-size:100%;
+  line-height:100%;
+  box-shadow:0px -3px 2px #000;
+  overflow:hidden;
+  z-index:999999999999999999999;
+  display:none;
+}
+.hideNav i {
+  line-height:1.4em;
+  font-size:3.5em;
+  margin: 0 3.5%; 
+}
 
 .contact-tooltip i {
   padding: 5px;
@@ -662,6 +680,9 @@ textarea:focus {
 }
 
 @media screen and (max-width: 1124px) {
+  .layui-container {
+    padding:0;
+  }
   html,
   body {
     width: 100%;
@@ -675,13 +696,21 @@ textarea:focus {
     margin: 0;
     border: none;
   }
+  .card,
+  .notes,
+  .clender,
+  .tags,
   .todo {
     left: 0;
     top: 0;
     width: 100%;
-    height: 100%;
+    height: 90%;
     border: none;
   }
+  .hideNav {
+    display:block;
+  }
+  #rcs-app,
   .navbar,
   .clender,
   .tags,
