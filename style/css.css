@@ -7,7 +7,7 @@ html{
 }
 body{
 	height:100%;
-	background-image: url(../img/bg.jpg);
+	background-image: url(../images/bg.jpg);
     background-size: cover;
 }
 .navbar {
@@ -92,16 +92,17 @@ body{
 }
 .link i{
 	color:"white";
+	font-size: 30px;
 }
 .function div{
 	position: relative;
-	top:55px;
+	top:25px;
 	float: left;
-	left:42%;
-	width: 80px;
+	left:27%;
+	width: 82px;
 	height: 33px;
 	text-align: center;
-	background-color: #fff;
+	background-color: #F8F8F8;
 }
 .function .icon1{
 	position:relative;
@@ -111,61 +112,89 @@ body{
 	margin:0;
 	height: 33px;
 	text-align: center;
-	color:#79aed5;
+	color:#1170b4;
+}
+.function .affix{
+	margin:3px;
 }
 .function select{
 	position: relative;
 	float:left;
-	top:5px;
+	top:2px;
 	padding:0;
-	width:75px;
+	width:79px;
 	height: 22px;
 	text-align: center;
 }
-.save i{
+.function .save{
 	position:absolute;
 	float: left;
-	left:10%;
+	left:93%;
 	padding: 15px;
-	width:94px;
+	width:37px;
 	padding:5px;
 	margin:0;
 	height: 33px;
 	line-height: 25px;
 	text-align: center;
-	color:#79aed5;
-	background-color: #fff;
+	color:#1170b4;
+	background-color: #F8F8F8;
+}
+.edit .hr{
+	margin-top: 32px;
+	float:right;
+	right:22%;
+    width: 73%;
+    border-bottom: 2px dashed grey;
 }
 .edit{
 	position: fixed;
     float: left;
     left:15%;
-	top:180px;
+	top:110px;
 	width: 70%;
 	height:740px;
 	background-color: #F8F8F8;
+	border-radius: 10px;
 	box-shadow: 1px 1px 5px 5px #1170b4;
 	text-align:center;
+	overflow:hidden;
+}
+.active{
+	position: absolute;
+	left:3%;
+	top:26px;
+	width:23%;
+	height:72%;
+	box-shadow: 5px 5px 3px #79aed5;
+	border: 2px solid #1170b4;
+	overflow:scroll;
+	overflow-x: hidden; 
+	scrollbar-arrow-color:#1170b4;
 }
 .notebook{
 	position: fixed;
-	top:250px;
-	left:16%;
-	width: 16%;
-	height:15%;
-	background-color: #1170b4;
+	top:255px;
+	left:18%;
+	width: 13%;
+}
+.edit .note01{
+	
+	font-family:'Work Sans', sans-serif;
+	color: #000000;
+	font-size:25px;
+	padding:10px;
 }
 .edit .label{
 	position: absolute;
 	padding:5px;
 	float:left;
-	left:2%;
-	top:250px;
-	width:20%;
-	height:15%;
+	left:3%;
+	top:570px;
+	width:23%;
+	height:16%;
 	box-shadow: 5px 5px 3px #79aed5;
-	border-radius: 20px;
-	border: 1px solid #1170b4;
+	border: 2px solid #1170b4;
 }
 .label select{
 	position: absolute;
@@ -180,8 +209,8 @@ body{
 .label span{
 	position: absolute;
 	float:left;
-	left:8%;
-	margin:20px;
+	left:12%;
+	margin:25px;
 	font-family:'Work Sans', sans-serif,;
 	color: #000000;
 	font-size:15px;
@@ -189,22 +218,22 @@ body{
 .label input[type="text"]{
 	position: absolute;
 	float:left;
-	left:35%;
-	margin:20px;
+	left:32%;
+	margin:25px;
 	border-style:solid;
 	border-width:medium;
 	border:0;
 	border-bottom:2px solid black;
 	font-family:'Work Sans', sans-serif,;
 	color: #000000;
-	width:80px;
+	width:120px;
 	height:15px;
 }
 .label .button {
 	position: absolute;
 	float:left;
 	left:35%;
-	top:60px;
+	top:70px;
 	width: 30%;
 	height: 28%;
 	padding: 2px 2px;
@@ -222,7 +251,7 @@ body{
 }
 .button:hover {background-color: #1170b4}
 .button:active {
-  background-color: #00FFCC;
+  background-color: #0000FF;
   box-shadow: 2px 2px 5px #1170b4;
   transform: translateY(4px);
 }
@@ -230,17 +259,20 @@ body{
 	position: absolute;
 	left:60%;
 	margin:3px;
+	top:70px;
 	border-style:solid;
 	border-width:medium;
 	border:0;
 	border-bottom:2px solid black;
-	width:140px;
-	height:30px;
+	background-color: #F8F8F8;
+	width:120px;
+	height:20px;
 }
 .edit b{
 	position:absolute;
 	left:55%;
 	padding:5px;
+	top:65px;
 	margin:0;
 	height:20px;
 	font-family:'Work Sans', sans-serif;
@@ -251,14 +283,40 @@ body{
 	position: absolute;
 	padding:10px;
 	float:left;
-	left:25%;
-	top:40px;
+	left:27%;
+	top:100px;
 	width:70%;
-	height:90%;
+	height:80%;
 	resize:none;
-	border-radius: 20px;
-	border:2px solid #1170b4;
+	border:5px groove #1170b4;
+	overflow:scroll;
+	overflow-x: hidden; 
+}
+.comment{
+	position: fixed;
+    float: left;
+    left:15%;
+	top:860px;
+	width: 70%;
+	height:5%;
+	background-color: #F8F8F8;
+	border-radius: 10px;
+	box-shadow: 1px 1px 5px 5px #1170b4;
+	text-align:center;
+	overflow:scroll;
+	overflow-x: hidden; 
+}
+.comment .comment01{
+	font-family:'Work Sans', sans-serif;
+	color: #000000;
+	font-size:15px;
+	padding:2px;
 }
 i:hover{
 	color: #06324F;
+}
+a:hover{
+	background-color:#79aed5;
+	transition: 0.4s;
+    background-position: -60px -60px;
 }
