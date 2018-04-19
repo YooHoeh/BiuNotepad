@@ -12,6 +12,7 @@ require './include/common.php';
   <link href="./style/main.css" rel="stylesheet">
   <link rel="stylesheet" href="./style/im.css">
   <script src="./layui/layui.js"></script>
+  <script src="./js/jquery.min.js"></script>
 
   <script src="./js/lrtk.js"></script>
   <!-- 让IE8/9支持媒体查询，从而兼容响应式布局 -->
@@ -124,16 +125,17 @@ require './include/common.php';
       
     </div>
     <div class="hideNav">
-      <i class= "totodo fa fa-book"></i>
-      <i class= "totags fa fa-bookmark"></i>
-      <i class= "tonote fa fa-sticky-note"></i>
-      <i class= "toclender fa fa-calendar"></i>
-      <i class= "tochat fa fa-comments-o"></i>
+      <i class= "totodo fa fa-book hideicon" ></i>
+      <i class= "tonote fa fa-sticky-note hideicon"></i>
+      <i class= "totags fa fa-bookmark hideicon"></i>
+      <i class= "toclender fa fa-calendar hideicon"></i>
+      <!-- <i class= "tochat fa fa-comments-o"></i> -->
     </div>
   </div>
   <div id="rcs-app"></div>
 </body>
 </html>
+<script src="./js/main.js"></script>
 <script>
   (function(){
     // var appKey = "lmxuhwaglie3d";
