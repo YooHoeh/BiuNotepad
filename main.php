@@ -1,32 +1,6 @@
 <?php 
-	require './include/common.php';
-	require "./include/labelClass.php";
-	require "./include/nbClass.php";
-	require "./include/noteClass.php";
-	session_start();
-	/*$arr_mark = labelClass::fristSearch($_SESSION['userid']);
-	$arr_nb = nbClass::fristSearch($_SESSION['userid']);
-	$arr_note = noteClass::fristSearch($_SESSION['userid']);
-	 * ------------------------------------------------
-	 * 以上三行放这就行
-	 * ------------------------------------------------
-	 * 
-	foreach($arr_nb as $arr){
-		$arr_note = noteClass::fristSearch($arr['id']);
-		//输出$arr['bookName'];
-		foreach($arr_note as $arr1){
-			// 输出$arr1['concent'];
-		}
-	}
-	 *  ------------------------------------------------
-	 * 以上用于动态生成笔记本以及笔记，需要在哪生成就放哪
-	 *  ------------------------------------------------
-	 * 
-	foreach($arr_mark as $arr){
-		//输出$arr1['markName'];
-	}
-	
-	 */
+require './include/common.php';
+
 ?>
 <html lang="en">
 
@@ -133,12 +107,16 @@
       
       <!-- 标签导航 -->
       <div class="card tags layui-anim layui-anim-upbit ">
-          <?php
-          	foreach($arr_mark as $arr1){
-							echo '<a href="#" target="_blank">'.$arr1["markName"].'</a>';
-						}
-          ?>
-       </div>
+          <a href="#" target="_blank">起名取名</a>
+          <a href="#" target="_blank">宣传策划</a>
+          <a href="#" target="_blank">网游试玩</a>
+          <a href="#" target="_blank">宣传设计</a>
+          <a href="#" target="_blank">配音配词</a>
+          <a href="#" target="_blank">产品推广</a>
+          <a href="#" target="_blank">网络营销</a>
+          <a href="#" target="_blank">影视创作</a>
+          <a href="#" target="_blank">照片美化</a>
+        </div>
             
             <!-- 日历导航 -->
       <div class="card clender site-demo-laydate layui-anim layui-anim-upbit">
@@ -158,6 +136,12 @@
 </body>
 </html>
 <script src="./js/main.js"></script>
+<!-- header部分js -->
+<script src="js/header.js"></script>
+<!-- 日历部分js -->
+<script src="js/clender.js"></script>
+<!-- 微信分享api -->
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
 <script>
   (function(){
     // var appKey = "lmxuhwaglie3d";
@@ -203,9 +187,3 @@
 })()
 
 </script>
-<!-- header部分js -->
-<script src="js/header.js"></script>
-<!-- 日历部分js -->
-<script src="js/clender.js"></script>
-<!-- 微信分享api -->
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>

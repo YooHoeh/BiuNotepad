@@ -1,5 +1,5 @@
 <?php
-	include_once "database.php";
+	include "database.php";
 	header('content-type:text/html;charset=utf-8');
 	class nbClass{
 		

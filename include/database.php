@@ -5,7 +5,7 @@ header('content-type:text/html;charset=utf-8');
 class connetMysqli{
 	
 	private $user = 'root';
-	private $password = '135792468';
+	private $password = '281056769';
 	private $link;
 	private $servername = 'localhost:3306';
 	private $database = 'dome';

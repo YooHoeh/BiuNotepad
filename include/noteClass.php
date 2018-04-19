@@ -1,5 +1,5 @@
 <?php
-	include_once "database.php";
+	include "database.php";
 	header('content-type:text/html;charset=utf-8');
 	class noteClass{
 		private $userid;
@@ -161,7 +161,7 @@
 			$sql = "markID = '$sql'";
 			$con->update('note', $sql, "id = '$id_1'");
 			$con->closeLink();
-		}
+		}2
 		
 		//读取某事件的标签
 		public static function findMark($userid, $content){

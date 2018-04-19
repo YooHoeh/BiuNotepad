@@ -1,20 +1,64 @@
+var card = [];
+var icon = [];
+card = document.getElementsByClassName('card');
+icon = document.getElementsByClassName('hideicon');
+
 window.onload = function () {
- refreshNavBGC();
- document.getElementsByClassName('totodo')[0].onclick=function(){
-    document.getElementsByClassName('todo')[0].style.display='block';
-    document.getElementsByClassName('todo')[0].style.zIndex='99999999999999';
- }
- document.getElementsByClassName('tonote')[0].onclick=function(){
-    document.getElementsByClassName('notes')[0].style.display='block';
-    document.getElementsByClassName('notes')[0].style.zIndex='99999999999999';
- }
-}
+    var i = 0;
+    var oTag = null;
+    
+    oDiv = document.getElementsByClassName('tags')[0];
+    
+    aA = oDiv.getElementsByTagName('a');
+    
+    for (i = 0; i < aA.length; i++) {
+        oTag = {};
+        
+        oTag.offsetWidth = aA[i].offsetWidth;
+        oTag.offsetHeight = aA[i].offsetHeight;
+        
+        mcList.push(oTag);
+    }
+    
+    sineCosine(0, 0, 0);
+    
+    positionAll();
+    
+    oDiv.onmouseover = function () {
+        active = true;
+    };
+    
+    oDiv.onmouseout = function () {
+        active = false;
+    };
+    
+    oDiv.onmousemove = function (ev) {
+        var oEvent = window.event || ev;
+        
+        mouseX = oEvent.clientX - (oDiv.offsetLeft + oDiv.offsetWidth / 2);
+        mouseY = oEvent.clientY - (oDiv.offsetTop + oDiv.offsetHeight / 2);
+        
+        mouseX /= 5;
+        mouseY /= 5;
+    };
+    
+    setInterval(update, 30);
+    // refreshNavBGC();
+    
+    console.log(card.length);
+    console.log(icon.length);
+    document.getElementsByClassName('totodo')[0].onclick = toPage(2);
+    // function () {
+    //     document.getElementsByClassName('todo')[0].style.display = 'block';
+    //     document.getElementsByClassName('notes')[0].style.display = 'none';
+    // }
+    // document.getElementsByClassName('tonote')[0].onclick = function () {
+    //     document.getElementsByClassName('notes')[0].style.display = 'block';
+    //     document.getElementsByClassName('todo')[0].style.display = 'none';
+    // }
+};
 // 刷新手机导航栏背景色
-function refreshNavBGC(){
-    var card = [];
-    var icon = [];
-    card = document.getElementsByClassName('card');
-    icon = document.getElementsByClassName('hideicon');
+function refreshNavBGC() {
     card[0].style.display = 'block';
     for (var i = 0; i < 4; i++) {
         if (getDefaultStyle(card[i], 'display') == 'block') {
@@ -23,22 +67,22 @@ function refreshNavBGC(){
         } else {
             console.log("第" + i + "个没显示");
         }
-        icon[i].onclick = function(){
-            for(var j = 0; j < 4; j++){
-                if (i == j) {
-                    card[j].style.display='block';
-                }else{
-                    card[j].style.display='none';
-                }
-
-            }
-        }
+        icon[i].onclick = toPage(i);
     }
 }
 
-function toPage(){
-    
+// 跳转至指定页
+function toPage(index) {
+    for (var i = 0; i < 4; i++) {
+        if (i == index) continue;
+        card[i].style.display = 'none';
+        card[i].style.zIndex = '1';
+    }
+    card[index].style.display = 'block';
+    card[index].style.zIndex = '999999999999999';
 }
+
+
 // 返回最终样式函数，兼容IE和DOM，设置参数：元素对象、样式特性   
 function getDefaultStyle(obj, attribute) {
     return obj.currentStyle ? obj.currentStyle[attribute] : document.defaultView.getComputedStyle(obj, false)[attribute];
