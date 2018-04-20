@@ -1,13 +1,34 @@
-*{padding: 0;margin:0}
-html,body{width: 100%;height: 100%;background-image: "../images/bg.jpg"}
+* {
+    padding: 0;
+    margin: 0
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    background-image: url(../images/bg.jpg);
+}
+
 .user-center {
-    position: relative;
-    margin: 0 auto;
-    width: 90%;
-    background-color: dodgerblue;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color:#fff;
+    /* margin: 0 auto; */
+    width: 80%;
+    height:80%;
     border-radius: 3%;
     box-shadow: #000 5px 5px 5px;
     text-align: center;
+    padding: 30px;
+}
+.layui-form-item{
+     position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 input {
     border: none;
