@@ -64,7 +64,7 @@
 		
 		//查找方法
 		//按时间查找--降序
-		public static function timeSearch($userid,$isdelete){
+		public static function timeSearch($userid,$isdelete = 0){
 			$con = new connetMysqli();
 			$arr = array();
 			$sql = "select * from notebook where userid = $userid and isdelete = $isdelete order by updteTime desc";
@@ -73,7 +73,7 @@
 			return $arr;
 		}
 		//按首字符查找--升序
-		public static function fristSearch($userid,$isdelete){
+		public static function fristSearch($userid,$isdelete = 0){
 			$con = new connetMysqli();
 			$arr = array();
 			$sql = "select * from notebook where userid = $userid and isdelete = $isdelete order by bookName";
@@ -82,7 +82,7 @@
 			return $arr;
 		}
 		//模糊查找
-		public static function Search($userid,$str,$isdelete){
+		public static function Search($userid,$str,$isdelete = 0){
 			$con = new connetMysqli();
 			$arr = array();
 			$sql = "select * from notebook where userid = $userid and bookname like '%$str%' and isdelete = $isdelete";
