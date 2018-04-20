@@ -4,13 +4,16 @@
 	require "./include/nbClass.php";
 	require "./include/noteClass.php";
 	session_start();
+$arr_mark = labelClass::fristSearch(6);
+$arr_nb = nbClass::fristSearch(6,0);
+$arr_note = noteClass::fristSearch(6);
 	/*$arr_mark = labelClass::fristSearch($_SESSION['userid']);
 	$arr_nb = nbClass::fristSearch($_SESSION['userid']);
 	$arr_note = noteClass::fristSearch($_SESSION['userid']);
 	 * ------------------------------------------------
 	 * 以上三行放这就行
 	 * ------------------------------------------------
-	 * 
+	 *
 	foreach($arr_nb as $arr){
 		$arr_note = noteClass::fristSearch($arr['id']);
 		//输出$arr['bookName'];
@@ -21,11 +24,11 @@
 	 *  ------------------------------------------------
 	 * 以上用于动态生成笔记本以及笔记，需要在哪生成就放哪
 	 *  ------------------------------------------------
-	 * 
+	 *
 	foreach($arr_mark as $arr){
 		//输出$arr1['markName'];
 	}
-	
+
 	 */
 ?>
 <html lang="en">
@@ -87,8 +90,20 @@
       </div>
     </div>
     <div class="search">
-      <input type="text" name="" id=""><a href="#"><i class="fa fa-search"></i></a>
+        <!-- <form action="main.php" method="get">
+            <input type="text" name="search" id="search_text">
+            <i class="fa fa-search"><input type="submit" value=""></i>
+
+        </form>-->
+     <input type="text" name="search" id="search_text"><a href="" id="search_a"><i class="fa fa-search" onclick="_onclick()"></i></a>
+
     </div>
+
+      <!--<div id="slide" style="min-height: 100px;background-color: white">
+            <?php
+      /*echo $_POST['search'];*/
+      ?>
+        </div>--->
     <div class="user">
       <i class="fa fa-user"></i> 
       <div class="user-set">
@@ -106,7 +121,7 @@
           <!-- 笔记列表 -->
           <div class="card todo layui-anim layui-anim-upbit ">
             <div class="card-header">
-              <a href="edit.html">
+              <a href="edit.php">
                 <i class="fa fa-window-maximize"></i>
               </a>
           <input id="new-item" type="text" disabled placeholder="笔记">
@@ -116,8 +131,26 @@
           </a>
         </div>
         <hr>
-        <ul id="todoList" class="todo-list"></ul>
-        <ul id="doneList" class="done-list"></ul>
+              <div id="search_re">
+                  <?php
+                  $arr_nb = nbClass::Search(6,$_GET['search_text']);
+                  $arr_note = noteClass::Search(6,$_GET['search_text']);
+                  if($arr_nb!=NULL){
+                      echo "<div style='font-size: 24px'>笔记本</div>";
+                  }
+                  foreach ($arr_nb as $arr){
+                      echo "<div style='font-size: 16px'>".$arr['bookName']."</div>";
+                  }
+                  if($arr_note!=NULL){
+                      echo "<div style='font-size: 24px'>笔记</div>";
+                  }
+                  foreach($arr_note as $arr){
+                      echo "<div style='font-size: 16px'>".$arr['content']."</div>";
+                  }
+                  ?>
+              </div>
+        <!--<ul id="todoList" class="todo-list"></ul>
+        <ul id="doneList" class="done-list"></ul>-->
         <a class="btn-circle done-show" id="doneShow" onclick="doneListShow()">
           <span class="tooltip">废纸篓</span>
           <i id="doneShowIcon" class="fa fa-trash"></i>
@@ -137,7 +170,7 @@
           <?php
           	foreach($arr_mark as $arr1){
 							echo '<a href="#" target="_blank">'.$arr1["markName"].'</a>';
-						}
+          	}
           ?>
        </div>
             
@@ -202,3 +235,18 @@
 <script src="js/clender.js"></script>
 <!-- 微信分享api -->
 <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+
+<script type="text/javascript">
+    function _onclick() {
+        var a = document.getElementById("search_text").value;
+        document.getElementById('search_a').href = "main.php?search_text="+a;
+       // document.getElementById('search_re').style.display = "block";
+    }
+    function toedit(id) {
+        var a = document.getElementById("id").value;
+        document.getElementById('search_a').href = "edit.php?search_text="+a;
+    }
+
+</script>
