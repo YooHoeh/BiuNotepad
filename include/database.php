@@ -5,7 +5,7 @@ header('content-type:text/html;charset=utf-8');
 class connetMysqli{
 	
 	private $user = 'root';
-	private $password = '281056769';
+	private $password = '135792468';
 	private $link;
 	private $servername = 'localhost:3306';
 	private $database = 'dome';
@@ -17,9 +17,6 @@ class connetMysqli{
 		$this->link = new mysqli($this->servername,$this->user,$this->password);
 		if(!$this->link){
 			echo "连接失败";
-		}else{
-
-			echo "连接成功";
 		}
 		//选择数据库
 		mysqli_select_db($this->link,'dome');

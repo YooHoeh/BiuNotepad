@@ -39,7 +39,7 @@ $(function () {
         $('.register').fadeOut('400');
         $(".class5").css({
             'transform': 'rotate(0) translate(-50%,-50%)',
-            'z-index': 999,
+			'z-index': 999,
             'top': '50%',
             'left': '50%',
             'box-shadow': ' 0 0 100px  #999'
@@ -54,8 +54,8 @@ $(function () {
     //切换登录和注册
     $(".class5 .tab").click(function () {
         if ($('.register').css('display') == 'none') {
-            $(".class5").css({ "transform": "translate(-50%,-50%)", "height": "300px" });
-            $('.register').fadeIn('400');
+            $(".class5").css({ "transform": "translate(-50%,-50%)", "height": "330px" });
+		  $('.register').fadeIn('400');
             $('.login').fadeOut('400');
             $('.tab').text("已有账户？点此登录>>>");
             return false;
@@ -69,27 +69,39 @@ $(function () {
     });
     //刷新验证码
     $('img.captcha').click(function () {
-        var s = "include/captcha.php?tm="+Math.random();
+    	var s = "include/captcha.php?tm="+Math.random();
         $('img.captcha').attr("src",s);
         rec();
     });
-    
-    $('input[name=psk]').click(function(){
-        alarm('密码长度大于6位');
-        alert("12")
+    // 表单项提示
+    $('input[name=psk],input[name=setpsk]').click(function(){
+        alarm('密码不含空格且长度大于6位');
     });
+    $('input[name=id]').click(function(){
+        alarm('ID为注册电子邮箱或用户名');
+    });
+    $('input[name=setname]').click(function(){
+        alarm('用户名不可包含特殊字符');
+    });
+    $('input[name=setemail]').click(function(){
+        alarm('一个电子邮箱只能注册一个账户！');
+    });
+    $('input[name=confirmpsk]').click(function(){
+        alarm('请再次输入密码');
+    });
+
 });
 
 // 显示文字通知
 function alarm(str) {
-   var tip =$(".notice");
-   if (tip.css("display") == "block") {
-    return false;
+ 	var tip =$(".notice");
+	if (tip.css("display") == "block") {
+	return false;
    }
    tip.fadeIn('1000')
    .children().text(str);
 
-   setTimeout(tip.fadeOut('1000'), 1000);
+   setTimeout(function(){tip.fadeOut('1000')}, 1400);
 }
 function alarmDiv(str) {
     document.write(str);

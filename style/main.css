@@ -13,7 +13,7 @@ body {
   display: none;
 }
 
-ul {
+.main-container ul {
   margin: 0;
   max-height: 280px;
   overflow-y: scroll;
@@ -46,7 +46,45 @@ hr {
   position: absolute;
   left: 15px;
   top: 5px;
+  padding: 5px;
 }
+.user h2 {
+  font-size: 20px;
+  display: inline;
+}
+.user-set i {
+  margin-right: 10px;
+}
+.user-set a {
+  /* position: relative; */
+  color: #fff;
+  margin: 15px 5px;
+  top: 5px;
+  /* width: 100px; */
+}
+.user-set a:hover {
+  color: #000;
+}
+.user-set a:hover i{
+  color: #000;
+}
+.user:hover div.user-set {
+  display: block;
+}
+.user:hover h2 {
+  display: none;
+}
+.user .user-set {
+  top: 8px;
+  display: none;
+  font-size: 15px;
+  text-align: center;
+  width: 100px;
+  height: 50px;
+  background-color: #0096f9;
+  box-shadow: #000 3px 3px 5px;
+}
+
 .title {
   font-family: 'Work Sans', sans-serif;
   margin-top: 12px;
@@ -55,6 +93,7 @@ hr {
   user-select: none;
   -webkit-user-select: none;
 }
+
 .fa-window-maximize:hover,
 .fa-user:hover {
   color: #06324f;
@@ -141,9 +180,10 @@ hr {
   cursor: pointer;
   color: #07304e;
 }
+
 .navbar .search {
   position: absolute;
-  top:9px;
+  top: 9px;
   right: 15%;
   margin: 4px;
   width: 8%;
@@ -151,8 +191,8 @@ hr {
   border: 1px solid #26a69a;
   border-radius: 30px;
   background-color: #fff;
-  
 }
+
 .search input[type="text"] {
   margin-left: 15px;
   width: 60%;
@@ -160,9 +200,11 @@ hr {
   border: none;
   font-size: 15px;
 }
+
 .search input:focus {
   width: 80%;
 }
+
 .search i {
   font-size: 25px;
   position: absolute;
@@ -170,6 +212,7 @@ hr {
   height: 80%;
   color: #1485d5;
 }
+
 .main-container {
   margin-top: 6%;
   text-align: center;
@@ -318,7 +361,7 @@ ul.todo-list:empty:after {
   margin: 18px 0 0 0;
 }
 
-ul li {
+.main-container ul li {
   padding: 14.5px 30px;
   font-size: 14px;
   -webkit-transition: 0.2s;
@@ -426,12 +469,11 @@ textarea:focus {
   transition: 0.2s;
 }
 
-
 .tags a {
   position: absolute;
   top: 0px;
   left: 0px;
-  color:#7eb3db;
+  color: #7eb3db;
   font-weight: bold;
   padding: 3px 6px;
   text-decoration: none;

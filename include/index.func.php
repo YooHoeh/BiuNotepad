@@ -7,27 +7,29 @@
  * Date: 2018.4.13
  */
 
-global $conn;
 
+global $conn;
 /**
  * _setcookies生成登录cookies
  *
  * @param unknown_type $_username
  * @param unknown_type $_uniqid
  */
-function _setcookies($_username, $status, $_time='no') {
+function _setcookies($_username, $status, $_time=0) {
 	$_path = "/WebNotePad/";
 	switch ($_time) {
-		case 'no' :
+		case '1' :
 			// 浏览器进程
 			setcookie('userID', $_username, null, $_path);
 			setcookie('status', $status, null, $_path);
 			break;
-		case 'yes' :
+		case '0' :
 			// 一天
 			setcookie('userID', $_username, time() + 604800, $_path);
 			setcookie('status', $status, time() + 604800, $_path);
 			break;
+		default:
+			echo 11111111111111111111111;
 	}
 }
 
@@ -45,14 +47,40 @@ function check_login($username, $password, $time,$conn) {
 		_setcookies($username, "1", $time);
 		$conn->closeLink();
 		session_destroy();
-		_location($rows['name'] . '登陆成功', 'main.html');
+		_location($rows['name'] . '登陆成功', 'main.php');
 	} else {
 		$conn->closeLink();
 		session_destroy();
-		_location('登录失败', 'index.php');
+		_location('登录失败,请检查用户信息', 'index.php');
 	}
 }
 
+/**
+ * 判断姓名格式是否合法
+ * 
+ * @param string $string姓名        	
+ * @param int $min_num最短长度        	
+ * @param int $max_num最长长度        	
+ * @return string
+ */
+function check_name($string, $min_num, $max_num) {
+	// 去掉空格
+	$string = trim ( $string );
+	
+	// 限制长度
+	if (mb_strlen ( $string, 'utf-8' ) < 2 || mb_strlen ( $string . 'utf-8' ) > 20) {
+		alert_back ( '用户名长度超出范围！' );
+	}
+	
+	// 限制敏感字符
+	$ban_char_pattern = '/[<>\'\"\ \	]/';
+	if (preg_match ( $ban_char_pattern, $string )) {
+		alert_back ( '包含敏感字符' );
+	}
+	
+	// 将字符串myaql转义
+	return _mysql_string ( $string );
+}
 
 /**
  * 密码设置

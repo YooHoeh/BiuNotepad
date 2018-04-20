@@ -1,5 +1,5 @@
 <?php
-	include "database.php";
+	include_once "database.php";
 	header('content-type:text/html;charset=utf-8');
 	class commentClass{
 		
@@ -34,8 +34,8 @@
 	
 	//new commentClass(4,4,"234");
 	//commentClass::deleteCommment(4, 4, "234");
-	$arr = commentClass::timeSearch(4);
+	/*$arr = commentClass::timeSearch(4);
 	echo "<pre>";
 	print_r($arr);
-	echo "</pre>";
+	echo "</pre>";*/
 ?>

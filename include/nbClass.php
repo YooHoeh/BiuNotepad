@@ -1,5 +1,5 @@
 <?php
-	include "database.php";
+	include_once "database.php";
 	header('content-type:text/html;charset=utf-8');
 	class nbClass{
 		
@@ -64,28 +64,28 @@
 		
 		//查找方法
 		//按时间查找--降序
-		public static function timeSearch($userid){
+		public static function timeSearch($userid,$isdelete){
 			$con = new connetMysqli();
 			$arr = array();
-			$sql = "select * from notebook where userid = $userid order by updteTime desc";
+			$sql = "select * from notebook where userid = $userid and isdelete = $isdelete order by updteTime desc";
 			$arr = $con->getAll($sql);
 			$con->closeLink();
 			return $arr;
 		}
 		//按首字符查找--升序
-		public static function fristSearch($userid){
+		public static function fristSearch($userid,$isdelete){
 			$con = new connetMysqli();
 			$arr = array();
-			$sql = "select * from notebook where userid = $userid order by bookName";
+			$sql = "select * from notebook where userid = $userid and isdelete = $isdelete order by bookName";
 			$arr = $con->getAll($sql);
 			$con->closeLink();
 			return $arr;
 		}
 		//模糊查找
-		public static function Search($userid,$str){
+		public static function Search($userid,$str,$isdelete){
 			$con = new connetMysqli();
 			$arr = array();
-			$sql = "select * from notebook where userid = $userid and bookname like '%$str%'";
+			$sql = "select * from notebook where userid = $userid and bookname like '%$str%' and isdelete = $isdelete";
 			$arr = $con->getAll($sql);
 			$con->closeLink();
 			return $arr;

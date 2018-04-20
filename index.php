@@ -12,7 +12,7 @@ session_start();
 require "./include/common.php";
 
 // 登录状态
-// _login_state();
+_login_state();
 
 // 开始处理登录状态
 if ($_GET['action'] == 'login') {
@@ -41,11 +41,10 @@ if (@$_GET ['action'] == 'register') {
 	// 将过滤后form数据传入数组
 	check_empty($_POST);
 	// $clean ['active'] = _sha1_uniqid ();
-//	$clean ['name'] = check_name ( $_POST ['name'], 2, 20 );
+	$clean ['name'] = check_name ( $_POST ['setname'], 2, 20 );
 	$clean ['password'] = check_password ( $_POST ['setpsk'], $_POST ['confirmpsk'], 6 );
-	$clean ['email'] = check_email ( $_POST ['setid'] );
+	$clean ['email'] = check_email ( $_POST ['setemail'] );
 	
-	print_r($clean);
 	// 检查身份信息是否已被注册
 	// 在新增之前，要判断用户名是否重复
 	_is_repeat ( "SELECT email FROM user WHERE id='{$_clean['email']}' LIMIT 1", '对不起，此用户已被注册' ,$conn);
@@ -98,11 +97,11 @@ if (@$_GET ['action'] == 'register') {
       <dl>
         <dd  >
           用户名:
-          <input type="text"  name="id" onclick=alarm('ID为注册电子邮箱') placeholder="电子邮箱">
+          <input type="text"  name="id" placeholder="电子邮箱/用户名">
         </dd>
         <dd>
           密 &nbsp 码:
-          <input type="text" name='psk' placeholder="请输入密码" onclick=alarm('密码长度大于6位')>
+          <input type="text" name='psk' placeholder="请输入密码">
         </dd>
         <dd>
           验证码:
@@ -115,19 +114,23 @@ if (@$_GET ['action'] == 'register') {
     <form action="index.php?action=register" class="register  layui-form" method="post" style="display:none;">
       <dl>
         <dd>
-          用户名:
-          <input type="text" name="setid" onclick=alarm('请输入您的电子邮箱') placeholder="电子邮箱 " />
+          用&nbsp户&nbsp名&nbsp&nbsp:
+          <input type="text" name="setname" placeholder="设置你的用户名" />
         </dd>
         <dd>
-          密 &nbsp 码:
-          <input type="password" name="setpsk"  onclick=alarm('密码长度大于6位') placeholder="设置您的密码" />
+         电子邮箱:
+          <input type="password" name="setemail" placeholder="电子邮箱" />
+        </dd>
+        <dd>
+        &nbsp密&nbsp &nbsp 码&nbsp&nbsp:
+          <input type="password" name="setpsk" placeholder="设置您的密码" />
         </dd>
         <dd>
           确认密码:
           <input type="password" name="confirmpsk" placeholder="确认您的密码" />
         </dd>
         <dd>
-          验证码:
+          验&nbsp证&nbsp码&nbsp:
           <input type="text" class="code" name="code" placeholder="请输入右侧中的字符">
           <img src="include/captcha.php" class="captcha"  />
         </dd>

@@ -12,8 +12,11 @@
  */
  global $conn;
 function _login_state() {
-	if (isset($_COOKIE['userID']) && isset($_COOKIE['status'])) {
-		_location("您已登陆", "main.html");
+	if (isset($_COOKIE['userID'])) {
+		_location("您已登陆", "main.php");
+	}else{
+		echo $_COOKIE['userID'];
+		print_r($_COOKIE);
 	}
 }
 
