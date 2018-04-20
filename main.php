@@ -79,7 +79,7 @@ require './include/common.php';
           <!-- 笔记列表 -->
           <div class="card todo layui-anim layui-anim-upbit ">
             <div class="card-header">
-              <a href="edit.html">
+              <a href="edit.php">
                 <i class="fa fa-window-maximize"></i>
               </a>
           <input id="new-item" type="text" disabled placeholder="笔记">

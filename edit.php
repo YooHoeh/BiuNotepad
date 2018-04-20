@@ -1,4 +1,5 @@
 <?php 
+	require "./include/database.php";
 	require "./include/labelClass.php";
 	require "./include/nbClass.php";
 	require "./include/noteClass.php";
