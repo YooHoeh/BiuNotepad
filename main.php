@@ -107,6 +107,7 @@ require './include/common.php';
       
       <!-- 标签导航 -->
       <div class="card tags layui-anim layui-anim-upbit ">
+      <!-- <input id="new-item" type="text" disabled placeholder="笔记"> -->
           <a href="#" target="_blank">起名取名</a>
           <a href="#" target="_blank">宣传策划</a>
           <a href="#" target="_blank">网游试玩</a>
@@ -125,10 +126,10 @@ require './include/common.php';
       
     </div>
     <div class="hideNav">
-      <i class= "totodo fa fa-book hideicon" ></i>
-      <i class= "tonote fa fa-sticky-note hideicon"></i>
-      <i class= "totags fa fa-bookmark hideicon"></i>
-      <i class= "toclender fa fa-calendar hideicon"></i>
+      <i class= "totodo fa fa-book hideicon" ><p>笔记</p></i>
+      <i class= "tonote fa fa-sticky-note hideicon"><p>随写板</p></i>
+      <i class= "totags fa fa-bookmark hideicon"><p>标签</p></i>
+      <i class= "toclender fa fa-calendar hideicon"><p>日历</p></i>
       <!-- <i class= "tochat fa fa-comments-o"></i> -->
     </div>
   </div>

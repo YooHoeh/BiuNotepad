@@ -193,16 +193,19 @@ hr {
   display:none;
 }
 .hideNav i {
-  line-height:1.7em;
+  line-height:1em;
   width: 24%;
-  font-size:3.1em;
+  font-size:2.4em;
   /* margin: 0 3.8%;  */
   color:#fff;
 }
 .hideNav i:hover {
-/* color: #7db2da; */
-/* border: 1px solid #07304e; */
-background-color: #1485d5;
+  /* color: #7db2da; */
+  /* border: 1px solid #07304e; */
+  background-color: #1485d5;
+}
+.hideNav i p{
+  font-size: .5em;
 }
 .contact-tooltip i {
   padding: 5px;
