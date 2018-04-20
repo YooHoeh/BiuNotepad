@@ -179,35 +179,45 @@ hr {
   padding: 15px;
   color: white;
 }
+
 .hideNav {
-  position:absolute;
+  position: absolute;
   bottom: 0;
   width: 100%;
   height: 9%;
-  background-color:#0096f9;
-  font-size:100%;
-  line-height:100%;
-  box-shadow:0px -1px 2px #000;
-  overflow:hidden;
-  z-index:999999999999999999999;
-  display:none;
+  background-color: #0096f9;
+  font-size: 100%;
+  line-height: 100%;
+  box-shadow: 0px -1px 2px #000;
+  overflow: hidden;
+  z-index: 999999999999999999999;
+  display: none;
 }
+
 .hideNav i {
-  padding-top:10px; 
-  line-height:1em;
-  width: 24%;
-  font-size:2.4em;
+  line-height: 100%;
+  height: 100%;
+  width: 20%;
+  font-size: 2.4em;
+  color: #fff;
+  /* padding-top:10px;  */
   /* margin: 0 3.8%;  */
-  color:#fff;
 }
+
 .hideNav i:hover {
   /* color: #7db2da; */
   /* border: 1px solid #07304e; */
   background-color: #1485d5;
 }
-.hideNav i p{
+
+.hideNav i p {
   font-size: .5em;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
 }
+
 .contact-tooltip i {
   padding: 5px;
 }
@@ -632,8 +642,8 @@ textarea:focus {
     width: 43%;
   }
   /* .tags, */
-  .clender{
-    top:0;
+  .clender {
+    top: 0;
     width: 26%;
     height: 41%;
   }
@@ -691,7 +701,7 @@ textarea:focus {
 
 @media screen and (max-width: 1124px) {
   .layui-container {
-    padding:0;
+    padding: 0;
   }
   html,
   body {
@@ -718,7 +728,7 @@ textarea:focus {
     border: none;
   }
   .hideNav {
-    display:block;
+    display: block;
   }
   #rcs-app,
   .navbar,

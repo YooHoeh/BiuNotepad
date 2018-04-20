@@ -10,7 +10,6 @@
 
 
 // 引入函数库
-
 require 'database.php';
 require 'func.php';
 

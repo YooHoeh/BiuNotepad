@@ -1,7 +1,14 @@
-<?php  
-    include "./include/common.php";
-    if ($_GET['action'] == 'updata') {
+<?php 
+/*
+ *
+ * ================================================
+ * Author: ZhangJi
+ * Email: 281056769@qq.com
+ * Date: 2018.4.10
+ */
 
+include './include/common.php';
+if ('updata' == $_GET['action']) {
     }
 ?>
 <html>
@@ -17,15 +24,17 @@
 </head>
 
 <body>
-    <form class="layui-form user-center" action="user.php?action=updata" method="post" id="userform">
+    <div class="user-center">
 
-        <div class="layui-form-item">
-            <label class="layui-form-label">用户名</label>
-            <div class="layui-input-inline">
-                <input type="password" name="password" required lay-verify="required" placeholder=$username autocomplete="off" class="layui-input">
+        <form class="layui-form" action="user.php?action=updata" method="post" id="userform">
+            
+            <div class="layui-form-item">
+                <label class="layui-form-label">用户名</label>
+                <div class="layui-input-inline">
+                    <input type="password" name="password" required lay-verify="required" placeholder=$username autocomplete="off" class="layui-input">
+                </div>
             </div>
-        </div>
-        <div class="layui-form-item">
+            <div class="layui-form-item">
             <label class="layui-form-label">密码修改</label>
             <div class="layui-input-inline">
                 <input type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
@@ -43,19 +52,20 @@
                 <input type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
             </div>
         </div>
-
+        
         <div class="layui-form-item">
             <div class="layui-input-block">
                 <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
             </div>
         </div>
     </form>
-
+    
+    </div>
     <script>
         //Demo
         layui.use('form', function () {
             var form = layui.form;
-
+            
             //监听提交
             form.on('submit(formDemo)', function (data) {
                 layer.msg(JSON.stringify(data.field));

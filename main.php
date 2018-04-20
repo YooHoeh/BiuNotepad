@@ -1,4 +1,12 @@
 <?php 
+/*
+ *
+ * ================================================
+ * Author: ZhangJi
+ * Email: 281056769@qq.com
+ * Date: 2018.4.10
+ */
+
 require './include/common.php';
 
 ?>
