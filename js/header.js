@@ -30,5 +30,5 @@ for (var i in p) {
     s.push(i + '=' + encodeURIComponent(p[i] || ''));
 }
 s = "http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?" + s;
-document.getElementsByClassName("fa-qq")[0].parentElement.setAttribute("href", s);
+// document.getElementsByClassName("fa-qq")[0].parentElement.setAttribute("href", s);
 

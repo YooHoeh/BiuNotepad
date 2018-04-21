@@ -43,10 +43,12 @@ function _setcookies($_username, $status, $_time=0) {
  */
 function check_login($username, $password, $time,$conn) {
 	$len = strlen($username);
-	if (!!$rows = $conn->getRow("select email,password,username from user where email= '$username' and password = '$password' limit 1")) {
+	if (!!$rows = $conn->getRow("select * from user where email= '$username' and password = '$password' limit 1")) {
 		_setcookies($username, "1", $time);
 		$conn->closeLink();
 		session_destroy();
+		session_start();
+		$_SESSION['userid'] = $rows['id'];
 		_location($rows['name'] . '登陆成功', 'main.php');
 	} else {
 		$conn->closeLink();
