@@ -596,8 +596,41 @@ textarea:focus {
   top: 20px;
   left: 10px;
 }
+#search_re {
+  height: 90%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  /* background-color:#999; */
 
-
+}
+#search_re .notebook{
+  /* padding-left: 10px; */
+  text-indent: 8px;
+  margin-bottom: 50px;
+  padding-bottom:15px;
+  width: 100%;
+  background-color:#C6E2FF;
+  font-size:1.7em;
+  box-shadow: 0px 0px 15px #000;
+  
+}
+.notebook .note{
+  background-color:#fff;
+  width:95%;
+  margin: 5px auto;
+  text-indent: 10px;
+  padding: 5px;
+  font-size:.7em;
+  height: 3em;
+}
+.notebook .note:hover{
+  background: #26a69a;
+  box-shadow: 0px 0px 3px #000;
+  
+}
+.notebook .note:hover a{
+  color: #fff;
+}
 /* #############      动画      ############### */
 @keyframes uptoremove {
   0% {

@@ -136,10 +136,10 @@ $arr_note = noteClass::fristSearch(6);
                   //$arr_note = noteClass::Search($_SESSION['userid'],$_GET['search_text']);
                   foreach ($arr_nb as $arr) {
                       $arr_note = noteClass::notebookFristSearch($_SESSION['userid'], $arr['id']);
-                      echo "<div style='font-size:18px'>".$arr['bookName'];
+                      echo "<div class='notebook'>".$arr['bookName'];
                       //输出$arr['bookName'];
                       foreach ($arr_note as $arr1) {
-                          echo "<div  style='font-size:14px'>".$arr1['content'].'</div>';
+                          echo "<div class='note'><a href=''>".$arr1['content'].'</a></div>';
                           // 输出$arr1['content'];
                       }
                       echo '</div>';
