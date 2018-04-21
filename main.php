@@ -220,7 +220,7 @@
           $num = 0;
             $arr_mark = labelClass::fristSearch(4);
           	foreach($arr_mark as $arr1){
-          	    echo ' <a href="#" target="_blank" id="mark'.$num.'" onclick="markSearch(\'mark'.$num.'\')">'.$arr1["markName"].'</a>';
+          	    echo ' <a href=""  id="mark'.$num.'" onclick="markSearch(\'mark'.$num.'\')">'.$arr1["markName"].'</a>';
           	    $num++;
           	}
 
