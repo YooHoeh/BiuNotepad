@@ -7,30 +7,31 @@ html,
 body {
     width: 100%;
     height: 100%;
-    background-image: url(../images/bg.jpg);
+    /* background-image: url(../images/bg.jpg); */
+    background-color:#a5c4d9;
     overflow: hidden;
 }
 
-.user-center {
+.layui-form {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color:#fff;
     /* margin: 0 auto; */
-    width: 80%;
-    height:80%;
+    width: 95%;
+    /* height:80%; */
     border-radius: 5%;
-    box-shadow: #000 5px 5px 5px;
-    /* text-align: center; */
-    padding: 30px;
+    text-align: center;
+    padding-top: 5%;
+    padding-right: 5%;
 }
 .layui-form-item{
     position: relative;
-    left: 40%;
+    /* left: 40%; */
 }
 .layui-btn{
     background-color: #0096f9;
+    float: right;
 }
 input {
     border: none;

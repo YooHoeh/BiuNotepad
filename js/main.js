@@ -97,3 +97,7 @@ function toedit(id) {
     var a = document.getElementById("id").value;
     document.getElementById('search_a').href = "edit.php?search_text="+a;
 }
+
+// 用户中心的开启关闭
+function userSet() {  }
+fa-cog

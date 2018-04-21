@@ -37,7 +37,7 @@ if ('updata' == $_GET['action']) {
 </head>
 
 <body>
-    <div class="user-center">
+    <!-- <div class="user-center"> -->
 
         <form class="layui-form" action="user.php?action=updata" method="post" id="userform">
             
@@ -62,7 +62,7 @@ if ('updata' == $_GET['action']) {
         <div class="layui-form-item">
             <label class="layui-form-label">创建时间</label>
             <div class="layui-input-inline">
-                <input type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+                <input type="password" name="password" required lay-verify="required" placeholder="" autocomplete="off" class="layui-input" disabled="disabled">
             </div>
         </div>
         
@@ -72,10 +72,9 @@ if ('updata' == $_GET['action']) {
             </div>
         </div>
     </form>
-    
-    </div>
+    <div class="close"></div>
+    <!-- </div> -->
     <script>
-        //Demo
         layui.use('form', function () {
             var form = layui.form;
             
