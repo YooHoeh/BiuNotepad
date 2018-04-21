@@ -37,7 +37,3 @@ function _onclick() {
     var a = document.getElementById("search_text").value;
     document.getElementById('search_a').href = "main.php?search_text="+a;
 }
-function toedit(id) {
-    var a = document.getElementById("id").value;
-    document.getElementById('search_a').href = "edit.php?search_text="+a;
-}

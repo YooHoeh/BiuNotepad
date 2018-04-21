@@ -149,13 +149,6 @@ body{
 }
 .notebook{
 	position: fixed;
-<<<<<<< HEAD
-	top:250px;
-	left:16%;
-	width: 16%;
-	height:15%;
-	background-color: #1170b4;
-=======
 	top:200px;
 	left:18%;
 	width: 13%;
@@ -166,7 +159,6 @@ body{
 	color: #000000;
 	font-size:25px;
 	padding:10px;
->>>>>>> 77786255a876f60b826749eb94986302b612160a
 }
 .edit .label{
 	position: absolute;

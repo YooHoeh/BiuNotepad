@@ -1,20 +1,4 @@
 <?php 
-<<<<<<< HEAD
-/*
- *
- * ================================================
- * Author: ZhangJi
- * Email: 281056769@qq.com
- * Date: 2018.4.10
- */
-
-require './include/common.php';
-require "./include/labelClass.php";
-require "./include/nbClass.php";
-require "./include/noteClass.php";
-session_start();
-
-=======
 	require './include/common.php';
 	require "./include/labelClass.php";
 	require "./include/nbClass.php";
@@ -46,7 +30,6 @@ $arr_note = noteClass::fristSearch(6);
 	}
 
 	 */
->>>>>>> 77786255a876f60b826749eb94986302b612160a
 ?>
 <html lang="en">
 
@@ -108,17 +91,7 @@ $arr_note = noteClass::fristSearch(6);
       </div>
     </div>
     <div class="search">
-<<<<<<< HEAD
       <input type="text" name="search" id="search_text"><a href="" id="search_a"><i class="fa fa-search" onclick="_onclick()"></i></a>
-=======
-        <!-- <form action="main.php" method="get">
-            <input type="text" name="search" id="search_text">
-            <i class="fa fa-search"><input type="submit" value=""></i>
-
-        </form>-->
-     <input type="text" name="search" id="search_text"><a href="" id="search_a"><i class="fa fa-search" onclick="_onclick()"></i></a>
-
->>>>>>> 77786255a876f60b826749eb94986302b612160a
     </div>
 
       <!--<div id="slide" style="min-height: 100px;background-color: white">
@@ -151,17 +124,10 @@ $arr_note = noteClass::fristSearch(6);
           </a>
         </div>
         <hr>
-<<<<<<< HEAD
         <div id="search_re">
                   <?php
                   $arr_nb = nbClass::Search($_SESSION['userid'],$_GET['search_text']);
                   $arr_note = noteClass::Search($_SESSION['userid'],$_GET['search_text']);
-=======
-              <div id="search_re">
-                  <?php
-                  $arr_nb = nbClass::Search(6,$_GET['search_text']);
-                  $arr_note = noteClass::Search(6,$_GET['search_text']);
->>>>>>> 77786255a876f60b826749eb94986302b612160a
                   if($arr_nb!=NULL){
                       echo "<div style='font-size: 24px'>笔记本</div>";
                   }
@@ -176,14 +142,9 @@ $arr_note = noteClass::fristSearch(6);
                   }
                   ?>
               </div>
-<<<<<<< HEAD
 
         <!-- <ul id="todoList" class="todo-list"></ul>
         <ul id="doneList" class="done-list"></ul> -->
-=======
-        <!--<ul id="todoList" class="todo-list"></ul>
-        <ul id="doneList" class="done-list"></ul>-->
->>>>>>> 77786255a876f60b826749eb94986302b612160a
         <a class="btn-circle done-show" id="doneShow" onclick="doneListShow()">
           <span class="tooltip">废纸篓</span>
           <i id="doneShowIcon" class="fa fa-trash"></i>
@@ -287,27 +248,3 @@ $arr_note = noteClass::fristSearch(6);
 })()
 
 </script>
-<<<<<<< HEAD
-=======
-<!-- header部分js -->
-<script src="js/header.js"></script>
-<!-- 日历部分js -->
-<script src="js/clender.js"></script>
-<!-- 微信分享api -->
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
-
-<script type="text/javascript" src="js/jquery.min.js"></script>
-
-<script type="text/javascript">
-    function _onclick() {
-        var a = document.getElementById("search_text").value;
-        document.getElementById('search_a').href = "main.php?search_text="+a;
-       // document.getElementById('search_re').style.display = "block";
-    }
-    function toedit(id) {
-        var a = document.getElementById("id").value;
-        document.getElementById('search_a').href = "edit.php?search_text="+a;
-    }
-
-</script>
->>>>>>> 77786255a876f60b826749eb94986302b612160a
