@@ -4,9 +4,8 @@
 	require "./include/nbClass.php";
 	require "./include/noteClass.php";
 	session_start();
-$arr_mark = labelClass::fristSearch(6);
-$arr_nb = nbClass::fristSearch(6,0);
-$arr_note = noteClass::fristSearch(6);
+//$arr_nb = nbClass::fristSearch(6,0);
+//$arr_note = noteClass::fristSearch(6);
 	/*$arr_mark = labelClass::fristSearch($_SESSION['userid']);
 	$arr_nb = nbClass::fristSearch($_SESSION['userid']);
 	$arr_note = noteClass::fristSearch($_SESSION['userid']);
@@ -99,11 +98,6 @@ $arr_note = noteClass::fristSearch(6);
 
     </div>
 
-      <!--<div id="slide" style="min-height: 100px;background-color: white">
-            <?php
-      /*echo $_POST['search'];*/
-      ?>
-        </div>--->
     <div class="user">
       <i class="fa fa-user"></i> 
       <div class="user-set">
@@ -133,31 +127,86 @@ $arr_note = noteClass::fristSearch(6);
         <hr>
               <div id="search_re">
                   <?php
-                  $arr_nb = nbClass::Search(6,$_GET['search_text']);
-                  $arr_note = noteClass::Search(6,$_GET['search_text']);
-                  if($arr_nb!=NULL){
-                      echo "<div style='font-size: 24px'>笔记本</div>";
+                  //控制显示何种笔记和笔记本
+                  if($_GET['delete'] != 1&&$_GET['mark'] == null){
+                      if($_GET['search_text']==null){//不执行搜索---默认显示方式
+                          $arr_nb = nbClass::fristSearch(4);
+                          foreach ($arr_nb as $arr) {
+                              $arr_note = noteClass::notebookFristSearch(4, $arr['id']);
+                              echo "<div>" . $arr['bookName'];
+                              //输出$arr['bookName'];
+                              foreach ($arr_note as $arr1) {
+                                  echo "<div>" . $arr1['content'] . "</div>";
+                                  // 输出$arr1['content'];
+                              }
+                              echo "</div>";
+                          }
+                      }else{//执行搜索--模糊查询结果
+                          $arr_nb = nbClass::Search(4,$_GET['search_text']);
+                          $arr_note = noteClass::Search(4,$_GET['search_text']);
+                          if($arr_nb!=NULL){
+                              echo "<div style='font-size: 24px'>笔记本</div>";
+                              foreach ($arr_nb as $arr){
+                                  echo "<div style='font-size: 16px'>".$arr['bookName']."</div>";
+                              }
+                          }
+                          if($arr_note!=NULL){
+                              echo "<div style='font-size: 24px'>笔记</div>";
+                              foreach($arr_note as $arr){
+                                  echo "<div style='font-size: 16px'>".$arr['content']."</div>";
+                              }
+                          }
+                      }
+
+
+                  }else if($_GET['delete'] == 1&&$_GET['mark'] == null){//查看废纸篓
+                      $arr_nb = nbClass::Search(4,$_GET['search_text'],1);
+                      $arr_note = noteClass::Search(4,$_GET['search_text'],1);
+                      if($arr_nb!=NULL){
+                          echo "<div style='font-size: 24px'>笔记本</div>";
+                          foreach ($arr_nb as $arr){
+                              echo "<div style='font-size: 16px'>".$arr['bookName']."</div>";
+                          }
+                      }
+                      if($arr_note!=NULL){
+                          echo "<div style='font-size: 24px'>笔记</div>";
+                          foreach($arr_note as $arr){
+                              echo "<div style='font-size: 16px'>".$arr['content']."</div>";
+                          }
+                      }
+
+                  }else if($_GET['mark'] != null){//用标签搜索
+                      $arr_nb;
+                      $arr_note = labelClass::markSearch(4,$_GET['mark']);
+                      if($arr_nb!=NULL){
+                          echo "<div style='font-size: 24px'>笔记本</div>";
+                          foreach ($arr_nb as $arr){
+                              echo "<div style='font-size: 16px'>".$arr['bookName']."</div>";
+                          }
+                      }
+                      if($arr_note!=NULL){
+                          echo "<div style='font-size: 24px'>笔记</div>";
+                          foreach($arr_note as $arr){
+                              echo "<div style='font-size: 16px'>".$arr['content']."</div>";
+                          }
+                      }
+
                   }
-                  foreach ($arr_nb as $arr){
-                      echo "<div style='font-size: 16px'>".$arr['bookName']."</div>";
-                  }
-                  if($arr_note!=NULL){
-                      echo "<div style='font-size: 24px'>笔记</div>";
-                  }
-                  foreach($arr_note as $arr){
-                      echo "<div style='font-size: 16px'>".$arr['content']."</div>";
-                  }
+
+                  //循环生成笔记和笔记本
+
                   ?>
               </div>
         <!--<ul id="todoList" class="todo-list"></ul>
         <ul id="doneList" class="done-list"></ul>-->
-        <a class="btn-circle done-show" id="doneShow" onclick="doneListShow()">
+        <!--<a class="btn-circle done-show" id="doneShow" onclick="doneListShow()">-->
+        <a href="" class="btn-circle done-show" id="doneShow" onclick="_onclickDe()">
           <span class="tooltip">废纸篓</span>
           <i id="doneShowIcon" class="fa fa-trash"></i>
         </a>
-        <a class="btn-circle done-hide" id="doneHide" onclick="doneListHide()">
+       <!-- <a class="btn-circle done-hide" id="doneHide" onclick="doneListHide()">
           <i class="material-icons"></i>
-        </a>
+        </a>-->
       </div>
       
       <!-- 随写板 -->
@@ -168,10 +217,15 @@ $arr_note = noteClass::fristSearch(6);
       <!-- 标签导航 -->
       <div class="card tags layui-anim layui-anim-upbit ">
           <?php
+          $num = 0;
+            $arr_mark = labelClass::fristSearch(4);
           	foreach($arr_mark as $arr1){
-							echo '<a href="#" target="_blank">'.$arr1["markName"].'</a>';
+          	    echo ' <a href="#" target="_blank" id="mark'.$num.'" onclick="markSearch(\'mark'.$num.'\')">'.$arr1["markName"].'</a>';
+          	    $num++;
           	}
+
           ?>
+
        </div>
             
             <!-- 日历导航 -->
@@ -239,10 +293,29 @@ $arr_note = noteClass::fristSearch(6);
 <script type="text/javascript" src="js/jquery.min.js"></script>
 
 <script type="text/javascript">
+
     function _onclick() {
         var a = document.getElementById("search_text").value;
-        document.getElementById('search_a').href = "main.php?search_text="+a;
+        if(<?php if($_GET['delete']==0){echo 'true';}else {echo 'false';}?>){
+            document.getElementById('search_a').href = "main.php?search_text="+a;
+        }else{
+            document.getElementById('search_a').href = "main.php?search_text="+a+"&&delete=1";
+        }
+
        // document.getElementById('search_re').style.display = "block";
+    }
+    function _onclickDe() {
+        if (<?php if($_GET['delete']!=1){echo 'true';}else {echo 'false';}?>) {
+            document.getElementById('doneShow').href = "main.php?delete=1";
+        }
+        else {
+            document.getElementById('doneShow').href = "main.php?delete=0";
+        }
+    }
+
+    function markSearch(markid) {
+        var a = document.getElementById(markid).innerText;
+        document.getElementById(markid).href = "main.php?mark="+a;
     }
     function toedit(id) {
         var a = document.getElementById("id").value;
