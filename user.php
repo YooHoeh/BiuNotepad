@@ -42,25 +42,25 @@ if ('updata' == $_GET['action']) {
         <form class="layui-form" action="user.php?action=updata" method="post" id="userform">
             
             <div class="layui-form-item">
-                <label class="layui-form-label">用户名</label>
+                <label class="layui-form-label">用户名:</label>
                 <div class="layui-input-inline">
-                    <input type="password" name="password" required lay-verify="required" placeholder=$username autocomplete="off" class="layui-input">
+                    <input type="text" name="password" required lay-verify="required" placeholder=$username autocomplete="off" class="layui-input">
                 </div>
             </div>
             <div class="layui-form-item">
-            <label class="layui-form-label">密码修改</label>
+            <label class="layui-form-label">密码修改:</label>
             <div class="layui-input-inline">
                 <input type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
-            <label class="layui-form-label">Email</label>
+            <label class="layui-form-label">Email:</label>
             <div class="layui-input-inline">
                 <input type="password" name="password" required lay-verify="required|email" placeholder="" utocomplete="off" class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
-            <label class="layui-form-label">创建时间</label>
+            <label class="layui-form-label">创建时间:</label>
             <div class="layui-input-inline">
                 <input type="password" name="password" required lay-verify="required" placeholder="" autocomplete="off" class="layui-input" disabled="disabled">
             </div>
@@ -72,7 +72,6 @@ if ('updata' == $_GET['action']) {
             </div>
         </div>
     </form>
-    <div class="close"></div>
     <!-- </div> -->
     <script>
         layui.use('form', function () {

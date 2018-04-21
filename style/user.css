@@ -11,27 +11,39 @@ body {
     background-color:#a5c4d9;
     overflow: hidden;
 }
+label {
+    font-weight: bold;
+    font-size: 17px;
+}
 
 .layui-form {
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 61%;
     transform: translate(-50%, -50%);
     /* margin: 0 auto; */
     width: 95%;
     /* height:80%; */
     border-radius: 5%;
-    text-align: center;
+    /* text-align: center; */
     padding-top: 5%;
     padding-right: 5%;
 }
 .layui-form-item{
     position: relative;
+    margin: 22px;
     /* left: 40%; */
+}
+.layui-input {
+    height: 25px;
+    border: none;
+    background: transparent;
+    border-bottom:#fff solid 3px; 
 }
 .layui-btn{
     background-color: #0096f9;
     float: right;
+    margin-right: 50px;
 }
 input {
     border: none;

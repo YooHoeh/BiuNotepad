@@ -44,6 +44,7 @@ window.onload = function () {
 
     setInterval(update, 30);
     refreshNavBGC();
+    userSet();
 
     // console.log(card.length);
     // console.log(icon.length);
@@ -75,7 +76,7 @@ function toPage(index) {
     card[index].style.display = 'block';
     card[index].style.zIndex = '999999999999999';
     icon[index].style.backgroundColor = '#1485d5';
-    
+
     for (let i = 0; i < 4; i++) {
         if (i == index) continue;
         card[i].style.display = 'none';
@@ -95,9 +96,28 @@ function getDefaultStyle(obj, attribute) {
 // 跳转至指定笔记
 function toedit(id) {
     var a = document.getElementById("id").value;
-    document.getElementById('search_a').href = "edit.php?search_text="+a;
+    document.getElementById('search_a').href = "edit.php?search_text=" + a;
 }
 
 // 用户中心的开启关闭
-function userSet() {  }
-fa-cog
+function userSet() {
+    var card = document.getElementsByClassName('userView')[0];
+    var closebtn = document.getElementsByClassName('close')[0];
+    var openbtn = document.getElementsByClassName('openuser')[0];
+
+    openbtn.onclick = function () {
+        card.style.display = "block";
+    }
+  
+    closebtn.onclick = function (){
+        card.style.animation='uptoremove 0.5s';
+        setTimeout(function(){
+            card.removeAttribute('style');
+
+        },500);
+    }
+    //   $(".close").bind("click", function () {
+    //     $(".userView").removeAttr("style");
+    //     $(".userView").fadeOut("4000");
+    // });
+}

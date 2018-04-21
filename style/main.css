@@ -539,25 +539,95 @@ textarea:focus {
   width: 100%;
   height: 90%;
 }
+
 .userView {
   position: absolute;
-  top:50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
+  top: 30%;
+  left: 32%;
+  transform: translate(-50%, -50%);
   /* border-radius: 5%; */
-  width: 50%;
+  width: 35%;
   height: 43%;
-  box-shadow: #fff 5px 5px 25px;
+  box-shadow: #8DB6CD 0px 0px 500000px;
   z-index: 99999999999999999999999999999999999;
-  /* display:none; */
+  display: none;
 }
+
 .userView iframe {
   width: 100%;
   /* border-radius: 5%; */
   height: 100%;
 }
-/* #############      动画      ############### */
 
+.userView .close {
+  position: absolute;
+  right: -25px;
+  top: -25px;
+  width: 50px;
+  height: 50px;
+  background: silver;
+  border-radius: 25px;
+  box-shadow: 2px 2px 5px 0px black;
+  cursor: pointer;
+}
+
+.userView .close:hover {
+  background: #1274bb;
+}
+
+.userView .close:before {
+  position: absolute;
+  content: '';
+  width: 30px;
+  height: 10px;
+  background: white;
+  transform: rotate(45deg);
+  top: 20px;
+  left: 10px;
+}
+
+.userView .close:after {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 10px;
+  background: white;
+  transform: rotate(-45deg);
+  top: 20px;
+  left: 10px;
+}
+
+
+/* #############      动画      ############### */
+@keyframes uptoremove {
+  0% {
+    top:50%;
+    left: 50%;
+    opacity: 0.8;
+  }
+  30%{
+    top:20%;
+    left: 50%;
+    opacity: 0.6;
+  }
+  60%{
+    top:-10%;
+    left: 50%;
+    opacity: .3;
+  }
+  90%{
+    top: -40%;
+    left: 50%;
+    opacity: .2;
+  }
+  100%{
+    top: -40%;
+    left: 50%;
+    opacity:.1;
+  }
+
+
+}
 @-webkit-keyframes lendab {
   0% {
     opacity: 0;
