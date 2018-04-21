@@ -68,6 +68,7 @@ $arr_note = noteClass::fristSearch(6);
 
 
 <body>
+  <!-- 导航栏部分 -->
   <div class="navbar">
     <div class="title">Biu记事本</div>
     <div class="middle-box">
@@ -98,7 +99,7 @@ $arr_note = noteClass::fristSearch(6);
             <?php
       /*echo $_POST['search'];*/
       ?>
-        </div>--->
+        </div>-->
     <div class="user">
       <i class="fa fa-user"></i> 
       <div class="user-set">
@@ -126,19 +127,17 @@ $arr_note = noteClass::fristSearch(6);
         <hr>
         <div id="search_re">
                   <?php
-                  $arr_nb = nbClass::Search($_SESSION['userid'],$_GET['search_text']);
-                  $arr_note = noteClass::Search($_SESSION['userid'],$_GET['search_text']);
-                  if($arr_nb!=NULL){
-                      echo "<div style='font-size: 24px'>笔记本</div>";
-                  }
-                  foreach ($arr_nb as $arr){
-                      echo "<div style='font-size: 16px'>".$arr['bookName']."</div>";
-                  }
-                  if($arr_note!=NULL){
-                      echo "<div style='font-size: 24px'>笔记</div>";
-                  }
-                  foreach($arr_note as $arr){
-                      echo "<div style='font-size: 16px'>".$arr['content']."</div>";
+                  $arr_nb = nbClass::fristSearch($_SESSION['userid']);
+                  //$arr_note = noteClass::Search($_SESSION['userid'],$_GET['search_text']);
+                  foreach($arr_nb as $arr){
+                    $arr_note = noteClass::notebookFristSearch($_SESSION['userid'],$arr['id']);
+                    echo "<div style='font-size:18px'>".$arr['bookName'];
+                    //输出$arr['bookName'];
+                    foreach($arr_note as $arr1){
+                      echo "<div  style='font-size:14px'>".$arr1['content']."</div>";
+                      // 输出$arr1['content'];
+                    }
+                    echo "</div>";
                   }
                   ?>
               </div>
