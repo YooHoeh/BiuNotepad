@@ -22,7 +22,7 @@
 		public static function updateNote($userid,$content,$newContent){
 			$con = new connetMysqli();
 			$id_1 = $con->getNotelId($userid, $content);
-			$sql = "update note set content = $newContent where id = $id_1";
+			$sql = "update note set content = '$newContent' where id = $id_1";
 			$con->runSQL($sql);
 			$con->closeLink();
 		}
