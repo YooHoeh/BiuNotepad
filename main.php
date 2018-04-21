@@ -8,6 +8,10 @@
  */
 
 require './include/common.php';
+require "./include/labelClass.php";
+require "./include/nbClass.php";
+require "./include/noteClass.php";
+session_start();
 
 ?>
 <html lang="en">
@@ -70,7 +74,7 @@ require './include/common.php';
       </div>
     </div>
     <div class="search">
-      <input type="text" name="" id=""><a href="#"><i class="fa fa-search"></i></a>
+      <input type="text" name="search" id="search_text"><a href="" id="search_a"><i class="fa fa-search" onclick="_onclick()"></i></a>
     </div>
     <div class="user">
       <i class="fa fa-user"></i> 
@@ -97,8 +101,27 @@ require './include/common.php';
           </a>
         </div>
         <hr>
-        <ul id="todoList" class="todo-list"></ul>
-        <ul id="doneList" class="done-list"></ul>
+        <div id="search_re">
+                  <?php
+                  $arr_nb = nbClass::Search($_SESSION['userid'],$_GET['search_text']);
+                  $arr_note = noteClass::Search($_SESSION['userid'],$_GET['search_text']);
+                  if($arr_nb!=NULL){
+                      echo "<div style='font-size: 24px'>笔记本</div>";
+                  }
+                  foreach ($arr_nb as $arr){
+                      echo "<div style='font-size: 16px'>".$arr['bookName']."</div>";
+                  }
+                  if($arr_note!=NULL){
+                      echo "<div style='font-size: 24px'>笔记</div>";
+                  }
+                  foreach($arr_note as $arr){
+                      echo "<div style='font-size: 16px'>".$arr['content']."</div>";
+                  }
+                  ?>
+              </div>
+
+        <!-- <ul id="todoList" class="todo-list"></ul>
+        <ul id="doneList" class="done-list"></ul> -->
         <a class="btn-circle done-show" id="doneShow" onclick="doneListShow()">
           <span class="tooltip">废纸篓</span>
           <i id="doneShowIcon" class="fa fa-trash"></i>
@@ -115,8 +138,14 @@ require './include/common.php';
       
       <!-- 标签导航 -->
       <div class="card tags layui-anim layui-anim-upbit ">
-      <!-- <input id="new-item" type="text" disabled placeholder="笔记"> -->
-          <a href="#" target="_blank">起名取名</a>
+          <?php
+            $arr_mark = labelClass::fristSearch($_SESSION['userid']);
+          	foreach($arr_mark as $arr1){
+							echo '<a href="#" target="_blank">'.$arr1["markName"].'</a>';
+          	}
+          ?>
+
+          <!-- <a href="#" target="_blank">起名取名</a>
           <a href="#" target="_blank">宣传策划</a>
           <a href="#" target="_blank">网游试玩</a>
           <a href="#" target="_blank">宣传设计</a>
@@ -124,7 +153,7 @@ require './include/common.php';
           <a href="#" target="_blank">产品推广</a>
           <a href="#" target="_blank">网络营销</a>
           <a href="#" target="_blank">影视创作</a>
-          <a href="#" target="_blank">照片美化</a>
+          <a href="#" target="_blank">照片美化</a> -->
         </div>
             
             <!-- 日历导航 -->

@@ -32,3 +32,12 @@ for (var i in p) {
 s = "http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?" + s;
 document.getElementsByClassName("fa-qq")[0].parentElement.setAttribute("href", s);
 
+// 搜索部分
+function _onclick() {
+    var a = document.getElementById("search_text").value;
+    document.getElementById('search_a').href = "main.php?search_text="+a;
+}
+function toedit(id) {
+    var a = document.getElementById("id").value;
+    document.getElementById('search_a').href = "edit.php?search_text="+a;
+}

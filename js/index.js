@@ -105,4 +105,5 @@ function alarm(str) {
 }
 function alarmDiv(str) {
     document.write(str);
+    alert(str);
 }

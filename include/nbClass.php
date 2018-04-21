@@ -81,7 +81,7 @@
 			return $arr;
 		}
 		//模糊查找
-		public static function Search($userid,$str,$isdelete){
+		public static function Search($userid,$str,$isdelete=0){
 			$con = new connetMysqli();
 			$arr = array();
 			$sql = "select * from notebook where userid = $userid and bookname like '%$str%' and isdelete = $isdelete";

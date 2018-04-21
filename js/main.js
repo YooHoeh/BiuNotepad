@@ -92,4 +92,8 @@ function getDefaultStyle(obj, attribute) {
 
 
 
-
+// 跳转至指定笔记
+function toedit(id) {
+    var a = document.getElementById("id").value;
+    document.getElementById('search_a').href = "edit.php?search_text="+a;
+}

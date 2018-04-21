@@ -6,10 +6,23 @@
  * Email: 281056769@qq.com
  * Date: 2018.4.10
  */
+/**
+ * 964 x 469分辨率下显示
+ */
 
-include './include/common.php';
+
+ 
+// include './include/common.php';
+// require 'index.func.php';
 if ('updata' == $_GET['action']) {
-    }
+	$psd = _fetch_array ( "select $name from $table where $userID = '{$_COOKIE['userID']}'" )[$name];
+	$newpsd = check_password ( $_POST ['newpsd'], 6 );
+	if (sha1 ( $_POST ['oldpsd'] ) == $psd) {
+		_query ( "update $table set $name = '$newpsd' where $userID = '{$_COOKIE['userID']}'" );
+		alert_back ( '密码修改成功' );
+	}
+}
+
 ?>
 <html>
 
@@ -43,7 +56,7 @@ if ('updata' == $_GET['action']) {
         <div class="layui-form-item">
             <label class="layui-form-label">Email</label>
             <div class="layui-input-inline">
-                <input type="password" name="password" required lay-verify="required" placeholder=a utocomplete="off" class="layui-input">
+                <input type="password" name="password" required lay-verify="required|email" placeholder="" utocomplete="off" class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
