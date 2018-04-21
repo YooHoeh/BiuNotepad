@@ -21,7 +21,7 @@
 		public static function updateNote($userid,$content,$newContent){
 			$con = new connetMysqli();
 			$id_1 = $con->getNotelId($userid, $content);
-			$sql = "update note set content = '$newContent' where id = '$id_1'";
+			$sql = "update note set content = $newContent where id = $id_1";
 			$con->runSQL($sql);
 			$con->closeLink();
 		}
@@ -188,7 +188,7 @@ echo "<pre>";
 	echo "</pre>";*/
 
 //$a3 = new noteClass(4,'1352',3);
-//noteClass::updateNote(2, '2', '123');
+//noteClass::updateNote(6, '235', '123');
 //noteClass::isStart(2,'123',1);
 //noteClass::deNote(2,'123');
 //noteClass::reNote(2,'123');

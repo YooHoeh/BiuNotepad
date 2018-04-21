@@ -6,6 +6,8 @@
 	$arr_mark = labelClass::fristSearch(6);
 	$arr_nb = nbClass::fristSearch(6,0);
 	$arr_note = noteClass::fristSearch(6);
+	//$note = $arr();
+
 ?>
 
 <!DOCTYPE html>
@@ -19,13 +21,7 @@
 		<link href="style/font-awesome.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="style/bootstrap.min.css">
 		<link href="http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-		<!-- header部分js -->
-		<script src="js/header.js"></script>
-		<!-- function部分js -->
-		<script src="js/function.js"></script>
-		<!-- notebook部分js -->
-		<script src="js/jquery-3.2.0.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
+
 	</head>
 	<body>
 		<div class="navbar">
@@ -36,32 +32,40 @@
       			<div class="line line-rigth"></div>
     		</div>
     		<div class="user">
-      			<a href="index.php"><i class="fa fa-user"></i></a>
+      			<a href="index.php" style="color: white"><i class="fa fa-user" style="padding-top: 12px"></i></a>
     		</div>
     		<div class="link">
 				<div class="link1">
-					<i class="fa fa-bell fa-lg"></i>
+                    <a href="" onclick="" id="" style="color: white"><i class="fa fa-bell fa-lg"></i></a>
 				</div>
 				<div class="link1">
-					<i class="fa fa-info-circle fa-lg"></i>
+                    <a href="" onclick="" id="" style="color: white"><i class="fa fa-info-circle fa-lg"></i></a>
 				</div>
 				<div class="link1">
-					<i class="fa fa-star fa-lg"></i>
+                    <a href="" onclick="" id="" style="color: white"><i class="fa fa-star fa-lg"></i></a>
 				</div>
 				<div class="link1">
-					<i class="fa fa-trash fa-lg"></i>
+                    <a href="" onclick="deContent()" id="deCon" style="color: white"><i class="fa fa-trash fa-lg"></i></a>
 				</div>
 				<div class="link1">
-					<i class="fa fa-share-alt fa-lg"></i>
+                    <a href="" onclick="" id="" style="color: white"><i class="fa fa-share-alt fa-lg"></i></a>
 				</div>
 		    </div>
   		</div>
 		<div class="edit">
+
 			<fieldset class="active" style="overflow: visible;">
 				<div class="note01">笔记薄</div>
-				<div class="notebook" style="overflow: auto;height: 450px;">
+				<div class="notebook" style="overflow: auto;height: 400px;">
 					<div class="panel-group" id="accordion">
 				<?php
+                if($_GET['oldV']!=null&&$_GET['newV']!=null){
+                    noteClass::updateNote(6,$_GET['oldV'],$_GET['newV']);
+                }
+                if($_GET['deContent']!=null){
+                    noteClass::deNote(6,$_GET['deContent']);
+                }
+                    //noteClass::updateNote(6,$_GET['oldV'],$_GET['newV']);
 					$num = 0;
 					foreach($arr_nb as $arr){
 						$arr_note = noteClass::notebookFristSearch(6,$arr['id']);
@@ -82,7 +86,7 @@
 					  		<div class="panel-body">';
 					  	foreach($arr_note as $arr1){
 									// 输出$arr1['concent'];
-							echo "<a>".$arr1['content']."</a><br/><br/>";
+							echo "<a role=\"button\" onclick='innerHtml(".$arr1['content'].")'>".$arr1['content']."</a><br><br>";
 				  		}
 						echo '</div>
 						</div>';
@@ -90,71 +94,10 @@
 						$num++;
 					}
 		  		?>
-	  		<!--
-              	
-              <div class="panel panel-default">
-			<div class="panel-heading" role="tab" id="headingOne">
-		  		<h4 class="panel-title">
-					<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-			 	 		笔记本1
-					</a>
-		  		</h4>
-			</div>
-			<div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-		  		<div class="panel-body">
-					笔记1<br><br>
-					笔记2<br><br>
-					笔记3
-					笔记1<br><br>
-					笔记2<br><br>
-					笔记3
-					笔记1<br><br>
-					笔记2<br><br>
-					笔记3
-					笔记1<br><br>
-					笔记2<br><br>
-					笔记3
-					笔记1<br><br>
-					笔记2<br><br>
-					笔记3
-		  		</div>
-			</div>
-	  		</div>
-	  		<div class="panel panel-default">
-				<div class="panel-heading" role="tab" id="headingTwo">
-		  		<h4 class="panel-title">
-					<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-			  			笔记本2
-					</a>
-		  		</h4>
-				</div>
-			<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-		  		<div class="panel-body">
-					笔记1<br><br>
-					笔记2<br><br>
-					笔记3
-		  		</div>
-			</div>
-	  		</div>
-	  		<div class="panel panel-default">
-				<div class="panel-heading" role="tab" id="headingThree">
-		  			<h4 class="panel-title">
-						<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-			  				笔记本3
-						</a>
-		  			</h4>
-				</div>
-				<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-		  		<div class="panel-body">
-					笔记1<br><br>
-					笔记2<br><br>
-					笔记3
-		  		</div>
-				</div>
-	  			</div>-->
 				</div>
 				</div>
 			</fieldset>
+
 			<div class="function">
 				<div class="icon1">
 					<i id="icon01" class="fa fa-bold fa-lg"></i>
@@ -213,7 +156,7 @@
 					</select>
 				</div>
 				<div class="save">
-					<i class="fa fa-save fa-2x"></i>
+					<a href="" id="get_newV"><i class="fa fa-save fa-2x" onclick="update()"></i></a>
 				</div>
 			</div>
 		
@@ -235,11 +178,31 @@
 			</div>
 			<span class="title11"><b>标题:</b>
 			<input type="text" name="title" placeholder="在此输入标题"></input></span>
-			<textarea id="content">
-				请输入...
-			</textarea>
+			<textarea id="content" placeholder="在此输入......"></textarea>
 			
         </div>
 	</body>
+    <script>
+        var oldV;
+        function innerHtml(text) {
+            document.getElementById("content").innerHTML = text;
+            oldV = text;
+        }
+        function update() {
+            var newV = document.getElementById("content").value;
+            document.getElementById("get_newV").href = "edit.php?oldV="+oldV+"&newV="+newV;
+        }
+        function deContent() {
+            var de = document.getElementById("content").value;
+            document.getElementById("deCon").href = "edit.php?deContent="+de;
+        }
 
+    </script>
+    <!-- header部分js -->
+    <script src="js/header.js"></script>
+    <!-- function部分js -->
+    <script src="js/function.js"></script>
+    <!-- notebook部分js -->
+    <script src="js/jquery-3.2.0.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 </html>

@@ -1,4 +1,5 @@
 <?php 
+<<<<<<< HEAD
 /*
  *
  * ================================================
@@ -13,6 +14,39 @@ require "./include/nbClass.php";
 require "./include/noteClass.php";
 session_start();
 
+=======
+	require './include/common.php';
+	require "./include/labelClass.php";
+	require "./include/nbClass.php";
+	require "./include/noteClass.php";
+	session_start();
+$arr_mark = labelClass::fristSearch(6);
+$arr_nb = nbClass::fristSearch(6,0);
+$arr_note = noteClass::fristSearch(6);
+	/*$arr_mark = labelClass::fristSearch($_SESSION['userid']);
+	$arr_nb = nbClass::fristSearch($_SESSION['userid']);
+	$arr_note = noteClass::fristSearch($_SESSION['userid']);
+	 * ------------------------------------------------
+	 * 以上三行放这就行
+	 * ------------------------------------------------
+	 *
+	foreach($arr_nb as $arr){
+		$arr_note = noteClass::fristSearch($arr['id']);
+		//输出$arr['bookName'];
+		foreach($arr_note as $arr1){
+			// 输出$arr1['concent'];
+		}
+	}
+	 *  ------------------------------------------------
+	 * 以上用于动态生成笔记本以及笔记，需要在哪生成就放哪
+	 *  ------------------------------------------------
+	 *
+	foreach($arr_mark as $arr){
+		//输出$arr1['markName'];
+	}
+
+	 */
+>>>>>>> 77786255a876f60b826749eb94986302b612160a
 ?>
 <html lang="en">
 
@@ -74,8 +108,24 @@ session_start();
       </div>
     </div>
     <div class="search">
+<<<<<<< HEAD
       <input type="text" name="search" id="search_text"><a href="" id="search_a"><i class="fa fa-search" onclick="_onclick()"></i></a>
+=======
+        <!-- <form action="main.php" method="get">
+            <input type="text" name="search" id="search_text">
+            <i class="fa fa-search"><input type="submit" value=""></i>
+
+        </form>-->
+     <input type="text" name="search" id="search_text"><a href="" id="search_a"><i class="fa fa-search" onclick="_onclick()"></i></a>
+
+>>>>>>> 77786255a876f60b826749eb94986302b612160a
     </div>
+
+      <!--<div id="slide" style="min-height: 100px;background-color: white">
+            <?php
+      /*echo $_POST['search'];*/
+      ?>
+        </div>--->
     <div class="user">
       <i class="fa fa-user"></i> 
       <div class="user-set">
@@ -101,10 +151,17 @@ session_start();
           </a>
         </div>
         <hr>
+<<<<<<< HEAD
         <div id="search_re">
                   <?php
                   $arr_nb = nbClass::Search($_SESSION['userid'],$_GET['search_text']);
                   $arr_note = noteClass::Search($_SESSION['userid'],$_GET['search_text']);
+=======
+              <div id="search_re">
+                  <?php
+                  $arr_nb = nbClass::Search(6,$_GET['search_text']);
+                  $arr_note = noteClass::Search(6,$_GET['search_text']);
+>>>>>>> 77786255a876f60b826749eb94986302b612160a
                   if($arr_nb!=NULL){
                       echo "<div style='font-size: 24px'>笔记本</div>";
                   }
@@ -119,9 +176,14 @@ session_start();
                   }
                   ?>
               </div>
+<<<<<<< HEAD
 
         <!-- <ul id="todoList" class="todo-list"></ul>
         <ul id="doneList" class="done-list"></ul> -->
+=======
+        <!--<ul id="todoList" class="todo-list"></ul>
+        <ul id="doneList" class="done-list"></ul>-->
+>>>>>>> 77786255a876f60b826749eb94986302b612160a
         <a class="btn-circle done-show" id="doneShow" onclick="doneListShow()">
           <span class="tooltip">废纸篓</span>
           <i id="doneShowIcon" class="fa fa-trash"></i>
@@ -225,3 +287,27 @@ session_start();
 })()
 
 </script>
+<<<<<<< HEAD
+=======
+<!-- header部分js -->
+<script src="js/header.js"></script>
+<!-- 日历部分js -->
+<script src="js/clender.js"></script>
+<!-- 微信分享api -->
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+
+<script type="text/javascript">
+    function _onclick() {
+        var a = document.getElementById("search_text").value;
+        document.getElementById('search_a').href = "main.php?search_text="+a;
+       // document.getElementById('search_re').style.display = "block";
+    }
+    function toedit(id) {
+        var a = document.getElementById("id").value;
+        document.getElementById('search_a').href = "edit.php?search_text="+a;
+    }
+
+</script>
+>>>>>>> 77786255a876f60b826749eb94986302b612160a
