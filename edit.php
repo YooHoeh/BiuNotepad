@@ -56,7 +56,7 @@
   		</div>
 		<div class="edit">
 
-			<fieldset class="active" style="overflow: visible;">
+			<div class="active" style="overflow: visible;">
 				<div class="note01">笔记薄</div>
 				<div class="notebook" style="overflow: auto;height: 400px;">
 					<div class="panel-group" id="accordion">
@@ -102,7 +102,7 @@
 		  		?>
 				</div>
 				</div>
-			</fieldset>
+			</div>
 
 			<div class="function">
 				<div class="icon1">
@@ -144,7 +144,7 @@
 				<div class="icon1">
 					<i class="fa fa-table fa-lg"></i>
 				</div>
-				<div>
+				<div class="affix01">
 					<select class="affix">
 						<option value="font">字体类型</option>
 						<option value="font1" id="font01">宋体</option>                                                                   
@@ -153,7 +153,7 @@
 					</select>
 				</div>
 			
-				<div>
+				<div class="affix01">
 					<select class="affix">
 						<option value="size">字体大小</option>
 						<option value="14" id="size01">small</option>
@@ -172,7 +172,7 @@
 			</div>
 		
         	<div class="label">
-            <fieldset>
+            <div>
             <select id="newopt">
                 <?php
                 $arr_mark = labelClass::fristSearch(4);
@@ -191,7 +191,7 @@
 			<br><span>新标签:</span>
 			<input type="text" name="newlabel" placeholder="新标题" id="label"></input>
 			<br><button class="button" onclick="labelFunction()">Add</button>
-			</fieldset>
+			</div>
 			</div>
 			<div class="hr">
 			</div>
