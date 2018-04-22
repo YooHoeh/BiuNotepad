@@ -151,13 +151,13 @@ body{
     border-bottom: 2px dashed grey;
 }
 .edit{
-	position: absolute;
+	position: relative;
     /*float: left;*/
     left:50%;
 	top:90px;
 	transform: translate(-50%,-0);
 	width: 78%;
-	height:80%;
+	height:90%;
 	background-color: #F8F8F8;
 	border-radius: 10px;
 	box-shadow: 1px 1px 5px 5px #1170b4;
@@ -169,7 +169,7 @@ body{
 	left:3%;
 	top:26px;
 	width:23%;
-	height:71%;
+	height:70%;
 	box-shadow: 5px 5px 3px #79aed5;
 	border: 2px solid #1170b4;
 	overflow:scroll;
@@ -291,7 +291,7 @@ body{
 	left:29%;
 	top:100px;
 	width:68%;
-	height:80%;
+	height:78%;
 	resize:none;
 	border:5px groove #1170b4;
 	overflow:scroll;
@@ -308,7 +308,8 @@ body{
     /*float: left;*/
     left:50%;
     transform: translate(-50%,0);
-	top:730px;
+	top:100px;
+	/*margin-top: 100px;*/
 	width: 78%;
 	height:7%;
 	background-color: #F8F8F8;
@@ -472,6 +473,7 @@ a:hover{
 	.function .affix01{
 		position:relative;
 		/*float:right;*/
+		left:3%;
 		top:8px;
 		padding:0;
 		height: 60%;
