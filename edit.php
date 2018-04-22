@@ -189,8 +189,10 @@
 				<optgroup label="在此输入新标签"></optgroup>
 			</select>
 			<br><span>新标签:</span>
-			<input type="text" name="newlabel" placeholder="新标题" id="label"></input>
-			<br><button class="button" onclick="labelFunction()">Add</button>
+				<form method="get" action="edit.php">
+                    <input type="text" name="newlabel" placeholder="新标题" id="label">
+                    <br><input class="button" value="Add" type="submit">
+                </form>
 			</div>
 			</div>
 			<div class="hr">
