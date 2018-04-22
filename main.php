@@ -131,20 +131,77 @@ $arr_note = noteClass::fristSearch(6);
         </div>
         <hr>
         <div id="search_re">
-                  <?php
-                  $arr_nb = nbClass::fristSearch($_SESSION['userid']);
-                  //$arr_note = noteClass::Search($_SESSION['userid'],$_GET['search_text']);
-                  foreach ($arr_nb as $arr) {
-                      $arr_note = noteClass::notebookFristSearch($_SESSION['userid'], $arr['id']);
-                      echo "<div class='notebook'>".$arr['bookName'];
-                      //输出$arr['bookName'];
-                      foreach ($arr_note as $arr1) {
-                          echo "<div class='note'><a href=''>".$arr1['content'].'</a></div>';
-                          // 输出$arr1['content'];
+                   <?php
+                  //控制显示何种笔记和笔记本
+                  if($_GET['delete'] != 1&&$_GET['mark'] == null){
+                      if($_GET['search_text']==null){//不执行搜索---默认显示方式
+                          $arr_nb = nbClass::fristSearch(4);
+                          foreach ($arr_nb as $arr) {
+                              $arr_note = noteClass::notebookFristSearch(4, $arr['id']);
+                              echo "<div class='notebook'>" . $arr['bookName'];
+                              //输出$arr['bookName'];
+                              foreach ($arr_note as $arr1) {
+                                  echo "<div class='note'><a href=''>" . $arr1['content'] . "</a></div>";
+                                  // 输出$arr1['content'];
+                              }
+                              echo "</div>";
+                          }
+                      }else{//执行搜索--模糊查询结果
+                          $arr_nb = nbClass::Search(4,$_GET['search_text']);
+                          $arr_note = noteClass::Search(4,$_GET['search_text']);
+                          if($arr_nb!=NULL){
+                              echo "<div  class='notebook'>笔记本</div>";
+                              foreach ($arr_nb as $arr){
+                                  echo "<div class='note'><a href=''>".$arr['bookName']."</a></div>";
+                              }
+                          }
+                          if($arr_note!=NULL){
+                              echo "<div class='notebook'>笔记</div>";
+                              foreach($arr_note as $arr){
+                                  echo "<div class='note'><a href=''>".$arr['content']."</a></div>";
+                              }
+                          }
                       }
-                      echo '</div>';
+
+
+                  }else if($_GET['delete'] == 1&&$_GET['mark'] == null){//查看废纸篓
+                      $arr_nb = nbClass::Search(4,$_GET['search_text'],1);
+                      $arr_note = noteClass::Search(4,$_GET['search_text'],1);
+                      if($arr_nb!=NULL){
+                          echo "<div class='notebook'>笔记本</div>";
+                          foreach ($arr_nb as $arr){
+                              echo "<div class='note'><a href=''>".$arr['bookName']."</a></div>";
+                          }
+                      }
+                      if($arr_note!=NULL){
+                          echo "<div class='notebook'>笔记</div>";
+                          foreach($arr_note as $arr){
+                              echo "<div class='note'><a href=''>".$arr['content']."</a></div>";
+                          }
+                      }
+
+                  }else if($_GET['mark'] != null){//用标签搜索
+                      $arr_nb;
+                      $arr_note = labelClass::markSearch(4,$_GET['mark']);
+                      if($arr_nb!=NULL){
+                          echo "<div class='notebook'>笔记本</div>";
+                          foreach ($arr_nb as $arr){
+                              echo "<div class='note'><a href=''>".$arr['bookName']."</a></div>";
+                          }
+                      }
+                      if($arr_note!=NULL){
+                          echo "<div class='notebook'>笔记</div>";
+                          foreach($arr_note as $arr){
+                              echo "<div class='note'><a href=''>".$arr['content']."</a></div>";
+                          }
+                      }
+
                   }
+
+                  //循环生成笔记和笔记本
+
                   ?>
+
               </div>
 
         <!-- <ul id="todoList" class="todo-list"></ul>
