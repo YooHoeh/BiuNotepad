@@ -62,7 +62,7 @@ if ('updata' == $_GET['action']) {
         <div class="layui-form-item">
             <label class="layui-form-label">创建时间:</label>
             <div class="layui-input-inline">
-                <input type="password" name="password" required lay-verify="required" placeholder="" autocomplete="off" class="layui-input" disabled="disabled">
+                <input type="password" name="password" placeholder="" autocomplete="off" class="layui-input" disabled="disabled">
             </div>
         </div>
         
