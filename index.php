@@ -97,37 +97,37 @@ if (@$_GET ['action'] == 'register') {
       <dl>
         <dd  >
           用户名:
-          <input type="text"  name="id" placeholder="电子邮箱/用户名">
+          <input type="text" name="id" placeholder="电子邮箱/用户名" required lay-verify="email" autocomplete="off" class="layui-input">
         </dd>
         <dd>
           密 &nbsp 码:
-          <input type="password" name='psk' placeholder="请输入密码">
+          <input type="password" name='psk' placeholder="请输入密码"  required lay-verify="required" autocomplete="off" class="">
         </dd>
         <dd>
           验证码:
-          <input type="text" class="code" name="code" placeholder="输入右侧中的字符">
+          <input type="text" class="code layui-input" name="code" placeholder="输入右侧中的字符"  required lay-verify="required" autocomplete="off">
           <img src="include/captcha.php" class="captcha" />
         </dd>
       </dl>
-      <input type="submit" value="Submit">
+      <input type="submit" value="Submit" class="layui-btn" lay-submit lay-filter="formDemo">
     </form>
     <form action="index.php?action=register" class="register  layui-form" method="post" style="display:none;">
       <dl>
         <dd>
           用&nbsp户&nbsp名&nbsp&nbsp:
-          <input type="text" name="setname" placeholder="设置你的用户名" />
+          <input type="text" name="setname" placeholder="设置你的用户名"  required lay-verify="required" autocomplete="on" class="layui-input"/>
         </dd>
         <dd>
          电子邮箱:
-          <input type="password" name="setemail" placeholder="电子邮箱" />
+          <input type="password" name="setemail" placeholder="电子邮箱"  required lay-verify="email" autocomplete="off" class="layui-input"/>
         </dd>
         <dd>
         &nbsp密&nbsp &nbsp 码&nbsp&nbsp:
-          <input type="password" name="setpsk" placeholder="设置您的密码" />
+          <input type="password" name="setpsk" placeholder="设置您的密码" required lay-verify="required" autocomplete="off" class="layui-input" />
         </dd>
         <dd>
           确认密码:
-          <input type="password" name="confirmpsk" placeholder="确认您的密码" />
+          <input type="password" name="confirmpsk" placeholder="确认您的密码"  required lay-verify="required" autocomplete="off" class="layui-input" />
         </dd>
         <dd>
           验&nbsp证&nbsp码&nbsp:
@@ -135,7 +135,7 @@ if (@$_GET ['action'] == 'register') {
           <img src="include/captcha.php" class="captcha"  />
         </dd>
       </dl>
-      <input type="submit" value="Submit" />
+      <input type="submit" value="Submit" class="layui-btn" lay-submit lay-filter="formDemo"/>
       
     </form>
     
@@ -158,8 +158,18 @@ if(an == "null") {
 	console.log("null");
 	console.log("222");
 } else {
-	console.log(an);
+	console.log(an.length);
 	console.log("123");
 }
 
-}</script></html>
+}
+        layui.use('form', function () {
+            var form = layui.form;
+            
+            // //监听提交
+            // form.on('submit(formDemo)', function (data) {
+            //     layer.msg(JSON.stringify(data.field));
+            //     return false;
+            // });
+        });
+</script></html>
