@@ -197,7 +197,6 @@
                     <input type="text" name="newlabel" placeholder="新标题" id="label">
                     <br><input class="button" value="Add" type="submit">
                 </form>
-
             </div>
 			</div>
 			<div class="hr">
