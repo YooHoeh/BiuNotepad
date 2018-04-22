@@ -198,7 +198,7 @@
                     <br><input class="button" value="Add" type="submit">
                 </form>
 
-			</fieldset>
+            </div>
 			</div>
 			<div class="hr">
 			</div>
