@@ -174,7 +174,11 @@
         	<div class="label">
             <fieldset>
             <select id="newopt">
+
                 <?php
+                if ($_GET['newlabel']!=null){
+                    new labelClass(4,$_GET['newlabel']);
+                }
                 $arr_mark = labelClass::fristSearch(4);
                 $num = 0;
                 foreach($arr_mark as $arr1){
@@ -186,11 +190,14 @@
 				<option value="label1">标签1</option>
 				<option value="label2">标签2</option>
 				<option value="label3">标签3</option>-->
-				<optgroup label="在此输入新标签"></optgroup>
+
 			</select>
 			<br><span>新标签:</span>
-			<input type="text" name="newlabel" placeholder="新标题" id="label"></input>
-			<br><button class="button" onclick="labelFunction()">Add</button>
+                <form method="get" action="edit.php">
+                    <input type="text" name="newlabel" placeholder="新标题" id="label">
+                    <br><input class="button" value="Add" type="submit">
+                </form>
+
 			</fieldset>
 			</div>
 			<div class="hr">
