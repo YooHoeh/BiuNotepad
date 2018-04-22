@@ -46,7 +46,7 @@ function check_login($username, $password, $time,$conn) {
 	if (!!$rows = $conn->getRow("select * from user where email= '$username' and password = '$password' limit 1")) {
 		_setcookies($username, "1", $time);
 		$conn->closeLink();
-		//session_destroy();
+		session_destroy();
 		session_start();
 		$_SESSION['userid'] = $rows['id'];
 		_location($rows['name'] . '登陆成功', 'main.php');

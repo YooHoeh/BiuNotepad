@@ -21,7 +21,7 @@
 		public static function updateNote($userid,$content,$newContent){
 			$con = new connetMysqli();
 			$id_1 = $con->getNotelId($userid, $content);
-			$sql = "update note set content = $newContent where id = $id_1";
+			$sql = "update note set content = '$newContent' where id = $id_1";
 			$con->runSQL($sql);
 			$con->closeLink();
 		}
@@ -85,6 +85,15 @@
 			$con = new connetMysqli();
 			$arr = array();
 			$sql = "select * from note where userid = $userid and content like '%$str%' and isdelete = $isdelete";
+			$arr = $con->getAll($sql);
+			$con->closeLink();
+			return $arr;
+		}
+		//id查找
+		public static function idSarch($id,$isdelete = 0){
+			$con = new connetMysqli();
+			$arr = array();
+			$sql = "select * from note where id like '%$id%' and isdelete = $isdelete";
 			$arr = $con->getAll($sql);
 			$con->closeLink();
 			return $arr;

@@ -229,36 +229,39 @@ hr {
 
 .navbar .search {
   position: absolute;
-  top: 9px;
+  top: 12px;
   right: 15%;
   margin: 4px;
-  width: 8%;
+  /* max-width: 20%; */
   height: 30px;
-  border: 1px solid #26a69a;
+  /* border: 1px solid #26a69a; */
   border-radius: 30px;
   background-color: #fff;
 }
 
 .search input[type="text"] {
-  margin-left: 15px;
-  width: 60%;
+  /* border: 1px solid #26a69a; */
+  border-radius: 30px;
+  margin-right: 40px;
+  text-indent: 8px;
+  float: right;
+  width: 80%;
   height: 100%;
   border: none;
   font-size: 15px;
+  transition: width .6s;
 }
 
 .search input:focus {
-  width: 80%;
-}
-
-.search input:focus {
-  width:
+  width: 120%;
 }
 
 .search i {
   font-size: 25px;
   position: absolute;
-  right: 5%;
+  display: inline;
+  float: right;
+  right: 5px;
   height: 80%;
   color: #1485d5;
 }
@@ -348,24 +351,10 @@ hr {
   visibility: visible;
 }
 
-.done-hide {
-  background: #26a69a;
-  z-index: 4;
-  bottom: 14px;
-  right: 14px;
-  visibility: hidden;
-}
-
 .done-show i {
   margin-top: 9px;
   font-size: 24px;
   color: #7eb3db;
-}
-
-.done-hide i {
-  margin-top: 9px;
-  font-size: 24px;
-  color: white;
 }
 
 .done-show:hover {
@@ -398,19 +387,6 @@ hr {
   font-size: 24px;
 }
 
-ul.todo-list {
-  list-style-type: none;
-  margin-left: -40px;
-}
-
-ul.todo-list:empty:after {
-  content: "当前为空";
-  font-size: 12px;
-  text-align: center;
-  display: block;
-  margin: 18px 0 0 0;
-}
-
 .main-container ul li {
   padding: 14.5px 30px;
   font-size: 14px;
@@ -440,12 +416,6 @@ li .btn:hover>i {
   transition: 0.2s ease-in-out;
 }
 
-ul.todo-list li:hover {
-  background: #f3f3f3;
-  -webkit-transition: 0.2s ease-in-out;
-  transition: 0.2s ease-in-out;
-}
-
 .card-header input {
   font-size: inherit;
   border: none;
@@ -461,22 +431,6 @@ input:focus {
 
 input:disabled {
   background: none;
-}
-
-.done-list {
-  padding-top: 16px;
-  text-align: left;
-  list-style-type: none;
-  display: none;
-}
-
-.done-list li {
-  margin-left: -40px;
-  color: #aaa;
-}
-
-.done-list li a i {
-  color: #aaa;
 }
 
 .list-date:hover {
@@ -596,71 +550,93 @@ textarea:focus {
   top: 20px;
   left: 10px;
 }
+
 #search_re {
   height: 90%;
   overflow-x: hidden;
   overflow-y: scroll;
   /* background-color:#999; */
-
 }
-#search_re .notebook{
+
+#search_re .notebook {
   /* padding-left: 10px; */
   text-indent: 8px;
-  margin-bottom: 50px;
-  padding-bottom:15px;
-  width: 100%;
-  background-color:#C6E2FF;
-  font-size:1.7em;
+  /* margin-bottom: 50px; */
+  margin: 3px auto 50px;
+  padding-bottom: 15px;
+  /* line-height: 30px; */
+  width: 97%;
+  background-color: #C6E2FF;
+  font-size: 1.7em;
   box-shadow: 0px 0px 15px #000;
-  
 }
-.notebook .note{
-  background-color:#fff;
-  width:95%;
+
+#search_re .note {
+  background-color: seashell;
+  width: 95%;
   margin: 5px auto;
   text-indent: 10px;
   padding: 5px;
-  font-size:.7em;
+  font-size: 15px;
   height: 3em;
 }
-.notebook .note:hover{
+
+#search_re .note:hover {
   background: #26a69a;
   box-shadow: 0px 0px 3px #000;
-  
 }
-.notebook .note:hover a{
+
+.note p {
+  color: #999;
+  float: right;
+  margin-bottom: 15px;
+  /* position: relative; */
+  /* left: 20em; */
+}
+
+#search_re .note:hover a {
   color: #fff;
 }
+
+#search_re .notice {
+  position: relative;
+  text-align: center;
+  top: 40%;
+  font-weight: bold;
+  font-size: 2em;
+  color: #999;
+}
+
 /* #############      动画      ############### */
+
 @keyframes uptoremove {
   0% {
-    top:50%;
+    top: 50%;
     left: 50%;
     opacity: 0.8;
   }
-  30%{
-    top:20%;
+  30% {
+    top: 20%;
     left: 50%;
     opacity: 0.6;
   }
-  60%{
-    top:-10%;
+  60% {
+    top: -10%;
     left: 50%;
     opacity: .3;
   }
-  90%{
+  90% {
     top: -40%;
     left: 50%;
     opacity: .2;
   }
-  100%{
+  100% {
     top: -40%;
     left: 50%;
-    opacity:.1;
+    opacity: .1;
   }
-
-
 }
+
 @-webkit-keyframes lendab {
   0% {
     opacity: 0;
@@ -743,6 +719,9 @@ textarea:focus {
   li .btn {
     right: 12px;
   }
+  #search_re {
+    height: 89%;
+  }
 }
 
 @media screen and (max-width: 1324px) and (min-width: 1124px) {
@@ -815,6 +794,9 @@ textarea:focus {
   }
   textarea:focus {
     font-size: 14px;
+  }
+  #search_re {
+    height: 83%;
   }
 }
 

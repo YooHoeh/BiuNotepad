@@ -73,7 +73,18 @@
 			$con->closeLink();
 			return $arr;
 		}
-	
+	    //标签搜索笔记
+        public static  function markSearch($userid,$mark){
+            $con = new connetMysqli();
+            $arr = array();
+            $sql = "select id from mark where markName = '$mark'";
+            $str = $con->getRow($sql);
+            $str = $str['id'];
+            $sql = "select * from note where markID like '%$str%'";
+            $arr = $con->getAll($sql);
+            $con->closeLink();
+            return $arr;
+        }
 	}
 
 //$a3 = new labelClass(4,'234567');
@@ -81,6 +92,10 @@
 //labelClass::isStart(2,'2',0);
 //labelClass::deleteLabel(3,'123');
 /*$arr = labelClass::fristSearch(4);
+	echo "<pre>";
+	print_r($arr);
+	echo "</pre>";*/
+/*$arr = labelClass::markSearch(6,"12");
 	echo "<pre>";
 	print_r($arr);
 	echo "</pre>";*/
