@@ -71,14 +71,14 @@ body{
   display: inline-block;
   text-align: center;
 }
-.navbar .link{
+.navbaraa .link{
 	position:absolute;
 	margin: 5px;;
 	top: 7px;
 	float:right;
 	right:13%;
-	width: 200px;
-	height: 35px;
+	width: 20%;
+	height: 50%;
 	text-align: center;
 	background-color: #1170b4;
 }
@@ -308,7 +308,7 @@ body{
     /*float: left;*/
     left:50%;
     transform: translate(-50%,0);
-	top:830px;
+	top:730px;
 	width: 78%;
 	height:7%;
 	background-color: #F8F8F8;
