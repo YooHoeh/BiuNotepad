@@ -287,7 +287,7 @@ hr {
 
 .card:hover {
   -webkit-box-shadow: 10px 30px 50px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
-  box-shadow: 10px 30px 50px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 0 50px #000;
   transition: all 0.6s cubic-bezier(.25, .8, .25, 1);
 }
 
@@ -578,22 +578,45 @@ textarea:focus {
   text-indent: 10px;
   padding: 5px;
   font-size: 15px;
-  height: 3em;
+  height: 5em;
 }
 
 #search_re .note:hover {
   background: #26a69a;
-  box-shadow: 0px 0px 3px #000;
+  box-shadow: 0px 0px 8px #000;
 }
 
-.note p {
+.note span {
+  /* position:relative; */
+
   color: #999;
   float: right;
   margin-bottom: 15px;
   /* position: relative; */
-  /* left: 20em; */
+  right: 12px;
+  bottom:4px;
 }
+.notice i {
+  color:#7eb3db;
+  margin:5px;
+}
+.notice i:hover {
+  color:#26a69a;
+}
+.iconBar {
+  position:relative;
+  top:30px;
+  left:137px;
+  float:right;
 
+}
+.iconBar i{
+  font-size:1.5em;
+  color:#444;
+}
+.iconBar i:hover{
+  color:#7eb3db;
+}
 #search_re .note:hover a {
   color: #fff;
 }

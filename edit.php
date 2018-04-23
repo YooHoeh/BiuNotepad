@@ -203,7 +203,7 @@
 			<textarea id="content" placeholder="在此输入......">
 				<?php
 					if (isset($_GET['id']) ) {
-						$arr = noteClass::idSarch($_GET['id']);
+						$arr = noteClass::idSearch($_GET['id']);
 						echo $arr[0]['content'];
 					}
 				

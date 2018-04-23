@@ -90,7 +90,7 @@
 			return $arr;
 		}
 		//id查找
-		public static function idSarch($id,$isdelete = 0){
+		public static function idSearch($id,$isdelete = 0){
 			$con = new connetMysqli();
 			$arr = array();
 			$sql = "select * from note where id like '%$id%' and isdelete = $isdelete";
