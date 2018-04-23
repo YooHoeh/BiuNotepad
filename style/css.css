@@ -289,17 +289,10 @@ body{
 	position: absolute;
 	padding:10px;
 	float:left;
-<<<<<<< HEAD
-	left:25%;
-	top:40px;
-	width:70%;
-	height:90%;
-=======
 	left:29%;
 	top:100px;
 	width:68%;
 	height:78%;
->>>>>>> 4b37f531ffda2ac4557f1656b7f33193712c44d8
 	resize:none;
 	border:5px groove #1170b4;
 	overflow:scroll;

@@ -11,16 +11,25 @@
  */
 
 
- 
-// include './include/common.php';
-// require 'index.func.php';
+
+include './include/common.php';
+require './include/index.func.php';
+
+session_start();
 if ('updata' == $_GET['action']) {
-	$psd = _fetch_array ( "select $name from $table where $userID = '{$_COOKIE['userID']}'" )[$name];
-	$newpsd = check_password ( $_POST ['newpsd'], 6 );
-	if (sha1 ( $_POST ['oldpsd'] ) == $psd) {
-		_query ( "update $table set $name = '$newpsd' where $userID = '{$_COOKIE['userID']}'" );
-		alert_back ( '密码修改成功' );
-	}
+    $psd = _fetch_array("select $name from $table where $userID = '{$_COOKIE['userID']}'")[$name];
+    $newpsd = check_password($_POST['newpsd'], 6);
+    if (sha1($_POST['oldpsd']) == $psd) {
+        _query("update $table set $name = '$newpsd' where $userID = '{$_COOKIE['userID']}'");
+        alert_back('密码修改成功');
+    }
+}
+print_r($_SESSION);
+if (isset($_SESSION['userid'])) {
+    
+    echo $_SESSION['userid'];
+} else {
+    echo '嘛也没有';
 }
 
 ?>
@@ -62,7 +71,7 @@ if ('updata' == $_GET['action']) {
         <div class="layui-form-item">
             <label class="layui-form-label">创建时间:</label>
             <div class="layui-input-inline">
-                <input type="password" name="password" required lay-verify="required" placeholder="" autocomplete="off" class="layui-input" disabled="disabled">
+                <input type="password" name="password" placeholder="" autocomplete="off" class="layui-input" disabled="disabled">
             </div>
         </div>
         

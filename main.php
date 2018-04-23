@@ -131,6 +131,7 @@
                 <hr>
                 <div id="search_re">
                     <?php
+                    $icon = "<div class='iconBar'><i class='fa fa-star-o'></i><i class='fa fa-bell-o'></i><i class='fa fa-trash-o'></i></div>";
                 //循环生成笔记和笔记本
                   //控制显示何种笔记和笔记本
                   if (1 != $_GET['delete'] && null == $_GET['mark']) {
@@ -141,7 +142,7 @@
                               echo "<div class='notebook'>".$arr['bookName'];
                               //输出$arr['bookName'];
                               foreach ($arr_note as $arr1) {
-                                  echo "<div class='note'><a href='edit.php?id=".$arr1['id']."'>".$arr1['content'].'</a><p>'.$arr1['createTime'].'</p></div>';
+                                  echo "<div class='note'><a href='edit.php?id=".$arr1['id']."'>".$arr1['content'].'</a><span>'.$arr1['createTime'].'</span>'.$icon.'</div>';
                                   // 输出$arr1['content'];
                               }
                               echo '</div>';
@@ -163,7 +164,7 @@
                                   echo "<div class='note'><a href=''>".$arr['content'].'</a><p>'.$arr['createTime'].'</p></div>';
                               }
                           }else {
-                            echo "<p  class='notice' >搜索笔记为空</p>";
+                            echo "<p  class='notice' >搜索笔记为空</p><p class='notice'><a href='edit.php'><i class='fa fa-plus-circle'></i></a></p>";
                         }
                           
                       }
