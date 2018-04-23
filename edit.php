@@ -27,7 +27,7 @@
 
 	</head>
 	<body>
-		<div class="navbar">
+		<div class="navbaraa">
     		<div class="title">Biu笔记本</div>
    		 	<div class="middle-box">
       			<div class="line"></div>
@@ -179,6 +179,7 @@
                 <?php
                 if ($_GET['newlabel']!=null){
                     new labelClass(4,$_GET['newlabel']);
+                    echo  "121321";
                 }
                 $arr_mark = labelClass::fristSearch(4);
                 $num = 0;
@@ -194,19 +195,11 @@
 
 			</select>
 			<br><span>新标签:</span>
-<<<<<<< HEAD
                 <form method="get" action="edit.php">
                     <input type="text" name="newlabel" placeholder="新标题" id="label">
                     <br><input class="button" value="Add" type="submit">
                 </form>
             </div>
-=======
-				<form method="get" action="edit.php">
-                    <input type="text" name="newlabel" placeholder="新标题" id="label">
-                    <br><input class="button" value="Add" type="submit">
-                </form>
-			</div>
->>>>>>> 742f98d6ac7088ffe6b2e32062f41ecf4b3efa3f
 			</div>
 			<div class="hr">
 			</div>
