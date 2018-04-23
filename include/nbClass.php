@@ -4,7 +4,7 @@
 		
 		public function __construct($userid,$bookName,$isStart = 0){
 			$con = new connetMysqli();
-			$sql = "insert into notebook (userid,bookName,isStart) values($userid,$bookName,$isStart)";
+			$sql = "insert into notebook (userid,bookName,isStart) values($userid,'$bookName',$isStart)";
 			$con->runSQL($sql);
 			$con->closeLink();
 		}

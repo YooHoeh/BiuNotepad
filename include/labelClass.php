@@ -14,7 +14,7 @@
 			$this->markName = $markName;
 			$this->isStart = $isStart;
 			$con = new connetMysqli();
-			$sql = "insert into mark (userid,markName,isStart) values($userid,$markName,$isStart)";
+			$sql = "insert into mark (userid,markName,isStart) values($userid,'$markName',$isStart)";
 			$con->runSQL($sql);
 			$con->closeLink();
 		}

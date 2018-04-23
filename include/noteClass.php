@@ -12,7 +12,7 @@
 			$this->content = $content;
 			$this->notebookid = $notebookid;
 			$con = new connetMysqli();
-			$sql = "insert into note (userid,content,notebookid) values($userid,$content,$notebookid)";
+			$sql = "insert into note (userid,content,notebookid) values($userid,'$content',$notebookid)";
 			$con->runSQL($sql);
 			$con->closeLink();
 		}
