@@ -39,7 +39,7 @@ $(function () {
         $('.register').fadeOut('400');
         $(".class5").css({
             'transform': 'rotate(0) translate(-50%,-50%)',
-			'z-index': 999,
+            'z-index': 999,
             'top': '50%',
             'left': '50%',
             'box-shadow': ' 0 0 100px  #999'
@@ -55,7 +55,7 @@ $(function () {
     $(".class5 .tab").click(function () {
         if ($('.register').css('display') == 'none') {
             $(".class5").css({ "transform": "translate(-50%,-50%)", "height": "330px" });
-		  $('.register').fadeIn('400');
+            $('.register').fadeIn('400');
             $('.login').fadeOut('400');
             $('.tab').text("已有账户？点此登录>>>");
             return false;
@@ -69,7 +69,7 @@ $(function () {
     });
     //刷新验证码
     $('img.captcha').click(function () {
-    	var s = "include/captcha.php?tm="+Math.random();
+        var s = "include/captcha.php?tm="+Math.random();
         $('img.captcha').attr("src",s);
         rec();
     });
@@ -94,9 +94,9 @@ $(function () {
 
 // 显示文字通知
 function alarm(str) {
- 	var tip =$(".notice");
-	if (tip.css("display") == "block") {
-	return false;
+   var tip =$(".notice");
+   if (tip.css("display") == "block") {
+    return false;
    }
    tip.fadeIn('1000')
    .children().text(str);
@@ -105,4 +105,5 @@ function alarm(str) {
 }
 function alarmDiv(str) {
     document.write(str);
+    alert(str);
 }

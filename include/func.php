@@ -16,7 +16,7 @@ function _login_state() {
 		_location("您已登陆", "main.php");
 	}else{
 		echo $_COOKIE['userID'];
-		print_r($_COOKIE);
+		// print_r($_COOKIE);
 	}
 }
 

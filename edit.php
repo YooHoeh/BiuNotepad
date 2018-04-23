@@ -1,4 +1,5 @@
 <?php 
+	require "./include/database.php";
 	require "./include/labelClass.php";
 	require "./include/nbClass.php";
 	require "./include/noteClass.php";
@@ -56,7 +57,7 @@
   		</div>
 		<div class="edit">
 
-			<fieldset class="active" style="overflow: visible;">
+			<div class="active" style="overflow: visible;">
 				<div class="note01">笔记薄</div>
 				<div class="notebook" style="overflow: auto;height: 400px;">
 					<div class="panel-group" id="accordion">
@@ -102,7 +103,7 @@
 		  		?>
 				</div>
 				</div>
-			</fieldset>
+			</div>
 
 			<div class="function">
 				<div class="icon1">
@@ -144,7 +145,7 @@
 				<div class="icon1">
 					<i class="fa fa-table fa-lg"></i>
 				</div>
-				<div>
+				<div class="affix01">
 					<select class="affix">
 						<option value="font">字体类型</option>
 						<option value="font1" id="font01">宋体</option>                                                                   
@@ -153,7 +154,7 @@
 					</select>
 				</div>
 			
-				<div>
+				<div class="affix01">
 					<select class="affix">
 						<option value="size">字体大小</option>
 						<option value="14" id="size01">small</option>
@@ -172,7 +173,7 @@
 			</div>
 		
         	<div class="label">
-            <fieldset>
+            <div>
             <select id="newopt">
 
                 <?php
@@ -193,17 +194,33 @@
 
 			</select>
 			<br><span>新标签:</span>
+<<<<<<< HEAD
                 <form method="get" action="edit.php">
                     <input type="text" name="newlabel" placeholder="新标题" id="label">
                     <br><input class="button" value="Add" type="submit">
                 </form>
             </div>
+=======
+				<form method="get" action="edit.php">
+                    <input type="text" name="newlabel" placeholder="新标题" id="label">
+                    <br><input class="button" value="Add" type="submit">
+                </form>
+			</div>
+>>>>>>> 742f98d6ac7088ffe6b2e32062f41ecf4b3efa3f
 			</div>
 			<div class="hr">
 			</div>
 			<span class="title11"><b>标题:</b>
 			<input type="text" name="title" placeholder="在此输入标题"></input></span>
-			<textarea id="content" placeholder="在此输入......"></textarea>
+			<textarea id="content" placeholder="在此输入......">
+				<?php
+					if (isset($_GET['id']) ) {
+						$arr = noteClass::idSarch($_GET['id']);
+						echo $arr[0]['content'];
+					}
+				
+				?>
+			</textarea>
 			
         </div>
         <div class="comment">

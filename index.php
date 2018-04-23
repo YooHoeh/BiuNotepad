@@ -101,7 +101,7 @@ if (@$_GET ['action'] == 'register') {
         </dd>
         <dd>
           密 &nbsp 码:
-          <input type="text" name='psk' placeholder="请输入密码">
+          <input type="password" name='psk' placeholder="请输入密码">
         </dd>
         <dd>
           验证码:

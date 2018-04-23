@@ -1,5 +1,4 @@
 <?php
-	include_once "database.php";
 	header('content-type:text/html;charset=utf-8');
 	class noteClass{
 		private $userid;
@@ -86,6 +85,15 @@
 			$con = new connetMysqli();
 			$arr = array();
 			$sql = "select * from note where userid = $userid and content like '%$str%' and isdelete = $isdelete";
+			$arr = $con->getAll($sql);
+			$con->closeLink();
+			return $arr;
+		}
+		//id查找
+		public static function idSarch($id,$isdelete = 0){
+			$con = new connetMysqli();
+			$arr = array();
+			$sql = "select * from note where id like '%$id%' and isdelete = $isdelete";
 			$arr = $con->getAll($sql);
 			$con->closeLink();
 			return $arr;

@@ -1,5 +1,4 @@
 <?php
-	include_once "database.php";
 	header('content-type:text/html;charset=utf-8');
 	class labelClass{
 		private $id;

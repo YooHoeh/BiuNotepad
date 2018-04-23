@@ -29,7 +29,7 @@ function _setcookies($_username, $status, $_time=0) {
 			setcookie('status', $status, time() + 604800, $_path);
 			break;
 		default:
-			echo 11111111111111111111111;
+			echo "参数异常";
 	}
 }
 
@@ -117,7 +117,7 @@ function check_email($string) {
 	$string = trim ( $string );
 	if (! preg_match ( '/^[\w\-\.]+@[\w\-\.]+(\.\w+)+$/', $string )) {
 		echo $string;
-		// alert_back ( '邮箱格式不正确' );
+		alert_back ( '邮箱格式不正确' );
 	}
 	return $string ;
 }

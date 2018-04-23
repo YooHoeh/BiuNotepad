@@ -794,8 +794,8 @@
 				emoji.init();
 				createButton(config);
 
-				//发送一条消息，为了确保有会话，实际使用时请删除
-				sendTextMessage(instance);
+				// 发送一条消息，为了确保有会话，实际使用时请删除
+				// sendTextMessage(instance);
 			},
 			getCurrentUser: function(userId){
 				showInfo(userId);

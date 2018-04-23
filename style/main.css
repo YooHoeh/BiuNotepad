@@ -1,6 +1,6 @@
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", 'Roboto', sans-serif;
-  background: url("../img/bg.jpg") no-repeat fixed center;
+  background: url("../images/bg.jpg") no-repeat fixed center;
   -webkit-background-size: cover;
   background-size: cover;
   /* overflow-y:hidden; */
@@ -48,13 +48,16 @@ hr {
   top: 5px;
   padding: 5px;
 }
+
 .user h2 {
   font-size: 20px;
   display: inline;
 }
+
 .user-set i {
   margin-right: 10px;
 }
+
 .user-set a {
   /* position: relative; */
   color: #fff;
@@ -62,18 +65,23 @@ hr {
   top: 5px;
   /* width: 100px; */
 }
+
 .user-set a:hover {
   color: #000;
 }
-.user-set a:hover i{
+
+.user-set a:hover i {
   color: #000;
 }
+
 .user:hover div.user-set {
   display: block;
 }
+
 .user:hover h2 {
   display: none;
 }
+
 .user .user-set {
   top: 8px;
   display: none;
@@ -172,6 +180,44 @@ hr {
   color: white;
 }
 
+.hideNav {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 9%;
+  background-color: #0096f9;
+  font-size: 100%;
+  line-height: 100%;
+  box-shadow: 0px -1px 2px #000;
+  overflow: hidden;
+  z-index: 999999999999999999999;
+  display: none;
+}
+
+.hideNav i {
+  line-height: 100%;
+  height: 100%;
+  width: 20%;
+  font-size: 2.4em;
+  color: #fff;
+  /* padding-top:10px;  */
+  /* margin: 0 3.8%;  */
+}
+
+.hideNav i:hover {
+  /* color: #7db2da; */
+  /* border: 1px solid #07304e; */
+  background-color: #1485d5;
+}
+
+.hideNav i p {
+  font-size: .5em;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
 .contact-tooltip i {
   padding: 5px;
 }
@@ -183,32 +229,39 @@ hr {
 
 .navbar .search {
   position: absolute;
-  top: 9px;
+  top: 12px;
   right: 15%;
   margin: 4px;
-  width: 8%;
+  /* max-width: 20%; */
   height: 30px;
-  border: 1px solid #26a69a;
+  /* border: 1px solid #26a69a; */
   border-radius: 30px;
   background-color: #fff;
 }
 
 .search input[type="text"] {
-  margin-left: 15px;
-  width: 60%;
+  /* border: 1px solid #26a69a; */
+  border-radius: 30px;
+  margin-right: 40px;
+  text-indent: 8px;
+  float: right;
+  width: 80%;
   height: 100%;
   border: none;
   font-size: 15px;
+  transition: width .6s;
 }
 
 .search input:focus {
-  width: 80%;
+  width: 120%;
 }
 
 .search i {
   font-size: 25px;
   position: absolute;
-  right: 5%;
+  display: inline;
+  float: right;
+  right: 5px;
   height: 80%;
   color: #1485d5;
 }
@@ -298,24 +351,10 @@ hr {
   visibility: visible;
 }
 
-.done-hide {
-  background: #26a69a;
-  z-index: 4;
-  bottom: 14px;
-  right: 14px;
-  visibility: hidden;
-}
-
 .done-show i {
   margin-top: 9px;
   font-size: 24px;
   color: #7eb3db;
-}
-
-.done-hide i {
-  margin-top: 9px;
-  font-size: 24px;
-  color: white;
 }
 
 .done-show:hover {
@@ -348,19 +387,6 @@ hr {
   font-size: 24px;
 }
 
-ul.todo-list {
-  list-style-type: none;
-  margin-left: -40px;
-}
-
-ul.todo-list:empty:after {
-  content: "当前为空";
-  font-size: 12px;
-  text-align: center;
-  display: block;
-  margin: 18px 0 0 0;
-}
-
 .main-container ul li {
   padding: 14.5px 30px;
   font-size: 14px;
@@ -390,12 +416,6 @@ li .btn:hover>i {
   transition: 0.2s ease-in-out;
 }
 
-ul.todo-list li:hover {
-  background: #f3f3f3;
-  -webkit-transition: 0.2s ease-in-out;
-  transition: 0.2s ease-in-out;
-}
-
 .card-header input {
   font-size: inherit;
   border: none;
@@ -411,22 +431,6 @@ input:focus {
 
 input:disabled {
   background: none;
-}
-
-.done-list {
-  padding-top: 16px;
-  text-align: left;
-  list-style-type: none;
-  display: none;
-}
-
-.done-list li {
-  margin-left: -40px;
-  color: #aaa;
-}
-
-.done-list li a i {
-  color: #aaa;
 }
 
 .list-date:hover {
@@ -453,7 +457,7 @@ input:disabled {
 }
 
 textarea {
-  height: inherit;
+  height: 100%;
   width: 100%;
   border: none;
   resize: none;
@@ -490,11 +494,148 @@ textarea:focus {
   height: 90%;
 }
 
-/*
+.userView {
+  position: absolute;
+  top: 30%;
+  left: 32%;
+  transform: translate(-50%, -50%);
+  /* border-radius: 5%; */
+  width: 35%;
+  height: 43%;
+  box-shadow: #8DB6CD 0px 0px 500000px;
+  z-index: 99999999999999999999999999999999999;
+  display: none;
+}
 
-    #############      动画      ###############
+.userView iframe {
+  width: 100%;
+  /* border-radius: 5%; */
+  height: 100%;
+}
 
-*/
+.userView .close {
+  position: absolute;
+  right: -25px;
+  top: -25px;
+  width: 50px;
+  height: 50px;
+  background: silver;
+  border-radius: 25px;
+  box-shadow: 2px 2px 5px 0px black;
+  cursor: pointer;
+}
+
+.userView .close:hover {
+  background: #1274bb;
+}
+
+.userView .close:before {
+  position: absolute;
+  content: '';
+  width: 30px;
+  height: 10px;
+  background: white;
+  transform: rotate(45deg);
+  top: 20px;
+  left: 10px;
+}
+
+.userView .close:after {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 10px;
+  background: white;
+  transform: rotate(-45deg);
+  top: 20px;
+  left: 10px;
+}
+
+#search_re {
+  height: 90%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  /* background-color:#999; */
+}
+
+#search_re .notebook {
+  /* padding-left: 10px; */
+  text-indent: 8px;
+  /* margin-bottom: 50px; */
+  margin: 3px auto 50px;
+  padding-bottom: 15px;
+  /* line-height: 30px; */
+  width: 97%;
+  background-color: #C6E2FF;
+  font-size: 1.7em;
+  box-shadow: 0px 0px 15px #000;
+}
+
+#search_re .note {
+  background-color: seashell;
+  width: 95%;
+  margin: 5px auto;
+  text-indent: 10px;
+  padding: 5px;
+  font-size: 15px;
+  height: 3em;
+}
+
+#search_re .note:hover {
+  background: #26a69a;
+  box-shadow: 0px 0px 3px #000;
+}
+
+.note p {
+  color: #999;
+  float: right;
+  margin-bottom: 15px;
+  /* position: relative; */
+  /* left: 20em; */
+}
+
+#search_re .note:hover a {
+  color: #fff;
+}
+
+#search_re .notice {
+  position: relative;
+  text-align: center;
+  top: 40%;
+  font-weight: bold;
+  font-size: 2em;
+  color: #999;
+}
+
+/* #############      动画      ############### */
+
+@keyframes uptoremove {
+  0% {
+    top: 50%;
+    left: 50%;
+    opacity: 0.8;
+  }
+  30% {
+    top: 20%;
+    left: 50%;
+    opacity: 0.6;
+  }
+  60% {
+    top: -10%;
+    left: 50%;
+    opacity: .3;
+  }
+  90% {
+    top: -40%;
+    left: 50%;
+    opacity: .2;
+  }
+  100% {
+    top: -40%;
+    left: 50%;
+    opacity: .1;
+  }
+}
 
 @-webkit-keyframes lendab {
   0% {
@@ -518,16 +659,43 @@ textarea:focus {
   }
 }
 
-/*
+/* #############     响应式      ############### */
 
-    #############     响应式      ###############
-
-*/
-
-@media screen and (max-width: 1550px) {
+@media screen and (max-width: 1550px) and (min-width:1324px) {
+  body {
+    height: 100%;
+  }
+  .main-container {
+    /* bottom: 4%; */
+    /* margin-top: -2%; */
+    height: 86%;
+  }
   .card {
-    width: 40%;
+    width: 35%;
+    /* height: 50%; */
+  }
+  .todo {
+    left: 15%;
+    height: 90%;
+  }
+  .clender {
+    display: none;
+    /* right: 15%; */
+  }
+  #clender .layui-laydate-main {
+    max-width: 100%;
+    width: 100%;
+    height: 85%;
+  }
+  .tags {
+    width: 33%;
     height: 50%;
+    bottom: 9.3%;
+    right: 15%;
+  }
+  .notes {
+    height: 36%;
+    width: 33%;
   }
   ul {
     max-height: 238px;
@@ -551,14 +719,44 @@ textarea:focus {
   li .btn {
     right: 12px;
   }
+  #search_re {
+    height: 89%;
+  }
 }
 
 @media screen and (max-width: 1324px) and (min-width: 1124px) {
-  bady {
-    overflow-y: scroll;
+  html,
+  body {
+    /* height: 100%; */
+    overflow-y: hidden;
+  }
+  .main-container {
+    /* height: 80%; */
   }
   .card {
-    height: 40%;
+    height: 42%;
+  }
+  .todo {
+    width: 43%;
+  }
+  /* .tags, */
+  .clender {
+    top: 0;
+    width: 26%;
+    height: 41%;
+  }
+  .tags {
+    bottom: 15%;
+    width: 34.6%;
+    left: 15%;
+  }
+  .notes {
+    bottom: 15%;
+  }
+  .layui-laydate-main {
+    width: 100%;
+    border: none;
+    height: 99%;
   }
   ul {
     max-height: 197px;
@@ -597,38 +795,48 @@ textarea:focus {
   textarea:focus {
     font-size: 14px;
   }
+  #search_re {
+    height: 83%;
+  }
 }
 
 @media screen and (max-width: 1124px) {
-  bady {
+  .layui-container {
+    padding: 0;
+  }
+  html,
+  body {
+    width: 100%;
+    height: 100%;
     overflow-y: scroll;
   }
   .main-container {
-    margin-top: 15%;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    margin: 0;
+    border: none;
   }
-  .card-header input {
-    width: 200px;
-  }
-  .search {
-    position: relative;
-    top: -100%;
-    margin-top: -100px;
-    left: 50%;
-  }
-  .card {
-    position: relative;
-    left: 45%;
-    margin-left: -150px;
-    margin-top: 14px;
-    top: 10%;
-  }
+  .card,
+  .notes,
+  .clender,
+  .tags,
   .todo {
-    height: 470px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 91%;
+    border: none;
   }
-  .tags {}
-  .notes {
-    /* display: none; */
+  .hideNav {
+    display: block;
   }
+  #rcs-app,
+  .navbar,
+  .todo,
+  .clender,
+  .tags,
+  .notes,
   .user,
   .contact,
   .search,
