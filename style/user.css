@@ -49,3 +49,10 @@ input {
     border: none;
     border-bottom: #fff;
 }
+label.layui-form-label{
+    font-weight: bold;
+}
+.pskform{
+    display: none;
+
+}

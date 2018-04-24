@@ -98,10 +98,12 @@
         </div>
 
         <div class="user">
-            <i class="fa fa-user"></i>
+            <i class="fa fa-user" ></i>
             <div class="user-set">
                 <a class="openuser">
-                    <i class="fa fa-cog"></i>个人中心</a>
+                    <i class="fa fa-address-card"></i>个人中心</a>
+                <a class="openpsk">
+                    <i class="fa fa-cog"></i>密码修改</a>
                 <a href='index.php'>
                     <i class="fa fa-sign-out"></i>注销账户</a>
             </div>
@@ -109,7 +111,7 @@
         </div>
     </div>
     <div class="userView layui-anim layui-anim-up ">
-        <iframe src="user.php" frameborder="0"></iframe>
+        <iframe  frameborder="0"></iframe>
         <div class="close"></div>
 
     </div>
@@ -198,7 +200,7 @@
                   ?>
                 </div>
 
-                <a class="btn-circle done-show" id="doneShow" onclick="doneListShow()">
+                <a class="btn-circle done-show" id="doneShow" onclick="_onclickDe()">
                     <span class="tooltip">废纸篓</span>
                     <i id="doneShowIcon" class="fa fa-trash"></i>
                 </a>
@@ -220,15 +222,6 @@
           }
 
             ?>
-                    <!-- <a href="#" target="_blank">起名取名</a>
-            <a href="#" target="_blank">宣传策划</a>
-            <a href="#" target="_blank">网游试玩</a>
-            <a href="#" target="_blank">宣传设计</a>
-            <a href="#" target="_blank">配音配词</a>
-            <a href="#" target="_blank">产品推广</a>
-            <a href="#" target="_blank">网络营销</a>
-            <a href="#" target="_blank">影视创作</a>
-            <a href="#" target="_blank">照片美化</a> -->
 
             </div>
 
