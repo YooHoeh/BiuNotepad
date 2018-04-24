@@ -89,6 +89,14 @@
 			$con->closeLink();
 			return $arr;
 		}
+        //检查笔记本是否存在
+        public static  function nbexist($userid,$bookName){
+            $con = new connetMysqli();
+            $sql = "select id from notebook where bookName = '$bookName'";
+            $str = $con->getRow($sql);
+            $con->closeLink();
+            return $str;
+        }
 	}
 	
 	//new nbClass(4,"234");

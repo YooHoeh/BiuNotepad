@@ -85,6 +85,14 @@
             $con->closeLink();
             return $arr;
         }
+        //检查标签是否存在
+        public static  function markexist($userid,$mark){
+            $con = new connetMysqli();
+            $sql = "select id from mark where markName = '$mark'";
+            $str = $con->getRow($sql);
+            $con->closeLink();
+            return $str;
+        }
 	}
 
 //$a3 = new labelClass(4,'234567');

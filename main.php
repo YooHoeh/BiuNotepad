@@ -132,7 +132,7 @@
                         <i class="fa fa-list-ul"></i>
                     </a>
                     <input id="new-item" type="text" disabled placeholder="笔记">
-                    <a class="btn-circle" id="btn-add" href="edit.php">
+                    <a class="btn-circle" id="btn-add" href="include/edit.php">
                         <span class="tooltip">添加笔记</span>
                         <i id="plus" class="fa fa-plus"></i>
                     </a>
@@ -169,6 +169,7 @@
                           $arr_nb = nbClass::Search($_SESSION['userid'], $_GET['search_text']);
                           $arr_note = noteClass::Search($_SESSION['userid'], $_GET['search_text']);
                           if (null != $arr_nb) {
+
                               echo "<div  class='notebook'>笔记本</div>";
                               foreach ($arr_nb as $arr) {
                                   echo "<div class='note'><a href=''>".$arr['bookName'].'</a></div>';
@@ -176,7 +177,7 @@
                           }else {
                             echo "<p  class='notice' >搜索笔记本为空</p>";
                           }
-                          if (null != $arr_note) {
+                          if ($arr_note != null) {
                               echo "<div class='notebook'>笔记</div>";
                               foreach ($arr_note as $arr) {
                                   echo "<div class='note'><a href=''>".$arr['content'].'</a><span>'.$arr['createTime'].'</span>'.$icon.'</div>';
