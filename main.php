@@ -138,9 +138,9 @@
                   //控制显示何种笔记和笔记本
                   if (1 != $_GET['delete'] && null == $_GET['mark']) {
                       if (null == $_GET['search_text']) {//不执行搜索---默认显示方式
-                          $arr_nb = nbClass::fristSearch(4);
+                          $arr_nb = nbClass::fristSearch($_SESSION['userid']);
                           foreach ($arr_nb as $arr) {
-                              $arr_note = noteClass::notebookFristSearch(4, $arr['id']);
+                              $arr_note = noteClass::notebookFristSearch($_SESSION['userid'], $arr['id']);
                               echo "<div class='notebook'>".$arr['bookName'];
                               //输出$arr['bookName'];
                               foreach ($arr_note as $arr1) {
@@ -150,8 +150,8 @@
                               echo '</div>';
                           }
                       } else {//执行搜索--模糊查询结果
-                          $arr_nb = nbClass::Search(4, $_GET['search_text']);
-                          $arr_note = noteClass::Search(4, $_GET['search_text']);
+                          $arr_nb = nbClass::Search($_SESSION['userid'], $_GET['search_text']);
+                          $arr_note = noteClass::Search($_SESSION['userid'], $_GET['search_text']);
                           if (null != $arr_nb) {
                               echo "<div  class='notebook'>笔记本</div>";
                               foreach ($arr_nb as $arr) {
@@ -171,8 +171,8 @@
                           
                       }
                   } else if (1 == $_GET['delete'] && null == $_GET['mark']) {//查看废纸篓
-                      $arr_nb = nbClass::Search(4, $_GET['search_text'], 1);
-                      $arr_note = noteClass::Search(4, $_GET['search_text'], 1);
+                      $arr_nb = nbClass::Search($_SESSION['userid'], $_GET['search_text'], 1);
+                      $arr_note = noteClass::Search($_SESSION['userid'], $_GET['search_text'], 1);
                       if (null != $arr_nb) {
                           echo "<div class='notebook'>笔记本</div>";
                           foreach ($arr_nb as $arr) {
@@ -184,10 +184,12 @@
                           foreach ($arr_note as $arr) {
                               echo "<div class='note'><a href=''>".$arr['content'].'</a><p>'.$arr['createTime'].'</p></div>';
                           }
+                      }else {
+                        echo "<p  class='notice' >废纸篓笔记为空</p>";
                       }
                   } else if (null != $_GET['mark']) {//用标签搜索
                       $arr_nb;
-                      $arr_note = labelClass::markSearch(4, $_GET['mark']);
+                      $arr_note = labelClass::markSearch($_SESSION['userid'], $_GET['mark']);
                       if (null != $arr_note) {
                           echo "<div class='notebook'>笔记</div>";
                           foreach ($arr_note as $arr) {
@@ -215,7 +217,7 @@
             <div class="card tags layui-anim layui-anim-upbit ">
                 <?php
           $num = 0;
-          $arr_mark = labelClass::fristSearch(4);
+          $arr_mark = labelClass::fristSearch($_SESSION['userid']);
           foreach ($arr_mark as $arr1) {
               echo ' <a href=""  id="mark'.$num.'" onclick="markSearch(\'mark'.$num.'\')">'.$arr1['markName'].'</a>';
               ++$num;
@@ -303,10 +305,6 @@
         });
     })()
 
-</script>
-
-
-<script type="text/javascript">
 
     function _onclick() {
         var a = document.getElementById("search_text").value;

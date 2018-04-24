@@ -33,6 +33,7 @@ window.onload = function () {
     setInterval(update, 30);
     refreshNavBGC();
     userSet();
+    iconBarSrcSet();
 
     // console.log(card.length);
     // console.log(icon.length);
@@ -113,7 +114,10 @@ function userSet() {
 }
 function iconBarSrcSet() { 
     var bar =  document.getElementsByClassName('iconBar');
-    var a = bar.parentNode.getElementsByTagName('a')[0];
-    var id = a.getAttribute('src').subString(11);
-    
+    for(let i=0; i<bar.length;i++){
+
+    var a = bar[i].parentNode.getElementsByTagName('a')[0];
+    var id = a.getAttribute('href').substring(12);
+    bar[i].setAttribute("noteid",id);    
+    }
  }
