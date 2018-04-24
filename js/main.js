@@ -115,4 +115,5 @@ function iconBarSrcSet() {
     var bar =  document.getElementsByClassName('iconBar');
     var a = bar.parentNode.getElementsByTagName('a')[0];
     var id = a.getAttribute('src').subString(11);
+    
  }

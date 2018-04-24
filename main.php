@@ -170,7 +170,7 @@
                         }
                           
                       }
-                  } elseif (1 == $_GET['delete'] && null == $_GET['mark']) {//查看废纸篓
+                  } else if (1 == $_GET['delete'] && null == $_GET['mark']) {//查看废纸篓
                       $arr_nb = nbClass::Search(4, $_GET['search_text'], 1);
                       $arr_note = noteClass::Search(4, $_GET['search_text'], 1);
                       if (null != $arr_nb) {
@@ -185,7 +185,7 @@
                               echo "<div class='note'><a href=''>".$arr['content'].'</a><p>'.$arr['createTime'].'</p></div>';
                           }
                       }
-                  } elseif (null != $_GET['mark']) {//用标签搜索
+                  } else if (null != $_GET['mark']) {//用标签搜索
                       $arr_nb;
                       $arr_note = labelClass::markSearch(4, $_GET['mark']);
                       if (null != $arr_note) {
@@ -200,7 +200,7 @@
                   ?>
                 </div>
 
-                <a class="btn-circle done-show" id="doneShow" onclick="_onclickDe()">
+                <a href="" class="btn-circle done-show" id="doneShow" onclick="_onclickDe()">
                     <span class="tooltip">废纸篓</span>
                     <i id="doneShowIcon" class="fa fa-trash"></i>
                 </a>
