@@ -94,6 +94,7 @@ body{
 .link i{
 	padding:10px;
 	color:"white";
+	font-size: 30px;
 }
 .edit .function{
 	position:relative;
@@ -114,7 +115,10 @@ body{
 	width:3%;
 	height: 60%;
 	text-align: center;
-	color:#79aed5;
+	color:#1170b4;
+}
+.function .affix{
+	margin:4px;
 }
 .function select{
 	position: relative;
@@ -122,25 +126,20 @@ body{
 	top:-2px;
 	padding:0;
 	width:10%;
-	height: 70%;
+	height: 90%;
 	text-align: center;
 }
-.save i{
+.function .save{
 	position:absolute;
 	float: left;
-	left:10%;
-	padding: 15px;
-	width:94px;
-	padding:5px;
-	margin:0;
-	height: 33px;
-	line-height: 25px;
+	left:93%;
+	margin-top:10%;
 	text-align: center;
-	color:#1170b4;
+	color: #1170b4;
 	background-color: #F8F8F8;
 }
 .edit .hr{
-	margin-top: 28px;
+	margin-top: 3%;
 	float:right;
 	right:22%;
     width: 73%;
@@ -150,11 +149,12 @@ body{
 	position: relative;
     /*float: left;*/
     left:50%;
-	top:90px;
+	top:13%;
 	transform: translate(-50%,-0);
 	width: 78%;
-	height:90%;
+	height:75%;
 	background-color: #F8F8F8;
+	border-radius: 10px;
 	box-shadow: 1px 1px 5px 5px #1170b4;
 	text-align:center;
 	/*overflow:hidden;*/
@@ -164,7 +164,7 @@ body{
 	left:3%;
 	top:26px;
 	width:23%;
-	height:70%;
+	height:48%;
 	box-shadow: 5px 5px 3px #79aed5;
 	border: 2px solid #1170b4;
 	overflow:scroll;
@@ -185,59 +185,58 @@ body{
 	font-size:25px;
 	padding:10px;
 }
-.edit .label{
+.edit .note02{
 	position: absolute;
 	padding:5px;
 	float:left;
 	left:3%;
-	bottom: 4%;
+	bottom: 25%;
 	width:23%;
 	height:19%;
 	box-shadow: 5px 5px 3px #79aed5;
-	border-radius: 20px;
-	border: 1px solid #1170b4;
+	border: 2px solid #1170b4;
 }
-.label select{
-	position: absolute;
+.note02 select{
+	position: relative;
 	padding:0;
-	left:15%;
+	left:2%;
 	width:72%;
-	height:20%;
-	font-family:'Work Sans', sans-serif,;
+	height:25%;
+	font-family:'Work Sans', sans-serif;
 	color: #000000;
 	font-size:15px;
 }
-.label span{
-	position: absolute;
+.note02 span{
+	position: relative;
 	float:left;
-	left:8%;
-	margin:20px;
-	font-family:'Work Sans', sans-serif,;
+	left:23%;
+	margin-top:3%;
+	font-family:'Work Sans', sans-serif;
 	color: #000000;
 	font-size:15px;
 }
-.label input[type="text"]{
-	position: absolute;
+.note02 input[type="text"]{
+	position: relative;
 	float:left;
-	left:32%;
-	margin:20px;
+	left:25%;
+	margin-top:4%;
 	border-style:solid;
 	border-width:medium;
 	border:0;
 	border-bottom:2px solid black;
-	font-family:'Work Sans', sans-serif,;
+	font-family:'Work Sans', sans-serif;
 	color: #000000;
 	width:40%;
 	height:20%;
 }
-.label .button {
-	position: absolute;
+.note02 .notebutton {
+	position: relative;
 	float:left;
-	left:35%;
-	top:60px;
-	width: 30%;
-	height: 28%;
-	padding: 2px 2px;
+	left:-20%;
+	margin-top:7%;
+	width: 21%;
+	height: 30%;
+	padding:0;
     display: inline-block;
   	font-size: 24px;
   	cursor: pointer;
@@ -247,19 +246,89 @@ body{
   	color: #fff;
   	background-color: #79aed5;
   	border: none;
-  	border-radius: 12px;
+  	border-radius: 5px;
   	box-shadow: 2px 2px 5px #1170b4;
 }
-.button:hover {background-color: #1170b4}
-.button:active {
-  background-color: #00FFCC;
+.notebutton:hover {background-color: #1170b4}
+.notebutton:active {
+  background-color: #0000FF;
+  box-shadow: 2px 2px 5px #1170b4;
+  transform: translateY(4px);
+}
+.edit .label{
+	position: absolute;
+	padding:5px;
+	float:left;
+	left:3%;
+	bottom: 4%;
+	width:23%;
+	height:19%;
+	box-shadow: 5px 5px 3px #79aed5;
+	border: 2px solid #1170b4;
+}
+.label select{
+	position: relative;
+	padding:0;
+	left:2%;
+	width:72%;
+	height:20%;
+	font-family:'Work Sans', sans-serif;
+	color: #000000;
+	font-size:15px;
+}
+.label span{
+	position: relative;
+	float:left;
+	left:23%;
+	margin-top:5%;
+	font-family:'Work Sans', sans-serif;
+	color: #000000;
+	font-size:15px;
+}
+.label input[type="text"]{
+	position: relative;
+	float:left;
+	left:25%;
+	margin-top:5%;
+	border-style:solid;
+	border-width:medium;
+	border:0;
+	border-bottom:2px solid black;
+	font-family:'Work Sans', sans-serif;
+	color: #000000;
+	width:40%;
+	height:20%;
+}
+.label .labelbutton {
+	position: relative;
+	float:left;
+	left:-20%;
+	margin-top:10%;
+	width: 21%;
+	height: 30%;
+	padding: 1px 1px;
+    display: inline-block;
+  	font-size: 24px;
+  	cursor: pointer;
+  	text-align: center;   
+ 	text-decoration: none;
+  	outline: none;
+  	color: #fff;
+  	background-color: #79aed5;
+  	border: none;
+  	border-radius: 5px;
+  	box-shadow: 2px 2px 5px #1170b4;
+}
+.labelbutton:hover {background-color: #1170b4}
+.labelbutton:active {
+  background-color: #0000FF;
   box-shadow: 2px 2px 5px #1170b4;
   transform: translateY(4px);
 }
 .title11 input[type="text"]{
 	position: absolute;
 	left:60%;
-	margin:3px;
+	margin-top:6%; 
 	border-style:solid;
 	border-width:medium;
 	border:0;
@@ -271,8 +340,7 @@ body{
 .edit b{
 	position:absolute;
 	left:56%;
-	padding:5px;
-	margin:0;
+	margin-top:5.5%;
 	height:5%;
 	font-family:'Work Sans', sans-serif;
 	font-size:17px;
@@ -283,9 +351,9 @@ body{
 	padding:10px;
 	float:left;
 	left:29%;
-	top:100px;
+	margin-top: 8%;
 	width:68%;
-	height:78%;
+	height:77%;
 	resize:none;
 	border:5px groove #1170b4;
 	overflow:scroll;
@@ -302,7 +370,7 @@ body{
     /*float: left;*/
     left:50%;
     transform: translate(-50%,0);
-	top:100px;
+	margin-top:7%;
 	/*margin-top: 100px;*/
 	width: 78%;
 	height:7%;
@@ -357,9 +425,9 @@ a:hover{
 	}
 	.navbaraa {
 	  position: fixed;
-	  top:94%;
+	  top:92%;
 	  left: 0;
-	  height: 64px;
+	  height: 8%;
 	  width: 100%;
 	  background-color: #1170b4;
 	  color: #fff;
@@ -371,7 +439,7 @@ a:hover{
 	
 	.user {
 	  position: absolute;
-	  left: 15px;
+	  left: 25px;
 	  top: 5px;
 	  padding: 0;
 	}
@@ -404,14 +472,14 @@ a:hover{
 	  display: inline-block;
 	  text-align: center;
 	}
-	.navbar .link{
+	.navbaraa .link{
 		position:absolute;
 		margin: 5px;;
-		top: 7px;
+		top: -2px;
 		float:right;
-		right:10%;
-		width: 200px;
-		height: 35px;
+		right:0%;
+		width: 65%;
+		height: 50%;
 		text-align: center;
 		background-color: #1170b4;
 	}
@@ -431,7 +499,7 @@ a:hover{
 	}
 	.edit .function{
 		position:relative;
-		top:25px;
+		top:2%;
 		float: left;
 		left:0;
 		width:100%;
@@ -451,24 +519,24 @@ a:hover{
 		color:#1170b4;
 	}
 	.function .affix{
-		margin:3px;
+		margin:2px;
 	}
 	
 	.function select{
 		position: relative;
 		/*float:left;*/
-		top:-5px;
+		top:10%;
 		padding:0;
-		width:19%;
-		height: 100%;
+		width:21%;
+		height: 120%;
 		display: inline-block;
 		/*text-align: center;*/
 	}
 	.function .affix01{
 		position:relative;
 		/*float:right;*/
-		left:3%;
-		top:8px;
+		left:0;
+		top:31%;
 		padding:0;
 		height: 60%;
 		display:inline-block;
@@ -479,17 +547,13 @@ a:hover{
 		position:absolute;
 		float: left;
 		left:85%;
-		top:60px;
-		padding: 5px;
-		width:10%;
-		margin:0;
-		height: 90%;
+		margin-top: 10%;
 		text-align: center;
 		color:#1170b4;
 		background-color: #F8F8F8;
 	}
 	.edit .hr{
-		margin-top: 45px;
+		margin-top: -14%;
 		width: 100%;
 		border-bottom: 2px dashed grey;
 	}
@@ -509,40 +573,43 @@ a:hover{
 	.active{
 		display:none;
 	}
+	.edit .note02{
+	display:none;
+    }
 	.edit .label{
-		position:absolute;
-		padding:5px;
+		position: relative;
+		float:left;
 		left:10%;
-		bottom:3%;
+		bottom: -72%;
 		width:80%;
-		height:17%;
+		height:18%;
 		box-shadow: 5px 5px 3px #79aed5;
 		border: 2px solid #1170b4;
 	}
 	.label select{
-		position: absolute;
+		position: relative;
 		padding:0;
-		left:15%;
+		left:2%;
 		width:72%;
-		height:20%;
+		height:29%;
 		font-family:'Work Sans', sans-serif,;
 		color: #000000;
 		font-size:15px;
 	}
 	.label span{
-		position: absolute;
+		position: relative;
 		float:left;
-		left:12%;
-		margin:25px;
+		left:23%;
+		margin-top:3%;
 		font-family:'Work Sans', sans-serif,;
 		color: #000000;
 		font-size:15px;
 	}
 	.label input[type="text"]{
-		position: absolute;
+		position: relative;
 		float:left;
-		left:32%;
-		margin:20px;
+		left:25%;
+		margin-top:3%;
 		border-style:solid;
 		border-width:medium;
 		border:0;
@@ -553,13 +620,13 @@ a:hover{
 		height:20%;
 	}
 	.label .button {
-		position: absolute;
+		position: relative;
 		float:left;
-		left:35%;
-		top:70px;
-		width: 30%;
-		height: 28%;
-		padding: 2px 2px;
+		left:-20%;
+		margin-top:7%;
+		width: 21%;
+		height: 30%;
+		padding: 1px 1px;
 		display: inline-block;
 		  font-size: 24px;
 		  cursor: pointer;
@@ -569,7 +636,7 @@ a:hover{
 		  color: #fff;
 		  background-color: #79aed5;
 		  border: none;
-		  border-radius: 12px;
+		  border-radius: 5px;
 		  box-shadow: 2px 2px 5px #1170b4;
 	}
 	.button:hover {background-color: #1170b4}
@@ -580,9 +647,8 @@ a:hover{
 	}
 	.title11 input[type="text"]{
 		position: absolute;
-		left:45%;
-		margin:3px;
-		top:90px;
+		left:44%;
+		margin-top: 24%;
 		border-style:solid;
 		border-width:medium;
 		border:0;
@@ -593,11 +659,8 @@ a:hover{
 	}
 	.edit b{
 		position:absolute;
-		left:35%;
-		padding:5px;
-		top:85px;
-		margin:0;
-		height:5%;
+		left:30%;
+		margin-top: 23%;
 		font-family:'Work Sans', sans-serif;
 		font-size:17px;
 		text-align:center;
@@ -607,9 +670,9 @@ a:hover{
 		padding:10px;
 		float:left;
 		left:5%;
-		top:120px;
+		margin-top: 31%;
 		width:90%;
-		height:60%;
+		height:54%;
 		resize:none;
 		border:5px groove #1170b4;
 		overflow:scroll;
@@ -634,11 +697,11 @@ a:hover{
 	}
 	#test {
 		position: relative;
-		margin:-5px;
+		margin-top:0; 
 		float: right;
-		right:25%;
-		width: 35%;
-		max-width: 35%;
+		right:1%;
+		width: 39%;
+		max-width: 40%;
 		
 	}
 	#fileMutiply {
