@@ -342,4 +342,7 @@
         document.getElementById('search_a').href = "edit.php?search_text=" + a;
     }
 
+
+    
+
 </script>
