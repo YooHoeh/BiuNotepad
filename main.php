@@ -123,7 +123,7 @@
                         <i class="fa fa-window-maximize"></i>
                     </a>
                     <input id="new-item" type="text" disabled placeholder="笔记">
-                    <a class="btn-circle" id="btn-add" href="edit.php">
+                    <a class="btn-circle" id="btn-add" href="include/edit.php">
                         <span class="tooltip">添加笔记</span>
                         <i id="plus" class="fa fa-plus"></i>
                     </a>
@@ -150,7 +150,7 @@
                       } else {//执行搜索--模糊查询结果
                           $arr_nb = nbClass::Search(4, $_GET['search_text']);
                           $arr_note = noteClass::Search(4, $_GET['search_text']);
-                          if (null != $arr_nb) {
+                          if ($arr_nb != null) {
                               echo "<div  class='notebook'>笔记本</div>";
                               foreach ($arr_nb as $arr) {
                                   echo "<div class='note'><a href=''>".$arr['bookName'].'</a></div>';
@@ -158,13 +158,13 @@
                           }else {
                             echo "<p  class='notice' >搜索笔记本为空</p>";
                           }
-                          if (null != $arr_note) {
+                          if ($arr_note != null) {
                               echo "<div class='notebook'>笔记</div>";
                               foreach ($arr_note as $arr) {
                                   echo "<div class='note'><a href=''>".$arr['content'].'</a><p>'.$arr['createTime'].'</p></div>';
                               }
                           }else {
-                            echo "<p  class='notice' >搜索笔记为空</p><p class='notice'><a href='edit.php'><i class='fa fa-plus-circle'></i></a></p>";
+                            echo "<p  class='notice' >搜索笔记为空</p><p class='notice'><a href='include/edit.php'><i class='fa fa-plus-circle'></i></a></p>";
                         }
                           
                       }

@@ -1,110 +1,142 @@
-<?php 
-	require "./include/database.php";
-	require "./include/labelClass.php";
-	require "./include/nbClass.php";
-	require "./include/noteClass.php";
-	$arr_mark = labelClass::fristSearch(4);
-	$arr_nb = nbClass::fristSearch(4,0);
-	$arr_note = noteClass::fristSearch(4);
-	//$note = $arr();
+<?php
+require "./include/database.php";
+require "./include/labelClass.php";
+require "./include/nbClass.php";
+require "./include/noteClass.php";
+$arr_mark = labelClass::fristSearch(4);
+$arr_nb = nbClass::fristSearch(4);
+$arr_note = noteClass::fristSearch(4);
+//$note = $arr();
 
+//新建笔记本
+if ($_GET['newnotebook']!=null){
+    if(nbClass::nbexist(4,$_GET['newnotebook'])!=null){//如果笔记本存在
+
+    }else{
+        new nbClass(4,$_GET['newnotebook']);
+    }
+
+}
+//新建标签
+if ($_GET['newlabel']!=null){
+    if(labelClass::markexist(4,$_GET['newlabel'])!=null){//如果标签存在
+
+    }else{
+        new labelClass(4,$_GET['newlabel']);
+    }
+
+}
+//修改并保存笔记
+if ($_GET['newlabel']!=null){
+    if(labelClass::markexist(4,$_GET['newlabel'])!=null){//如果标签存在
+
+    }else{
+        new labelClass(4,$_GET['newlabel']);
+    }
+
+}
 ?>
 
-<!DOCTYPE html>
-<html>
-	<head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Edit</title>
-        <link rel="stylesheet" href="style/css.css" media="all">
-        <!-- <link href="style/font-awesome.min.css" rel="stylesheet"> -->
-        <link rel="stylesheet" href="style/bootstrap.min.css">
-        <link rel="stylesheet" href="style/layui.css">
-        <link href="http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-        <script src="./js/jquery-3.2.0.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
 
+
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Edit</title>
+		<link rel="stylesheet" href="style/css.css" media="all">
+		<!-- <link href="style/font-awesome.min.css" rel="stylesheet"> -->
+		<link rel="stylesheet" href="style/bootstrap.min.css">
+		<link rel="stylesheet" href="style/layui.css">
+		<link href="http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+		<script src="./js/jquery-3.2.0.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<!-- <script src="js/layui.js"></script> -->
 	</head>
+
 	<body>
 		<div class="navbaraa">
-    		<div class="title">Biu笔记本</div>
-   		 	<div class="middle-box">
-      			<div class="line"></div>
-      			<div class="date" id="date"></div>
-      			<div class="line line-rigth"></div>
-    		</div>
-    		<div class="user">
-      			<a href="index.php" style="color: white"><i class="fa fa-user" style="padding-top: 12px"></i></a>
-    		</div>
-    		<div class="link">
+			<div class="title">
+				Biu笔记本
+			</div>
+			<div class="middle-box">
+				<div class="line"></div>
+				<div class="date" id="date"></div>
+				<div class="line line-rigth"></div>
+			</div>
+			<div class="user">
+				<a href="index.php">
+					<i class="fa fa-user"></i>
+				</a>
+			</div>
+			<div class="link">
 				<div class="link1">
-                    <a href="" onclick="" id="" style="color: white"><i class="fa fa-bell fa-lg"></i></a>
-				</div>
-				<div class="link1">
-                    <a href="" onclick="" id="" style="color: white"><i class="fa fa-info-circle fa-lg"></i></a>
-				</div>
-				<div class="link1">
-                    <a href="" onclick="" id="" style="color: white"><i class="fa fa-star fa-lg"></i></a>
+					<i class="fa fa-bell fa-lg"></i>
 				</div>
 				<div class="link1">
-                    <a href="" onclick="deContent()" id="deCon" style="color: white"><i class="fa fa-trash fa-lg"></i></a>
+					<i class="fa fa-info-circle fa-lg"></i>
 				</div>
 				<div class="link1">
-                    <a href="" onclick="" id="" style="color: white"><i class="fa fa-share-alt fa-lg"></i></a>
+					<i class="fa fa-star fa-lg"></i>
 				</div>
-		    </div>
-  		</div>
-		<div class="edit">
-
-			<div class="active" style="overflow: visible;">
-				<div class="note01">笔记薄</div>
-				<div class="notebook" style="overflow: auto;height: 400px;">
-					<div class="panel-group" id="accordion">
-				<?php
-                if($_GET['oldV']!=null&&$_GET['newV']!=null){
-                    noteClass::updateNote(4,$_GET['oldV'],$_GET['newV']);
-                }
-                if($_GET['deContent']!=null){
-                    noteClass::deNote(4,$_GET['deContent']);
-                }
-                    //noteClass::updateNote(4,$_GET['oldV'],$_GET['newV']);
-
-                //生成左边笔记本和笔记
-					$num = 0;
-					foreach($arr_nb as $arr){
-						$arr_note = noteClass::notebookFristSearch(4,$arr['id']);
-						//输出$arr['bookName'];
-						
-				  		echo '<div class="panel panel-default">
-						<div class="panel-heading" role="tab" id="heading'.$num.'">
-						
-						
-					  		<h4 class="panel-title">
-								<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse'.$num.'" aria-expanded="false" aria-controls="collapseOne">
-						 	 		'.$arr['bookName'].'
-								</a>
-					  		</h4>
-						</div>
-				
-				
-				
-						<div id="collapse'.$num.'" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading'.$num.'">
-					  		<div class="panel-body">';
-					  	foreach($arr_note as $arr1){
-									// 输出$arr1['concent'];
-							echo "<a role=\"button\" onclick='innerHtml(\"".$arr1['content']."\")'>".$arr1['content']."</a><br><br>";
-				  		}
-						echo '</div>
-						</div>';
-						echo '</div>';
-						$num++;
-					}
-		  		?>
+				<div class="link1">
+					<i class="fa fa-trash fa-lg"></i>
 				</div>
+				<div class="link1">
+					<i class="fa fa-share-alt fa-lg"></i>
 				</div>
 			</div>
+		</div>
 
+		<!-- 导航栏部分  -->
+
+		<div class="edit">
+			<div class="active">
+				<div class="note01" style="font-size: 32px;">
+					笔记薄
+					<div class="notebook">
+						<div class="panel-group" id="accordion">
+                            <?php
+                                if($_GET['oldV']!=null&&$_GET['newV']!=null){
+                                    noteClass::updateNote(4,$_GET['oldV'],$_GET['newV']);
+                                }
+                                if($_GET['deContent']!=null){
+                                    noteClass::deNote(4,$_GET['deContent']);
+                                }
+                                //noteClass::updateNote(4,$_GET['oldV'],$_GET['newV']);
+                                $num = 0;
+                                foreach ($arr_nb as $arr) {
+
+                                    echo "<div class=\"panel panel-default\">
+                                    <div class=\"panel-heading\" role=\"tab\" id=\"heading".$num."\">";
+
+                                        $arr_note = noteClass::notebookFristSearch(4,$arr['id']);
+                                        echo "<h4 class=\"panel-title\" style='font-size: 18px'>
+                                            <a role=\"button\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapse".$num."\" aria-expanded=\"false\" aria-controls=\"collapse".$num."\">
+                                                " . $arr['bookName'] . "
+                                            </a></h4>";
+
+                                        echo "</div>
+                                    <div id=\"collapse".$num."\" class=\"panel-collapse collapse\" role=\"tabpanel\" aria-labelledby=\"heading".$num."\">
+                                        <div class=\"panel-body\" style='font-size: 14px'>";
+
+                                    foreach ($arr_note as $arr1) {
+                                        echo "<a role=\"button\" onclick='innerHtml(\"".$arr1['content']."\")'>".$arr1['content']."</a ><br><br>";
+                                    }
+
+                                        echo "</div>
+                                    </div>
+                                </div>";
+                                $num++;
+                                }
+                            ?>
+
+						</div>
+					</div>
+				</div>
+			</div>
 			<div class="function">
 				<div class="icon1">
 					<i id="icon01" class="fa fa-bold fa-lg"></i>
@@ -134,93 +166,104 @@
 					<i class="fa fa-list-ol fa-lg"></i>
 				</div>
 				<div class="icon1">
-					<i class="fa fa-link fa-lg"></i>
+					<i id="icon10" class="fa fa-link fa-lg"></i>
 				</div>
-				<div class="icon1">
-					<i class="fa fa-paperclip fa-lg"></i>
-				</div>
+
 				<div class="icon1">
 					<i class="fa fa-check-square-o fa-lg"></i>
 				</div>
 				<div class="icon1">
-					<i class="fa fa-table fa-lg"></i>
+					<i id="icon13" class="fa fa-table fa-lg"></i>
 				</div>
 				<div class="affix01">
-					<select class="affix">
+					<select class="affix ">
 						<option value="font">字体类型</option>
-						<option value="font1" id="font01">宋体</option>                                                                   
+						<option value="font1" id="font01">宋体</option>
 						<option value="font2" id="font02">Work Sans</option>
-						<option value="font3" id="font03">arial black</option>
+						<option value="font3" id="font03">微软雅黑</option>
 					</select>
-				</div>
-			
-				<div class="affix01">
+					<!--</div>-->
+
+					<!--<div>-->
 					<select class="affix">
 						<option value="size">字体大小</option>
 						<option value="14" id="size01">small</option>
 						<option value="18" id="size02">medium</option>
 						<option value="20" id="size03">large</option>
 					</select>
+
+					<div id="test">
+						<input type="file" id="fileMutiply" name="files" multiple="multiple">
+					</div>
 				</div>
-
-                <div id="test">
-                    <input type="file" id="fileMutiply" name="files" multiple="multiple">
-                </div>
-
 				<div class="save">
-					<a href="" id="get_newV"><i class="fa fa-save fa-2x" onclick="update()"></i></a>
+                    <a href="" id="get_newV"><i class="fa fa-save fa-2x" onclick="update()"></i></a>
 				</div>
 			</div>
-		
-        	<div class="label">
-            <div>
-            <select id="newopt">
 
-                <?php
-                if ($_GET['newlabel']!=null){
-                    new labelClass(4,$_GET['newlabel']);
-                    echo  "121321";
-                }
-                $arr_mark = labelClass::fristSearch(4);
-                $num = 0;
-                foreach($arr_mark as $arr1){
-                    echo '<option value="label'.$num.'">'.$arr1["markName"].'</option>';
-                    $num++;
-                }
-                ?>
-				<!--<option value="label">标签</option>
-				<option value="label1">标签1</option>
-				<option value="label2">标签2</option>
-				<option value="label3">标签3</option>-->
+			<!-- 功能部分  -->
 
-			</select>
-			<br><span>新标签:</span>
-                <form method="get" action="edit.php">
-                    <input type="text" name="newlabel" placeholder="新标题" id="label">
-                    <br><input class="button" value="Add" type="submit">
-                </form>
-            </div>
+			<!-- 笔记本部分 -->
+			<div class="note02">
+				<div>
+					<select id="newopt">
+                        <?php
+                        $arr_nb = nbClass::fristSearch(4);
+                        $num = 0;
+                        foreach($arr_nb as $arr1){
+                            echo '<option value="nb'.$num.'">'.$arr1["bookName"].'</option>';
+                            $num++;
+                        }
+                        ?>
+					</select>
+					<br>
+					<span>新笔记:</span>
+                    <form method="get" action="edit.php">
+                        <input type="text" name="newnotebook" placeholder="新笔记本" id="label">
+                        <br><input class="notebutton" value="Add" type="submit">
+                    </form>
+				</div>
 			</div>
-			<div class="hr">
-			</div>
-			<span class="title11"><b>标题:</b>
-			<input type="text" name="title" placeholder="在此输入标题"></input></span>
-			<textarea id="content" placeholder="在此输入......">
-				<?php
-					if (isset($_GET['id']) ) {
-						$arr = noteClass::idSearch($_GET['id']);
-						echo $arr[0]['content'];
-					}
-				
-				?>
-			</textarea>
-			
-        </div>
-        <div class="comment">
-            <div class="comment01">请开始你的评论→_→</div>
-        </div>
+			<div class="label">
+				<div>
+					<select id="newopt">
+                        <?php
+                        $arr_mark = labelClass::fristSearch(4);
+                        $num = 0;
+                        foreach($arr_mark as $arr1){
+                            echo '<option value="label'.$num.'">'.$arr1["markName"].'</option>';
+                            $num++;
+                        }
+                        ?>
 
-    </body>
+
+					</select>
+					<br>
+					<span>新标签:</span>
+                    <form method="get" action="edit.php">
+                        <input type="text" name="newlabel" placeholder="新标题" id="label">
+                        <br><input class="labelbutton" value="Add" type="submit">
+                    </form>
+				</div>
+			</div>
+
+			<!-- 标签部分 -->
+
+			<div class="hr"></div>
+			<textarea id="content"></textarea>
+		</div>
+
+		<!-- 写笔记部分  -->
+
+		<div class="comment">
+			<div class="comment01">
+				请开始你的评论→_→
+			</div>
+		</div>
+
+		<!-- 评论部分 -->
+
+	</body>
     <script>
         var oldV;
         function innerHtml(text) {
@@ -237,11 +280,14 @@
         }
 
     </script>
-    <!-- header部分js -->
-    <script src="js/header.js"></script>
-    <!-- function部分js -->
-    <script src="js/function.js"></script>
-    <!-- notebook部分js -->
-    <script src="js/jquery-3.2.0.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+
+	<!-- header部分js -->
+	<script src="js/header.js"></script>
+	<!-- function部分js -->
+	<script src="js/function.js"></script>
+	<!-- notebook部分js -->
+	<!--文件上传-->
+	<script src="js/updatafile.js"></script>
+	<!-- <script src="js/jquery-3.2.0.min.js"></script> -->
+
 </html>
