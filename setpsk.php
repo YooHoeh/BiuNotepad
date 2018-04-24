@@ -18,20 +18,30 @@ require './include/index.func.php';
 session_start();
 if (isset($_SESSION['userid'])) {
     $a = $conn->getRow("select * from user where id = $_SESSION[userid]");
+    // echo $a['id'];
 } else {
     echo "非法闯入!";
     exit();
 }
 
-if ('updata' == $_GET['action']) {
+if ('setpsk' == $_GET['action']) {
     $form = [];
-    $form['name'] = check_name($_POST['name'],0,12);
-    $form['email'] = check_email($_POST['email']);
-    print_r($form);
-    if($conn->update('user',"username='$form[name]'","id='$a[id]'") == 1) {
-        alert_close('用户信息修改成功');
+    $form['oldpsk'] = sha1($_POST['oldpsk']);
+    $form['newpsk'] = $_POST['newpsk'];
+    $form['repsk'] = $_POST['confirmpsk'];
+    if ($a['password'] == $form['oldpsk']){
+        check_password($form['newpsk'],$form['repsk'],6);
+         $form['psk'] = sha1($form['newpsk']);
+
+        if( $conn->update('user',"password='$form[psk]'","id='$a[id]'") == 1){
+            alert_back('密码修改成功');
+        }else{
+            alert_back('修改失败');
+            // echo '修改失败';
+        }
+    //    echo $conn->updata('user','password=$form[psk]','id=$a[id]');
     }else{
-        alert_back('修改失败');
+        alert_back('原密码输入错误');
     }
 }
 ?>
@@ -49,44 +59,20 @@ if ('updata' == $_GET['action']) {
 
 <body>
     <div class='userdata'>
-    <form class="layui-form" action="user.php?action=updata" method="post" id="userform">
-
-        <div class="layui-form-item">
-            <label class="layui-form-label">用户名:</label>
-            <div class="layui-input-inline">
-                <input type="text" name="name" required lay-verify="required" value=<?php echo $a[username] ?> placeholder=
-                <?php echo $a[username] ?> autocomplete="off" class="layui-input">
-            </div>
-        </div>
-
-        <div class="layui-form-item">
-            <label class="layui-form-label">Email:</label>
-            <div class="layui-input-inline">
-                <input type="text" name="email" required lay-verify="required|email" value="<?php echo $a[email] ?>" utocomplete="off" class="layui-input">
-            </div>
-        </div>
-        <div class="layui-form-item">
-            <label class="layui-form-label">创建时间:</label>
-            <div class="layui-input-inline">
-                <input type="text" name="createtime" value="<?php echo $a[createTime] ?>" placeholder="<?php echo $a[createTime] ?>" autocomplete="off"
-                    class="layui-input" disabled="disabled">
-            </div>
-        </div>
-
-        <div class="layui-form-item">
-            <div class="layui-input-block">
-                <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
-            </div>
-        </div>
-    </form>
-        </div>
-    <!-- <div class='setpsk'> 
-        <form class="layui-form" action="user.php?action=setpsk" method="post" id="pskform">
+   
+    <div class='setpsk'> 
+        <form class="layui-form" action="setpsk.php?action=setpsk" method="post" id="pskform">
             
+            <div class="layui-form-item">
+                <label class="layui-form-label">原始密码:</label>
+                <div class="layui-input-inline">
+                    <input type="password" name="oldpsk" placeholder="请输入原始密码" autocomplete="off" class="layui-input">
+                </div>
+            </div>
             <div class="layui-form-item">
                 <label class="layui-form-label">密码修改:</label>
                 <div class="layui-input-inline">
-                    <input type="password" name="psk" placeholder="请输入新密码" autocomplete="off" class="layui-input">
+                    <input type="password" name="newpsk" placeholder="请输入新密码" autocomplete="off" class="layui-input">
                 </div>
             </div>
         <div class="layui-form-item">
@@ -102,8 +88,8 @@ if ('updata' == $_GET['action']) {
             </div>
         </div>
     </form>
-</div> -->
-    <!-- </div> -->
+</div>
+    </div>
     <script>
         layui.use('form', function () {
             var form = layui.form;
