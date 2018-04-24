@@ -35,17 +35,7 @@ window.onload = function () {
     userSet();
     iconBarSrcSet();
 
-    // console.log(card.length);
-    // console.log(icon.length);
-    // document.getElementsByClassName('totodo')[0].onclick = toPage(2);
-    // function () {
-    //     document.getElementsByClassName('todo')[0].style.display = 'block';
-    //     document.getElementsByClassName('notes')[0].style.display = 'none';
-    // }
-    // document.getElementsByClassName('tonote')[0].onclick = function () {
-    //     document.getElementsByClassName('notes')[0].style.display = 'block';
-    //     document.getElementsByClassName('todo')[0].style.display = 'none';
-    // }
+   
 };
 // 刷新手机导航栏背景色
 function refreshNavBGC() {
@@ -115,9 +105,12 @@ function userSet() {
 function iconBarSrcSet() { 
     var bar =  document.getElementsByClassName('iconBar');
     for(let i=0; i<bar.length;i++){
-
-    var a = bar[i].parentNode.getElementsByTagName('a')[0];
-    var id = a.getAttribute('href').substring(12);
-    bar[i].setAttribute("noteid",id);    
+     var a = bar[i].parentNode.getElementsByTagName('a')[0];
+     var id = a.getAttribute('href').substring(12);
+     var star = bar[i].getElementsByClassName('fa-star-o')[0];
+     var del = bar[i].getElementsByClassName('fa-trash-o')[0];
+     star.parentNode.setAttribute('href','main.php?starnote='+id);
+     del.parentNode.setAttribute('href','main.php?delenote='+id);
     }
+    
  }

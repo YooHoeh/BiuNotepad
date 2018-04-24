@@ -29,6 +29,13 @@
     }
 
      */
+
+     if(isset($_GET['delnote'])){
+        
+     }
+     if(isset($_GET['starnote'])){
+         echo 'star';
+     }
 ?>
 <html lang="en">
 
@@ -122,7 +129,7 @@
             <div class="card todo layui-anim layui-anim-upbit ">
                 <div class="card-header">
                     <a href="main.php">
-                        <i class="fa fa-window-maximize"></i>
+                        <i class="fa fa-list-ul"></i>
                     </a>
                     <input id="new-item" type="text" disabled placeholder="笔记">
                     <a class="btn-circle" id="btn-add" href="edit.php">
@@ -133,7 +140,7 @@
                 <hr>
                 <div id="search_re">
                     <?php
-                    $icon = "<div class='iconBar'><i class='fa fa-star-o'></i><i class='fa fa-bell-o'></i><i class='fa fa-trash-o'></i></div>";
+                    $icon = "<div class='iconBar'><a href=''><i class='fa fa-star-o'></i></a><a><i class='fa fa-bell-o'></i></a><a href=''><i class='fa fa-trash-o'></i></a></div>";
                 //循环生成笔记和笔记本
                   //控制显示何种笔记和笔记本
                   if (1 != $_GET['delete'] && null == $_GET['mark']) {
@@ -143,8 +150,17 @@
                               $arr_note = noteClass::notebookFristSearch($_SESSION['userid'], $arr['id']);
                               echo "<div class='notebook'>".$arr['bookName'];
                               //输出$arr['bookName'];
-                              foreach ($arr_note as $arr1) {
+                              foreach ($arr_note as $key=>$arr1) {
                                   echo "<div class='note'><a href='edit.php?id=".$arr1['id']."'>".$arr1['content'].'</a><span>'.$arr1['createTime'].'</span>'.$icon.'</div>';
+                                  ?>
+                                  <!-- 将有标记的笔记加实心五角星 -->
+                                  <script>
+                                    var bar =  document.getElementsByClassName('iconBar');
+                                  if(<?php echo $arr1['isStart'];?> == '1'){
+                                        var star = bar[<?php echo $key?>].getElementsByTagName('i')[0];
+                                        star.setAttribute('class','fa fa-star');
+                                  } </script>
+                                  <?php
                                   // 输出$arr1['content'];
                               }
                               echo '</div>';
@@ -163,7 +179,7 @@
                           if (null != $arr_note) {
                               echo "<div class='notebook'>笔记</div>";
                               foreach ($arr_note as $arr) {
-                                  echo "<div class='note'><a href=''>".$arr['content'].'</a><p>'.$arr['createTime'].'</p></div>';
+                                  echo "<div class='note'><a href=''>".$arr['content'].'</a><span>'.$arr['createTime'].'</span>'.$icon.'</div>';
                               }
                           }else {
                             echo "<p  class='notice' >搜索笔记为空</p><p class='notice'><a href='edit.php'><i class='fa fa-plus-circle'></i></a></p>";
@@ -182,7 +198,7 @@
                       if (null != $arr_note) {
                           echo "<div class='notebook'>笔记</div>";
                           foreach ($arr_note as $arr) {
-                              echo "<div class='note'><a href=''>".$arr['content'].'</a><p>'.$arr['createTime'].'</p></div>';
+                              echo "<div class='note'><a href=''>".$arr['content'].'</a><span>'.$arr['createTime'].'</span>'.$icon.'</div>';
                           }
                       }else {
                         echo "<p  class='notice' >废纸篓笔记为空</p>";
@@ -193,7 +209,7 @@
                       if (null != $arr_note) {
                           echo "<div class='notebook'>笔记</div>";
                           foreach ($arr_note as $arr) {
-                              echo "<div class='note'><a href=''>".$arr['content'].'</a><p>'.$arr['createTime'].'</p></div>';
+                              echo "<div class='note'><a href=''>".$arr['content'].'</a><span>'.$arr['createTime'].'</span>'.$icon.'</div>';
                           }
                       }else {
                         echo "<p  class='notice' >该标签下无笔记</p>";
@@ -260,7 +276,7 @@
 <script src="js/clender.js"></script>
 <!-- 微信分享api -->
 <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
-
+<!-- 融云WEBIM -->
 <script>
     (function () {
         // var appKey = "lmxuhwaglie3d";
@@ -305,7 +321,9 @@
         });
     })()
 
+</script>
 
+<script>
     function _onclick() {
         var a = document.getElementById("search_text").value;
         if (<?php if (0 == $_GET['delete']) {
@@ -329,7 +347,7 @@
             document.getElementById('doneShow').href = "main.php?delete=1";
         }
         else {
-            document.getElementById('doneShow').href = "main.php?delete=0";
+            document.getElementById('doneShow').href = "main.php";
         }
     }
 
@@ -342,7 +360,29 @@
         document.getElementById('search_a').href = "edit.php?search_text=" + a;
     }
 
+</script>
+<script>
 
-    
 
+// 笔记根据状态修改图标
+function setNoteIcon(){
+    var bar =  document.getElementsByClassName('iconBar');
+    for(let i=0; i<bar.length;i++){
+        var a = bar[i].parentNode.getElementsByTagName('a')[0];
+        var id = a.getAttribute('href').substring(12);
+        var star = bar[i].getElementsByClassName('fa-star-o')[0];
+        var del = bar[i].getElementsByClassName('fa-trash-o')[0];
+       
+        // console.log(
+             <?php
+            //  echo noteClass::idSearch(
+                 ?>
+        //     +id+
+            <?php
+                    //  ))['isstart']
+            ?>
+        //     );
+    // if()
+    }
+}
 </script>
