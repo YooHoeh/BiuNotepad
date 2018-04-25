@@ -29,12 +29,41 @@
     }
 
      */
-
-     if(isset($_GET['delnote'])){
-        
+    // 放入废纸篓
+     if(isset($_GET['delenote'])){
+         $note = noteClass::idSearch($_GET['delenote']);
+         if($note['isdelete'] ==0){
+             if ($conn->update('note',"isdelete = '1'","id='$_GET[delenote]'") == 1){
+                 _location('放入废纸篓成功！','main.php');
+             }else{
+                    _location('删除失败！','main.php');
+                    print_r($note);
+            }
+        }else{
+                if ($conn->update('note',"isdelete = '0'","id='$_GET[delenote]'") == 1){
+                     _location('恢复成功！','main.php');
+                }else{
+                        _location('恢复失败！','main.php');
+                }
+         }
      }
+    //  添加标记
      if(isset($_GET['starnote'])){
-         echo 'star';
+         $note = noteClass::idSearch($_GET['starnote']);
+     	if($note['isStart'] == 1) {
+     		 if ($conn->update('note',"isStart='0'","id='$_GET[starnote]'") == 1){
+        	_location('取消标记成功！','main.php');
+      	 	}else{
+        	_location('取消标记失败！','main.php');
+            }
+     	}else{
+     		if ($conn->update('note',"isStart = '1'","id='$_GET[starnote]'") == 1){
+        		_location('标记成功！','main.php');
+        	}else{
+        	_location('标记失败！','main.php');
+            }
+        }
+
      }
 ?>
 <html lang="en">
@@ -141,25 +170,33 @@
                 <div id="search_re">
                     <?php
                     $icon = "<div class='iconBar'><a href=''><i class='fa fa-star-o'></i></a><a><i class='fa fa-bell-o'></i></a><a href=''><i class='fa fa-trash-o'></i></a></div>";
-                //循环生成笔记和笔记本
-                  //控制显示何种笔记和笔记本
-                  if (1 != $_GET['delete'] && null == $_GET['mark']) {
+                    //循环生成笔记和笔记本
+                    //控制显示何种笔记和笔记本
+                    if (1 != $_GET['delete'] && null == $_GET['mark'] && isset($_GET['date'])!=1) {
                       if (null == $_GET['search_text']) {//不执行搜索---默认显示方式
                           $arr_nb = nbClass::fristSearch($_SESSION['userid']);
-                          foreach ($arr_nb as $arr) {
+                          foreach ($arr_nb as $key=>$arr) {
                               $arr_note = noteClass::notebookFristSearch($_SESSION['userid'], $arr['id']);
                               echo "<div class='notebook'>".$arr['bookName'];
                               //输出$arr['bookName'];
-                              foreach ($arr_note as $key=>$arr1) {
+                              if(count($arr_note) == 0){
+                                echo "<div class='noticep'>该笔记本下无笔记</div>";
+                                $key++;   
+                             }
+                              foreach ($arr_note as $key1=>$arr1) {
+                             
                                   echo "<div class='note'><a href='edit.php?id=".$arr1['id']."'>".$arr1['content'].'</a><span>'.$arr1['createTime'].'</span>'.$icon.'</div>';
+                                  
                                   ?>
                                   <!-- 将有标记的笔记加实心五角星 -->
                                   <script>
-                                    var bar =  document.getElementsByClassName('iconBar');
-                                  if(<?php echo $arr1['isStart'];?> == '1'){
-                                        var star = bar[<?php echo $key?>].getElementsByTagName('i')[0];
-                                        star.setAttribute('class','fa fa-star');
-                                  } </script>
+                                      var bar =  document.getElementsByClassName('iconBar');
+                                          if(<?php echo $arr1['isStart'];?> == '1'){
+                                          console.log('第'+<?php echo $key1+count($key1)?>);
+                                          var star = bar[<?php echo $key1+count($key1)?>].getElementsByTagName('i')[0];
+                                          star.setAttribute('class','fa fa-star-o star');
+                                          }   
+                                    </script>
                                   <?php
                                   // 输出$arr1['content'];
                               }
@@ -198,7 +235,7 @@
                       if (null != $arr_note) {
                           echo "<div class='notebook'>笔记</div>";
                           foreach ($arr_note as $arr) {
-                              echo "<div class='note'><a href=''>".$arr['content'].'</a><span>'.$arr['createTime'].'</span>'.$icon.'</div>';
+                              echo "<div class='note'><a href='edit.php?id=".$arr['id']."'>".$arr['content'].'</a><span>'.$arr['createTime'].'</span>'.$icon.'</div>';
                           }
                       }else {
                         echo "<p  class='notice' >废纸篓笔记为空</p>";
@@ -212,8 +249,19 @@
                               echo "<div class='note'><a href=''>".$arr['content'].'</a><span>'.$arr['createTime'].'</span>'.$icon.'</div>';
                           }
                       }else {
-                        echo "<p  class='notice' >该标签下无笔记</p>";
+                        echo "<p  class='noticep' >该标签下无笔记</p>";
                     }
+                  }else if( isset($_GET['date'])){
+                    $arr_nb;
+                    $arr_note = noteClass::notetimeSearch($_GET['date']);
+                    if (null != $arr_note) {
+                        echo "<div class='notebook'>笔记</div>";
+                        foreach ($arr_note as $arr) {
+                            echo "<div class='note'><a href=''>".$arr['content'].'</a><span>'.$arr['createTime'].'</span>'.$icon.'</div>';
+                        }
+                    }else {
+                      echo "<p  class='noticep' >该时间下无笔记</p>";
+                  }
                   }
                   ?>
                 </div>
@@ -365,24 +413,33 @@
 
 
 // 笔记根据状态修改图标
-function setNoteIcon(){
-    var bar =  document.getElementsByClassName('iconBar');
-    for(let i=0; i<bar.length;i++){
-        var a = bar[i].parentNode.getElementsByTagName('a')[0];
-        var id = a.getAttribute('href').substring(12);
-        var star = bar[i].getElementsByClassName('fa-star-o')[0];
-        var del = bar[i].getElementsByClassName('fa-trash-o')[0];
-       
-        // console.log(
-             <?php
-            //  echo noteClass::idSearch(
-                 ?>
-        //     +id+
-            <?php
-                    //  ))['isstart']
-            ?>
-        //     );
-    // if()
-    }
+// function setNoteIcon(){
+//     var bar =  document.getElementsByClassName('iconBar');
+//     for(let i=0; i<bar.length;i++){
+//         var a = bar[i].parentNode.getElementsByTagName('a')[0];
+//         var id = a.getAttribute('href').substring(12);
+//         var star = bar[i].getElementsByClassName('fa-star-o')[0];
+//         var del = bar[i].getElementsByClassName('fa-trash-o')[0];
+
+
+//     }
+// }
+
+
+// 随写板部分
+var notes = (document.getElementById("notes"));
+if (localStorage.getItem("noteData")) {
+  var noteData = localStorage.getItem("noteData");
+}
+else {
+  var noteData = "";
+}
+notes.value = noteData;
+notes.oninput = function(){noteDataObjectUpdated();
+};
+function noteDataObjectUpdated(){
+  noteData = notes.value;
+  console.log(noteData);
+  localStorage.setItem("noteData", noteData);
 }
 </script>

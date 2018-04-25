@@ -630,7 +630,15 @@ textarea:focus {
   font-size: 2em;
   color: #999;
 }
-
+#search_re .noticep {
+  text-align: center;
+  color:#999;
+  font-weight: bold;
+  font-size: 1em;
+}
+i.star{
+  color:#1274bb;
+}
 /* #############      动画      ############### */
 
 @keyframes uptoremove {

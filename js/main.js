@@ -102,6 +102,8 @@ function userSet() {
         },500);
     }
 }
+
+ //根据笔记链接获取笔记id对图标添加相应链接
 function iconBarSrcSet() { 
     var bar =  document.getElementsByClassName('iconBar');
     for(let i=0; i<bar.length;i++){
@@ -109,6 +111,7 @@ function iconBarSrcSet() {
      var id = a.getAttribute('href').substring(12);
      var star = bar[i].getElementsByClassName('fa-star-o')[0];
      var del = bar[i].getElementsByClassName('fa-trash-o')[0];
+     bar[i].setAttribute("noteid",id);
      star.parentNode.setAttribute('href','main.php?starnote='+id);
      del.parentNode.setAttribute('href','main.php?delenote='+id);
     }
