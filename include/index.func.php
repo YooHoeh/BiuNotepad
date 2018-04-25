@@ -137,5 +137,16 @@ function check_empty($array) {
 	}
 }
 
+	/**
+	 * 检测验证码
+	 *
+	 * @param string $inputstr输入验证码
+	 * @param string $code图中验证码
+	 */
+ function check_code($inputstr, $code) {
+		if (strtolower($inputstr) != strtolower($code) ){
+			alert_back('验证码错误');
+		}
+	}
 
 ?>

@@ -16,10 +16,12 @@ _login_state();
 
 // 开始处理登录状态
 if ($_GET['action'] == 'login') {
+  print_r($_SESSION);
+  echo $_POST['code'];
   // 引入验证文件
   require "./include/index.func.php";
   // 检查验证码
-  // $an->check_code($_POST['code'], $_SESSION['code']);
+check_code($_POST['code'], $_SESSION['an']);
   
   // 收集数据
   $_clean = [];
