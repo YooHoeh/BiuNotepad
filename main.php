@@ -30,6 +30,7 @@
 
      */
     // 放入废纸篓
+    // _login_statu();
      if(isset($_GET['delenote'])){
          $note = noteClass::idSearch($_GET['delenote']);
          if($note['isdelete'] ==0){

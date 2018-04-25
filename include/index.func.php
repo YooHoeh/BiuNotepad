@@ -49,6 +49,7 @@ function check_login($username, $password, $time,$conn) {
 		session_destroy();
 		session_start();
 		$_SESSION['userid'] = $rows['id'];
+		_setcookies($_SESSION['userid'], 1, $_time=0);
 		_location($rows['name'] . '登陆成功', 'main.php');
 	} else {
 		$conn->closeLink();

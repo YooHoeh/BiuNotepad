@@ -11,12 +11,12 @@
  * _login_state登录状态的判断
  */
  global $conn;
-function _login_state() {
+function _login_statu() {
 	if (isset($_COOKIE['userID'])) {
-		_location("您已登陆", "main.php");
+		// _location("您已登陆", "main.php");
 	}else{
-		echo $_COOKIE['userID'];
-		// print_r($_COOKIE);
+		print_r($_COOKIE);
+		_location('请先登录',"index.php");
 	}
 }
 

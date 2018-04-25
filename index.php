@@ -12,12 +12,10 @@ session_start();
 require "./include/common.php";
 
 // 登录状态
-_login_state();
+// _login_statu();
 
 // 开始处理登录状态
 if ($_GET['action'] == 'login') {
-  print_r($_SESSION);
-  echo $_POST['code'];
   // 引入验证文件
   require "./include/index.func.php";
   // 检查验证码
