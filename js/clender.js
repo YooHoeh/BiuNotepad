@@ -13,7 +13,7 @@ layui.use('laydate', function () {
             window.location.assign('main.php?date='+value);
           }
    
-        // ,showBottom: false
+        ,showBottom: false
         , theme: '#7eb3db'
     });
 })
