@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50717
 File Encoding         : 65001
 
-Date: 2018-04-25 23:04:03
+Date: 2018-04-26 17:54:01
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -55,7 +55,7 @@ CREATE TABLE `mark` (
   PRIMARY KEY (`id`),
   KEY `userid` (`userid`),
   CONSTRAINT `mark_user` FOREIGN KEY (`userid`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of mark
@@ -66,6 +66,8 @@ INSERT INTO `mark` VALUES ('3', '1', '影视', '0', '2018-04-21 13:00:42', '2018
 INSERT INTO `mark` VALUES ('4', '1', '游戏', '1', '2018-04-21 13:00:51', '2018-04-21 13:00:51', '000');
 INSERT INTO `mark` VALUES ('5', '1', '休闲', '0', '2018-04-21 13:01:01', '2018-04-21 13:01:01', '000');
 INSERT INTO `mark` VALUES ('6', '1', '作业', '0', '2018-04-21 13:01:12', '2018-04-21 13:01:12', '000');
+INSERT INTO `mark` VALUES ('7', '1', '团队', '0', '2018-04-26 13:02:07', '2018-04-26 13:02:07', '000');
+INSERT INTO `mark` VALUES ('8', '1', '个人', '0', '2018-04-27 13:02:28', '2018-04-26 13:02:39', '000');
 
 -- ----------------------------
 -- Table structure for note
