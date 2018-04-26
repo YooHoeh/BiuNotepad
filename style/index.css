@@ -38,7 +38,9 @@ body {
     width: 839px;
     height: 681px;
     background: #7CB2D8;
-    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+            transform: rotate(-45deg);
 }
 
 .class1 p {
@@ -57,7 +59,9 @@ body {
     width: 767px;
     height: 474px;
     background: #116FB5;
-    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+            transform: rotate(-45deg);
 }
 
 .class3 {
@@ -67,7 +71,9 @@ body {
     width: 779px;
     height: 352px;
     background: #06324F;
-    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
 }
 
 .class4 {
@@ -77,7 +83,9 @@ body {
     width: 851px;
     height: 298px;
     background: #349EE8;
-    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
 }
 
 .class5 {
@@ -88,8 +96,14 @@ body {
     height: 239px;
     background: #06324F;
     color: #eee;
-    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+    -webkit-transition: z-index 0.4s, top 0.4s,left 0.4s,height 0.4s, -webkit-transform 0.4s;
+    transition: z-index 0.4s, top 0.4s,left 0.4s,height 0.4s, -webkit-transform 0.4s;
+    -o-transition: transform 0.4s, z-index 0.4s, top 0.4s,left 0.4s,height 0.4s;
     transition: transform 0.4s, z-index 0.4s, top 0.4s,left 0.4s,height 0.4s;
+    transition: transform 0.4s, z-index 0.4s, top 0.4s,left 0.4s,height 0.4s, -webkit-transform 0.4s;
     font-size: 20px;
 }
 .class5 a{
@@ -109,7 +123,9 @@ body {
     left: 0px;
     top: 60%;
     width: 800px;
-    transform: translate(0, -69%);
+    -webkit-transform: translate(0, -69%);
+        -ms-transform: translate(0, -69%);
+            transform: translate(0, -69%);
 }
 .class5 dd{
     /* text-align: center; */
@@ -122,6 +138,8 @@ body {
 .class5 .login {
     /* display: none; */
     width: 100%;
+    -webkit-transition: display 0.2s;
+    -o-transition: display 0.2s;
     transition: display 0.2s;
     color: #eee;
 }
@@ -143,7 +161,9 @@ body {
     position: absolute;
     right: -50px;
     top: 50%;
-    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
     border: 0;
     background-color: transparent;
     font-size: 80px;
@@ -179,7 +199,8 @@ body {
     height: 50px;
     background: silver;
     border-radius: 25px;
-    box-shadow: 2px 2px 5px 0px black;
+    -webkit-box-shadow: 2px 2px 5px 0px black;
+            box-shadow: 2px 2px 5px 0px black;
     cursor: pointer;
 }
 
@@ -193,7 +214,9 @@ body {
     width: 30px;
     height: 10px;
     background: white;
-    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
     top: 20px;
     left: 10px;
 }
@@ -204,7 +227,9 @@ body {
     width: 30px;
     height: 10px;
     background: white;
-    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+            transform: rotate(-45deg);
     top: 20px;
     left: 10px;
 }
@@ -216,7 +241,9 @@ body {
     width: 229px;
     height: 229px;
     background: #0A5386;
-    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+            transform: rotate(-45deg);
 }
 
 .class7 {
@@ -226,7 +253,9 @@ body {
     width: 584px;
     height: 356px;
     background: #094B7C;
-    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+            transform: rotate(-45deg);
     /* z-index: 3; */
 }
 
@@ -237,7 +266,9 @@ body {
     width: 1223px;
     height: 263px;
     background: #1485D5;
-    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
 }
 
 .class9 {
@@ -247,7 +278,9 @@ body {
     width: 721px;
     height: 421px;
     background: #A3C2D7;
-    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+        -ms-transform: rotate(135deg);
+            transform: rotate(135deg);
 }
 
 .class10 {
@@ -257,7 +290,9 @@ body {
     width: 420px;
     height: 420px;
     background: #6A96B9;
-    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+        -ms-transform: rotate(-135deg);
+            transform: rotate(-135deg);
 }
 
 .class11 {
@@ -267,7 +302,9 @@ body {
     width: 420px;
     height: 420px;
     background: #6A96B9;
-    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+        -ms-transform: rotate(-135deg);
+            transform: rotate(-135deg);
 }
 
 .class12 {
@@ -277,16 +314,24 @@ body {
     width: 389px;
     height: 458px;
     background: #3081B9;
-    transform: rotate(-315deg);
+    -webkit-transform: rotate(-315deg);
+        -ms-transform: rotate(-315deg);
+            transform: rotate(-315deg);
 }
 
 body>div {
-    box-shadow: 0px 0px 15px 0 black;
+    -webkit-box-shadow: 0px 0px 15px 0 black;
+            box-shadow: 0px 0px 15px 0 black;
+    -webkit-transition: z-index 0.3s, -webkit-box-shadow 0.3s;
+    transition: z-index 0.3s, -webkit-box-shadow 0.3s;
+    -o-transition: box-shadow 0.3s, z-index 0.3s;
     transition: box-shadow 0.3s, z-index 0.3s;
+    transition: box-shadow 0.3s, z-index 0.3s, -webkit-box-shadow 0.3s;
 }
 
 body>div:hover {
-    box-shadow: 10px 10px 10px 0 black;
+    -webkit-box-shadow: 10px 10px 10px 0 black;
+            box-shadow: 10px 10px 10px 0 black;
     z-index: 5;
 }
 @media screen and (max-width: 1324px) {

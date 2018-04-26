@@ -20,7 +20,9 @@ label {
     position: absolute;
     top: 50%;
     left: 61%;
-    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
     /* margin: 0 auto; */
     width: 95%;
     /* height:80%; */

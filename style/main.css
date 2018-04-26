@@ -1,7 +1,6 @@
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", 'Roboto', sans-serif;
   background: url("../images/bg.jpg") no-repeat fixed center;
-  -webkit-background-size: cover;
   background-size: cover;
   /* overflow-y:hidden; */
   height: 880px;
@@ -91,7 +90,8 @@ hr {
   width: 100px;
   height: 68px;
   background-color: #0096f9;
-  box-shadow: #000 3px 3px 5px;
+  -webkit-box-shadow: #000 3px 3px 5px;
+          box-shadow: #000 3px 3px 5px;
 }
 
 .title {
@@ -99,7 +99,9 @@ hr {
   margin-top: 12px;
   margin-left: 15%;
   display: inline-block;
-  user-select: none;
+  -moz-user-select: none;
+   -ms-user-select: none;
+       user-select: none;
   -webkit-user-select: none;
 }
 
@@ -115,7 +117,9 @@ hr {
   left: 50%;
   margin-left: -175px;
   width: 350px;
-  user-select: none;
+  -moz-user-select: none;
+   -ms-user-select: none;
+       user-select: none;
   -webkit-user-select: none;
 }
 
@@ -153,11 +157,15 @@ hr {
   top: 0;
   right: 30%;
   font-size: 20px;
-  user-select: none;
+  -moz-user-select: none;
+   -ms-user-select: none;
+       user-select: none;
   -webkit-user-select: none;
 }
 
 .contact:hover {
+  -webkit-transition: 0.2s;
+  -o-transition: 0.2s;
   transition: 0.2s;
   background: #1485d5;
 }
@@ -166,7 +174,8 @@ hr {
   visibility: visible;
   -webkit-animation: lendab;
   animation: lendab;
-  animation-duration: 0.4s;
+  -webkit-animation-duration: 0.4s;
+          animation-duration: 0.4s;
 }
 
 .contact-tooltip {
@@ -189,7 +198,8 @@ hr {
   background-color: #0096f9;
   font-size: 100%;
   line-height: 100%;
-  box-shadow: 0px -1px 2px #000;
+  -webkit-box-shadow: 0px -1px 2px #000;
+          box-shadow: 0px -1px 2px #000;
   overflow: hidden;
   z-index: 999999999999999999999;
   display: none;
@@ -216,7 +226,8 @@ hr {
   -webkit-user-select: none;
   -moz-user-select: none;
   -o-user-select: none;
-  user-select: none;
+  -ms-user-select: none;
+      user-select: none;
 }
 
 .contact-tooltip i {
@@ -250,6 +261,8 @@ hr {
   height: 100%;
   border: none;
   font-size: 15px;
+  -webkit-transition: width .6s;
+  -o-transition: width .6s;
   transition: width .6s;
 }
 
@@ -289,6 +302,8 @@ hr {
 .card:hover {
   -webkit-box-shadow: 10px 30px 50px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
   box-shadow: 0 0 50px #000;
+  -webkit-transition: all 0.6s cubic-bezier(.25, .8, .25, 1);
+  -o-transition: all 0.6s cubic-bezier(.25, .8, .25, 1);
   transition: all 0.6s cubic-bezier(.25, .8, .25, 1);
 }
 
@@ -341,6 +356,7 @@ hr {
   top: 5px;
   right: 48px;
   -webkit-transition: 0.1s;
+  -o-transition: 0.1s;
   transition: 0.1s;
   z-index: 1;
 }
@@ -348,7 +364,8 @@ hr {
 .btn-circle:hover .tooltip {
   -webkit-animation: lendab;
   animation: lendab;
-  animation-duration: 0.4s;
+  -webkit-animation-duration: 0.4s;
+          animation-duration: 0.4s;
   visibility: visible;
 }
 
@@ -361,6 +378,7 @@ hr {
 .done-show:hover {
   background: #1170b4;
   -webkit-transition: 0.2s;
+  -o-transition: 0.2s;
   transition: 0.2s;
   -webkit-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
@@ -369,6 +387,7 @@ hr {
 .done-show:hover i {
   color: white;
   -webkit-transition: 0.1s;
+  -o-transition: 0.1s;
   transition: 0.1s;
 }
 
@@ -380,6 +399,7 @@ hr {
 .card-header .btn-circle:hover {
   background: #1170b4;
   -webkit-transition: 0.2s;
+  -o-transition: 0.2s;
   transition: 0.2s;
 }
 
@@ -392,6 +412,7 @@ hr {
   padding: 14.5px 30px;
   font-size: 14px;
   -webkit-transition: 0.2s;
+  -o-transition: 0.2s;
   transition: 0.2s;
   border-bottom: 1px solid #e0e0e0;
   background: #fff;
@@ -414,12 +435,25 @@ li .btn {
 li .btn:hover>i {
   color: #00838f;
   -webkit-transition: 0.2s ease-in-out;
+  -o-transition: 0.2s ease-in-out;
   transition: 0.2s ease-in-out;
 }
 
 .card-header input {
   font-size: inherit;
   border: none;
+}
+
+.card-header input::-webkit-input-placeholder {
+  color: black;
+}
+
+.card-header input:-ms-input-placeholder {
+  color: black;
+}
+
+.card-header input::-ms-input-placeholder {
+  color: black;
 }
 
 .card-header input::placeholder {
@@ -471,6 +505,7 @@ textarea:focus {
   font-size: 20px;
   outline: 0;
   -webkit-transition: 0.2s;
+  -o-transition: 0.2s;
   transition: 0.2s;
 }
 
@@ -499,11 +534,14 @@ textarea:focus {
   position: absolute;
   top: 30%;
   left: 32%;
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   /* border-radius: 5%; */
   width: 35%;
   height: 43%;
-  box-shadow: #8DB6CD 0px 0px 500000px;
+  -webkit-box-shadow: #8DB6CD 0px 0px 500000px;
+          box-shadow: #8DB6CD 0px 0px 500000px;
   z-index: 99999999999999999999999999999999999;
   display: none;
 }
@@ -522,7 +560,8 @@ textarea:focus {
   height: 50px;
   background: silver;
   border-radius: 25px;
-  box-shadow: 2px 2px 5px 0px black;
+  -webkit-box-shadow: 2px 2px 5px 0px black;
+          box-shadow: 2px 2px 5px 0px black;
   cursor: pointer;
 }
 
@@ -536,7 +575,9 @@ textarea:focus {
   width: 30px;
   height: 10px;
   background: white;
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
   top: 20px;
   left: 10px;
 }
@@ -547,7 +588,9 @@ textarea:focus {
   width: 30px;
   height: 10px;
   background: white;
-  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg);
   top: 20px;
   left: 10px;
 }
@@ -569,7 +612,8 @@ textarea:focus {
   width: 97%;
   background-color: #C6E2FF;
   font-size: 1.7em;
-  box-shadow: 0px 0px 15px #000;
+  -webkit-box-shadow: 0px 0px 15px #000;
+          box-shadow: 0px 0px 15px #000;
 }
 
 #search_re .note {
@@ -584,7 +628,8 @@ textarea:focus {
 
 #search_re .note:hover {
   background: #26a69a;
-  box-shadow: 0px 0px 8px #000;
+  -webkit-box-shadow: 0px 0px 8px #000;
+          box-shadow: 0px 0px 8px #000;
 }
 
 .note span {
@@ -640,6 +685,34 @@ i.star{
   color:#1274bb;
 }
 /* #############      动画      ############### */
+
+@-webkit-keyframes uptoremove {
+  0% {
+    top: 50%;
+    left: 50%;
+    opacity: 0.8;
+  }
+  30% {
+    top: 20%;
+    left: 50%;
+    opacity: 0.6;
+  }
+  60% {
+    top: -10%;
+    left: 50%;
+    opacity: .3;
+  }
+  90% {
+    top: -40%;
+    left: 50%;
+    opacity: .2;
+  }
+  100% {
+    top: -40%;
+    left: 50%;
+    opacity: .1;
+  }
+}
 
 @keyframes uptoremove {
   0% {
