@@ -24,7 +24,7 @@
 		public static function timeSearch($noteid){
 			$con = new connetMysqli();
 			$arr = array();
-			$sql = "select username,comment.createTime,comment.content from comment,user where noteid = $noteid and user.id = comment.userid order by comment.createTime desc";
+			$sql = "select username,email,comment.createTime,comment.content from comment,user where noteid = $noteid and user.id = comment.userid order by comment.createTime desc";
 			$arr = $con->getAll($sql);
 			$con->closeLink();
 			return $arr;

@@ -443,4 +443,4 @@ function noteDataObjectUpdated(){
   console.log(noteData);
   localStorage.setItem("noteData", noteData);
 }
-</script>
+</script>

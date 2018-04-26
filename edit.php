@@ -3,10 +3,7 @@ require "./include/database.php";
 require "./include/labelClass.php";
 require "./include/nbClass.php";
 require "./include/noteClass.php";
-session_start();
-$arr_mark = labelClass::fristSearch($_SESSION['userid']);
-$arr_nb = nbClass::fristSearch($_SESSION['userid']);
-$arr_note = noteClass::fristSearch($_SESSION['userid']);
+
 //$note = $arr();
 
 //新建笔记本
@@ -35,6 +32,15 @@ if ($_GET['newlabel']!=null){
         new labelClass($_SESSION['userid'],$_GET['newlabel']);
     }
 
+}
+
+//加星标记
+if ($_GET['_value']!=null){
+    if(noteClass::getStart(4,$_GET['_value'])==1){
+        noteClass::isStart(4,$_GET['_value'],0);
+    }else{
+        noteClass::isStart(4,$_GET['_value']);
+    }
 }
 ?>
 
@@ -80,10 +86,10 @@ if ($_GET['newlabel']!=null){
 					<i class="fa fa-info-circle fa-lg"></i>
 				</div>
 				<div class="link1">
-					<i class="fa fa-star fa-lg"></i>
+                    <a href="" id="isStart" style="color: white"><i class="fa fa-star fa-lg" onclick="isStart()"></i></a>
 				</div>
 				<div class="link1">
-					<i class="fa fa-trash fa-lg"></i>
+                    <a href="" id="deCon" style="color: white"><i class="fa fa-trash fa-lg" onclick="deContent()"></i></a>
 				</div>
 				<div class="link1">
 					<i class="fa fa-share-alt fa-lg"></i>
@@ -108,6 +114,7 @@ if ($_GET['newlabel']!=null){
                                 }
                                 //noteClass::updateNote(4,$_GET['oldV'],$_GET['newV']);
                                 $num = 0;
+                                 $arr_nb = nbClass::fristSearch(4);
                                 foreach ($arr_nb as $arr) {
 
                                     echo "<div class=\"panel panel-default\">
@@ -124,7 +131,7 @@ if ($_GET['newlabel']!=null){
                                         <div class=\"panel-body\" style='font-size: 14px'>";
 
                                     foreach ($arr_note as $arr1) {
-                                        echo "<a role=\"button\" onclick='innerHtml(\"".$arr1['content']."\")'>".$arr1['content']."</a ><br><br>";
+                                        echo "<a role=\"button\" onclick='innerHtml(\"".$arr1['content']."\",\"".noteClass::getStart(4,$arr1['content'])."\")'>".$arr1['content']."</a ><br><br>";
                                     }
 
                                         echo "</div>
@@ -133,7 +140,6 @@ if ($_GET['newlabel']!=null){
                                 $num++;
                                 }
                             ?>
-
 						</div>
 					</div>
 				</div>
@@ -267,8 +273,13 @@ if ($_GET['newlabel']!=null){
 	</body>
     <script>
         var oldV;
-        function innerHtml(text) {
+        function innerHtml(text,a) {
             document.getElementById("content").innerHTML =text;
+            if (a==1){
+                document.getElementById("isStart").style.color = "red";
+            }else{
+                document.getElementById("isStart").style.color = "white";
+            }
             oldV = text;
         }
         function update() {
@@ -279,7 +290,10 @@ if ($_GET['newlabel']!=null){
             var de = document.getElementById("content").value;
             document.getElementById("deCon").href = "edit.php?deContent="+de;
         }
-
+        function isStart() {
+            var _value = document.getElementById("content").value;
+            document.getElementById("isStart").href = "edit.php?_value="+_value;
+        }
     </script>
 
 	<!-- header部分js -->
