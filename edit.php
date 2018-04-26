@@ -3,13 +3,13 @@ require "./include/database.php";
 require "./include/labelClass.php";
 require "./include/nbClass.php";
 require "./include/noteClass.php";
-
+session_start();
 //$note = $arr();
 
 //新建笔记本
 if ($_GET['newnotebook']!=null){
     if(nbClass::nbexist($_SESSION['userid'],$_GET['newnotebook'])!=null){//如果笔记本存在
-
+        _location ( '该笔记本已存在！',edit.php );
     }else{
         new nbClass($_SESSION['userid'],$_GET['newnotebook']);
     }
@@ -18,16 +18,7 @@ if ($_GET['newnotebook']!=null){
 //新建标签
 if ($_GET['newlabel']!=null){
     if(labelClass::markexist($_SESSION['userid'],$_GET['newlabel'])!=null){//如果标签存在
-
-    }else{
-        new labelClass($_SESSION['userid'],$_GET['newlabel']);
-    }
-
-}
-//修改并保存笔记
-if ($_GET['newlabel']!=null){
-    if(labelClass::markexist($_SESSION['userid'],$_GET['newlabel'])!=null){//如果标签存在
-
+        _location ( '该标签已存在！',edit.php );
     }else{
         new labelClass($_SESSION['userid'],$_GET['newlabel']);
     }
@@ -36,10 +27,10 @@ if ($_GET['newlabel']!=null){
 
 //加星标记
 if ($_GET['_value']!=null){
-    if(noteClass::getStart(4,$_GET['_value'])==1){
-        noteClass::isStart(4,$_GET['_value'],0);
+    if(noteClass::getStart($_SESSION['userid'],$_GET['_value'])==1){
+        noteClass::isStart($_SESSION['userid'],$_GET['_value'],0);
     }else{
-        noteClass::isStart(4,$_GET['_value']);
+        noteClass::isStart($_SESSION['userid'],$_GET['_value']);
     }
 }
 ?>
@@ -112,9 +103,9 @@ if ($_GET['_value']!=null){
                                 if($_GET['deContent']!=null){
                                     noteClass::deNote($_SESSION['userid'],$_GET['deContent']);
                                 }
-                                //noteClass::updateNote(4,$_GET['oldV'],$_GET['newV']);
+                                //noteClass::updateNote(1,$_GET['oldV'],$_GET['newV']);
                                 $num = 0;
-                                 $arr_nb = nbClass::fristSearch(4);
+                                 $arr_nb = nbClass::fristSearch($_SESSION['userid']);
                                 foreach ($arr_nb as $arr) {
 
                                     echo "<div class=\"panel panel-default\">
@@ -131,7 +122,7 @@ if ($_GET['_value']!=null){
                                         <div class=\"panel-body\" style='font-size: 14px'>";
 
                                     foreach ($arr_note as $arr1) {
-                                        echo "<a role=\"button\" onclick='innerHtml(\"".$arr1['content']."\",\"".noteClass::getStart(4,$arr1['content'])."\")'>".$arr1['content']."</a ><br><br>";
+                                        echo "<a role=\"button\" onclick='innerHtml(\"".$arr1['content']."\",\"".noteClass::getStart($_SESSION['userid'],$arr1['content'])."\")'>".$arr1['content']."</a ><br><br>";
                                     }
 
                                         echo "</div>
