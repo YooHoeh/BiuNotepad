@@ -54,7 +54,7 @@ if ($_GET['newlabel']!=null){
 		<link href="http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 		<script src="./js/jquery-3.2.0.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
-		<!-- <script src="js/layui.js"></script> -->
+		<script src="js/layui.js"></script>
 	</head>
 
 	<body>
@@ -68,8 +68,8 @@ if ($_GET['newlabel']!=null){
 				<div class="line line-rigth"></div>
 			</div>
 			<div class="user">
-				<a href="index.php">
-					<i class="fa fa-user"></i>
+				<a href="main.php">
+					<i class="fa fa-home"></i>
 				</a>
 			</div>
 			<div class="link">

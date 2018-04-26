@@ -166,7 +166,7 @@ body {
             transform: translate(-50%, -50%);
     border: 0;
     background-color: transparent;
-    font-size: 80px;
+    font-size: 3em;
 }
 
 .class5::-webkit-input-placeholder,    /* 使用webkit内核的浏览器 */
@@ -344,4 +344,36 @@ body>div:hover {
         width:100%;
         height:100%;
     }
+    .class5 input[type=submit] {
+    position: absolute;
+    right: -85px;
+    top: 79%;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    border: 0;
+    background-color: transparent;
+    font-size: 3em;
+}
+.class5 dl {
+    position: absolute;
+    left: -42px;
+    top: 60%;
+    width: 800px;
+    -webkit-transform: translate(0, -69%);
+        -ms-transform: translate(0, -69%);
+            transform: translate(0, -69%);
+}
+.class5 .close {
+    position: absolute;
+    right: -25px;
+    top: 7px;
+    width: 102px;
+    height: 50px;
+    background: silver;
+    border-radius: 25px;
+    -webkit-box-shadow: 2px 2px 5px 0px black;
+            box-shadow: 2px 2px 5px 0px black;
+    cursor: pointer;
+}
 }
