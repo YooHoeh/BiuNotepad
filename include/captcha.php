@@ -1,5 +1,6 @@
 <?php 
     require 'captcha.class.php';
+    global $an;
     $an = new Captcha();
     $an->ext_num_type = '';
     $an->ext_pixel = true; //干扰点

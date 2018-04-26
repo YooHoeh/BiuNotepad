@@ -12,14 +12,14 @@ session_start();
 require "./include/common.php";
 
 // 登录状态
-_login_state();
+// _login_statu();
 
 // 开始处理登录状态
 if ($_GET['action'] == 'login') {
   // 引入验证文件
   require "./include/index.func.php";
   // 检查验证码
-  // $an->check_code($_POST['code'], $_SESSION['code']);
+check_code($_POST['code'], $_SESSION['an']);
   
   // 收集数据
   $_clean = [];
@@ -166,10 +166,10 @@ if(an == "null") {
         layui.use('form', function () {
             var form = layui.form;
             
-            // //监听提交
-            // form.on('submit(formDemo)', function (data) {
-            //     layer.msg(JSON.stringify(data.field));
-            //     return false;
-            // });
+        //     //监听提交
+        //     form.on('submit(formDemo)', function (data) {
+        //         layer.msg(JSON.stringify(data.field));
+        //         return false;
+        //     });
         });
 </script></html>

@@ -104,10 +104,19 @@
 			return $arr;
 		}
 		//id查找
-		public static function idSearch($id,$isdelete = 0){
+		public static function idSearch($id){
 			$con = new connetMysqli();
 			$arr = array();
-			$sql = "select * from note where id like '%$id%' and isdelete = $isdelete";
+			$sql = "select * from note where id like '%$id%'";
+			$arr = $con->getRow($sql);
+			$con->closeLink();
+			return $arr;
+		}
+		//时间查找
+		public static function notetimeSearch($time){
+			$con = new connetMysqli();
+			$arr = array();
+			$sql = "select * from note where createTime like '$time%'";
 			$arr = $con->getAll($sql);
 			$con->closeLink();
 			return $arr;

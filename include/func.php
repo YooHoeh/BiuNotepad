@@ -11,12 +11,12 @@
  * _login_state登录状态的判断
  */
  global $conn;
-function _login_state() {
+function _login_statu() {
 	if (isset($_COOKIE['userID'])) {
-		_location("您已登陆", "main.php");
+		// _location("您已登陆", "main.php");
 	}else{
-		echo $_COOKIE['userID'];
-		// print_r($_COOKIE);
+		print_r($_COOKIE);
+		_location('请先登录',"index.php");
 	}
 }
 
@@ -31,20 +31,21 @@ function _unsetcookies() {
 	// /print_r($_COOKIE);
 	// session_destroy();
 }
-
 /**
  * 弹窗警告并返回
  *
  * @param
  *        	$info弹出的警告信息
  */
-function alert_back($info) {
-	echo "<script type='text/javascript'>alert('$info');history.back();</script>";
+ function alert_back($info) {
+	$layui =  "<script src='./layui/layui.js'></script>  <link rel='stylesheet' href='./layui/css/layui.css'>";
+	echo $layui."<script>layui.use('layer', function(){var layer = layui.layer;layer.alert('$info', function(){history.back()})});</script>"; 
 	exit();
 }
 
 function alert_close($info) {
-	echo "<script type='text/javascript'>alert('$info');window.close();</script>";
+	$layui =  "<script src='./layui/layui.js'></script>  <link rel='stylesheet' href='./layui/css/layui.css'>";
+	echo $layui."<script>layui.use('layer', function(){var layer = layui.layer;layer.alert('$info', function(){window.close()})});</script>"; 
 	exit();
 }
 
@@ -65,7 +66,8 @@ function _location($info, $url) {
 	if ($info == null) {
 		header('Location:' . $url);
 	} else {
-		echo "<script type='text/javascript'>alert('$info');location.href='$url';</script>";
+		$layui =  "<script src='./layui/layui.js'></script>  <link rel='stylesheet' href='./layui/css/layui.css'>";
+		echo $layui."<script>layui.use('layer', function(){var layer = layui.layer;layer.alert('$info', function(){location.href='$url';})});</script>"; 
 	}
 	exit();
 }

@@ -49,6 +49,7 @@ function check_login($username, $password, $time,$conn) {
 		session_destroy();
 		session_start();
 		$_SESSION['userid'] = $rows['id'];
+		_setcookies($_SESSION['userid'], 1, $_time=0);
 		_location($rows['name'] . '登陆成功', 'main.php');
 	} else {
 		$conn->closeLink();
@@ -137,5 +138,16 @@ function check_empty($array) {
 	}
 }
 
+	/**
+	 * 检测验证码
+	 *
+	 * @param string $inputstr输入验证码
+	 * @param string $code图中验证码
+	 */
+ function check_code($inputstr, $code) {
+		if (strtolower($inputstr) != strtolower($code) ){
+			alert_back('验证码错误');
+		}
+	}
 
 ?>

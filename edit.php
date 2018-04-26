@@ -8,28 +8,28 @@ require "./include/noteClass.php";
 
 //新建笔记本
 if ($_GET['newnotebook']!=null){
-    if(nbClass::nbexist(4,$_GET['newnotebook'])!=null){//如果笔记本存在
+    if(nbClass::nbexist($_SESSION['userid'],$_GET['newnotebook'])!=null){//如果笔记本存在
 
     }else{
-        new nbClass(4,$_GET['newnotebook']);
+        new nbClass($_SESSION['userid'],$_GET['newnotebook']);
     }
 
 }
 //新建标签
 if ($_GET['newlabel']!=null){
-    if(labelClass::markexist(4,$_GET['newlabel'])!=null){//如果标签存在
+    if(labelClass::markexist($_SESSION['userid'],$_GET['newlabel'])!=null){//如果标签存在
 
     }else{
-        new labelClass(4,$_GET['newlabel']);
+        new labelClass($_SESSION['userid'],$_GET['newlabel']);
     }
 
 }
 //修改并保存笔记
 if ($_GET['newlabel']!=null){
-    if(labelClass::markexist(4,$_GET['newlabel'])!=null){//如果标签存在
+    if(labelClass::markexist($_SESSION['userid'],$_GET['newlabel'])!=null){//如果标签存在
 
     }else{
-        new labelClass(4,$_GET['newlabel']);
+        new labelClass($_SESSION['userid'],$_GET['newlabel']);
     }
 
 }
@@ -107,10 +107,10 @@ if ($_GET['_value']!=null){
 						<div class="panel-group" id="accordion">
                             <?php
                                 if($_GET['oldV']!=null&&$_GET['newV']!=null){
-                                    noteClass::updateNote(4,$_GET['oldV'],$_GET['newV']);
+                                    noteClass::updateNote($_SESSION['userid'],$_GET['oldV'],$_GET['newV']);
                                 }
                                 if($_GET['deContent']!=null){
-                                    noteClass::deNote(4,$_GET['deContent']);
+                                    noteClass::deNote($_SESSION['userid'],$_GET['deContent']);
                                 }
                                 //noteClass::updateNote(4,$_GET['oldV'],$_GET['newV']);
                                 $num = 0;
@@ -120,7 +120,7 @@ if ($_GET['_value']!=null){
                                     echo "<div class=\"panel panel-default\">
                                     <div class=\"panel-heading\" role=\"tab\" id=\"heading".$num."\">";
 
-                                        $arr_note = noteClass::notebookFristSearch(4,$arr['id']);
+                                        $arr_note = noteClass::notebookFristSearch($_SESSION['userid'],$arr['id']);
                                         echo "<h4 class=\"panel-title\" style='font-size: 18px'>
                                             <a role=\"button\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapse".$num."\" aria-expanded=\"false\" aria-controls=\"collapse".$num."\">
                                                 " . $arr['bookName'] . "
@@ -215,7 +215,7 @@ if ($_GET['_value']!=null){
 				<div>
 					<select id="newopt">
                         <?php
-                        $arr_nb = nbClass::fristSearch(4);
+                        $arr_nb = nbClass::fristSearch($_SESSION['userid']);
                         $num = 0;
                         foreach($arr_nb as $arr1){
                             echo '<option value="nb'.$num.'">'.$arr1["bookName"].'</option>';
@@ -235,7 +235,7 @@ if ($_GET['_value']!=null){
 				<div>
 					<select id="newopt">
                         <?php
-                        $arr_mark = labelClass::fristSearch(4);
+                        $arr_mark = labelClass::fristSearch($_SESSION['userid']);
                         $num = 0;
                         foreach($arr_mark as $arr1){
                             echo '<option value="label'.$num.'">'.$arr1["markName"].'</option>';

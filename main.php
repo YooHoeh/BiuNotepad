@@ -29,6 +29,43 @@
     }
 
      */
+    // 放入废纸篓
+    // _login_statu();
+     if(isset($_GET['delenote'])){
+         $note = noteClass::idSearch($_GET['delenote']);
+         if($note['isdelete'] ==0){
+             if ($conn->update('note',"isdelete = '1'","id='$_GET[delenote]'") == 1){
+                 _location('放入废纸篓成功！','main.php');
+             }else{
+                    _location('删除失败！','main.php');
+                    print_r($note);
+            }
+        }else{
+                if ($conn->update('note',"isdelete = '0'","id='$_GET[delenote]'") == 1){
+                     _location('恢复成功！','main.php');
+                }else{
+                        _location('恢复失败！','main.php');
+                }
+         }
+     }
+    //  添加标记
+     if(isset($_GET['starnote'])){
+         $note = noteClass::idSearch($_GET['starnote']);
+     	if($note['isStart'] == 1) {
+     		 if ($conn->update('note',"isStart='0'","id='$_GET[starnote]'") == 1){
+        	_location('取消标记成功！','main.php');
+      	 	}else{
+        	_location('取消标记失败！','main.php');
+            }
+     	}else{
+     		if ($conn->update('note',"isStart = '1'","id='$_GET[starnote]'") == 1){
+        		_location('标记成功！','main.php');
+        	}else{
+        	_location('标记失败！','main.php');
+            }
+        }
+
+     }
 ?>
 <html lang="en">
 
@@ -98,10 +135,12 @@
         </div>
 
         <div class="user">
-            <i class="fa fa-user"></i>
+            <i class="fa fa-user" ></i>
             <div class="user-set">
                 <a class="openuser">
-                    <i class="fa fa-cog"></i>个人中心</a>
+                    <i class="fa fa-address-card"></i>个人中心</a>
+                <a class="openpsk">
+                    <i class="fa fa-cog"></i>密码修改</a>
                 <a href='index.php'>
                     <i class="fa fa-sign-out"></i>注销账户</a>
             </div>
@@ -109,7 +148,7 @@
         </div>
     </div>
     <div class="userView layui-anim layui-anim-up ">
-        <iframe src="user.php" frameborder="0"></iframe>
+        <iframe  frameborder="0"></iframe>
         <div class="close"></div>
 
     </div>
@@ -120,10 +159,10 @@
             <div class="card todo layui-anim layui-anim-upbit ">
                 <div class="card-header">
                     <a href="main.php">
-                        <i class="fa fa-window-maximize"></i>
+                        <i class="fa fa-list-ul"></i>
                     </a>
                     <input id="new-item" type="text" disabled placeholder="笔记">
-                    <a class="btn-circle" id="btn-add" href="include/edit.php">
+                    <a class="btn-circle" id="btn-add" href="edit.php">
                         <span class="tooltip">添加笔记</span>
                         <i id="plus" class="fa fa-plus"></i>
                     </a>
@@ -131,26 +170,43 @@
                 <hr>
                 <div id="search_re">
                     <?php
-                    $icon = "<div class='iconBar'><i class='fa fa-star-o'></i><i class='fa fa-bell-o'></i><i class='fa fa-trash-o'></i></div>";
-                //循环生成笔记和笔记本
-                  //控制显示何种笔记和笔记本
-                  if (1 != $_GET['delete'] && null == $_GET['mark']) {
+                    $icon = "<div class='iconBar'><a href=''><i class='fa fa-star-o'></i></a><a><i class='fa fa-bell-o'></i></a><a href=''><i class='fa fa-trash-o'></i></a></div>";
+                    //循环生成笔记和笔记本
+                    //控制显示何种笔记和笔记本
+                    if (1 != $_GET['delete'] && null == $_GET['mark'] && isset($_GET['date'])!=1) {
                       if (null == $_GET['search_text']) {//不执行搜索---默认显示方式
-                          $arr_nb = nbClass::fristSearch(4);
-                          foreach ($arr_nb as $arr) {
-                              $arr_note = noteClass::notebookFristSearch(4, $arr['id']);
+                          $arr_nb = nbClass::fristSearch($_SESSION['userid']);
+                          foreach ($arr_nb as $key=>$arr) {
+                              $arr_note = noteClass::notebookFristSearch($_SESSION['userid'], $arr['id']);
                               echo "<div class='notebook'>".$arr['bookName'];
                               //输出$arr['bookName'];
-                              foreach ($arr_note as $arr1) {
+                              if(count($arr_note) == 0){
+                                echo "<div class='noticep'>该笔记本下无笔记</div>";
+                                $key++;   
+                             }
+                              foreach ($arr_note as $key1=>$arr1) {
+                             
                                   echo "<div class='note'><a href='edit.php?id=".$arr1['id']."'>".$arr1['content'].'</a><span>'.$arr1['createTime'].'</span>'.$icon.'</div>';
+                                  
+                                  ?>
+                                  <!-- 将有标记的笔记加实心五角星 -->
+                                  <script>
+                                      var bar =  document.getElementsByClassName('iconBar');
+                                          if(<?php echo $arr1['isStart'];?> == '1'){
+                                          console.log('第'+<?php echo $key1+count($key1)?>);
+                                          var star = bar[<?php echo $key1+count($key1)?>].getElementsByTagName('i')[0];
+                                          star.setAttribute('class','fa fa-star-o star');
+                                          }   
+                                    </script>
+                                  <?php
                                   // 输出$arr1['content'];
                               }
                               echo '</div>';
                           }
                       } else {//执行搜索--模糊查询结果
-                          $arr_nb = nbClass::Search(4, $_GET['search_text']);
-                          $arr_note = noteClass::Search(4, $_GET['search_text']);
-                          if ($arr_nb != null) {
+                          $arr_nb = nbClass::Search($_SESSION['userid'], $_GET['search_text']);
+                          $arr_note = noteClass::Search($_SESSION['userid'], $_GET['search_text']);
+                          if (null != $arr_nb) {
                               echo "<div  class='notebook'>笔记本</div>";
                               foreach ($arr_nb as $arr) {
                                   echo "<div class='note'><a href=''>".$arr['bookName'].'</a></div>';
@@ -158,19 +214,19 @@
                           }else {
                             echo "<p  class='notice' >搜索笔记本为空</p>";
                           }
-                          if ($arr_note != null) {
+                          if (null != $arr_note) {
                               echo "<div class='notebook'>笔记</div>";
                               foreach ($arr_note as $arr) {
-                                  echo "<div class='note'><a href=''>".$arr['content'].'</a><p>'.$arr['createTime'].'</p></div>';
+                                  echo "<div class='note'><a href=''>".$arr['content'].'</a><span>'.$arr['createTime'].'</span>'.$icon.'</div>';
                               }
                           }else {
-                            echo "<p  class='notice' >搜索笔记为空</p><p class='notice'><a href='include/edit.php'><i class='fa fa-plus-circle'></i></a></p>";
+                            echo "<p  class='notice' >搜索笔记为空</p><p class='notice'><a href='edit.php'><i class='fa fa-plus-circle'></i></a></p>";
                         }
                           
                       }
                   } else if (1 == $_GET['delete'] && null == $_GET['mark']) {//查看废纸篓
-                      $arr_nb = nbClass::Search(4, $_GET['search_text'], 1);
-                      $arr_note = noteClass::Search(4, $_GET['search_text'], 1);
+                      $arr_nb = nbClass::Search($_SESSION['userid'], $_GET['search_text'], 1);
+                      $arr_note = noteClass::Search($_SESSION['userid'], $_GET['search_text'], 1);
                       if (null != $arr_nb) {
                           echo "<div class='notebook'>笔记本</div>";
                           foreach ($arr_nb as $arr) {
@@ -180,20 +236,33 @@
                       if (null != $arr_note) {
                           echo "<div class='notebook'>笔记</div>";
                           foreach ($arr_note as $arr) {
-                              echo "<div class='note'><a href=''>".$arr['content'].'</a><p>'.$arr['createTime'].'</p></div>';
+                              echo "<div class='note'><a href='edit.php?id=".$arr['id']."'>".$arr['content'].'</a><span>'.$arr['createTime'].'</span>'.$icon.'</div>';
                           }
+                      }else {
+                        echo "<p  class='notice' >废纸篓笔记为空</p>";
                       }
                   } else if (null != $_GET['mark']) {//用标签搜索
                       $arr_nb;
-                      $arr_note = labelClass::markSearch(4, $_GET['mark']);
+                      $arr_note = labelClass::markSearch($_SESSION['userid'], $_GET['mark']);
                       if (null != $arr_note) {
                           echo "<div class='notebook'>笔记</div>";
                           foreach ($arr_note as $arr) {
-                              echo "<div class='note'><a href=''>".$arr['content'].'</a><p>'.$arr['createTime'].'</p></div>';
+                              echo "<div class='note'><a href=''>".$arr['content'].'</a><span>'.$arr['createTime'].'</span>'.$icon.'</div>';
                           }
                       }else {
-                        echo "<p  class='notice' >该标签下无笔记</p>";
+                        echo "<p  class='noticep' >该标签下无笔记</p>";
                     }
+                  }else if( isset($_GET['date'])){
+                    $arr_nb;
+                    $arr_note = noteClass::notetimeSearch($_GET['date']);
+                    if (null != $arr_note) {
+                        echo "<div class='notebook'>笔记</div>";
+                        foreach ($arr_note as $arr) {
+                            echo "<div class='note'><a href=''>".$arr['content'].'</a><span>'.$arr['createTime'].'</span>'.$icon.'</div>';
+                        }
+                    }else {
+                      echo "<p  class='noticep' >该时间下无笔记</p>";
+                  }
                   }
                   ?>
                 </div>
@@ -213,22 +282,13 @@
             <div class="card tags layui-anim layui-anim-upbit ">
                 <?php
           $num = 0;
-          $arr_mark = labelClass::fristSearch(4);
+          $arr_mark = labelClass::fristSearch($_SESSION['userid']);
           foreach ($arr_mark as $arr1) {
               echo ' <a href=""  id="mark'.$num.'" onclick="markSearch(\'mark'.$num.'\')">'.$arr1['markName'].'</a>';
               ++$num;
           }
 
             ?>
-                    <!-- <a href="#" target="_blank">起名取名</a>
-            <a href="#" target="_blank">宣传策划</a>
-            <a href="#" target="_blank">网游试玩</a>
-            <a href="#" target="_blank">宣传设计</a>
-            <a href="#" target="_blank">配音配词</a>
-            <a href="#" target="_blank">产品推广</a>
-            <a href="#" target="_blank">网络营销</a>
-            <a href="#" target="_blank">影视创作</a>
-            <a href="#" target="_blank">照片美化</a> -->
 
             </div>
 
@@ -265,7 +325,7 @@
 <script src="js/clender.js"></script>
 <!-- 微信分享api -->
 <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
-
+<!-- 融云WEBIM -->
 <script>
     (function () {
         // var appKey = "lmxuhwaglie3d";
@@ -312,9 +372,7 @@
 
 </script>
 
-
-<script type="text/javascript">
-
+<script>
     function _onclick() {
         var a = document.getElementById("search_text").value;
         if (<?php if (0 == $_GET['delete']) {
@@ -338,7 +396,7 @@
             document.getElementById('doneShow').href = "main.php?delete=1";
         }
         else {
-            document.getElementById('doneShow').href = "main.php?delete=0";
+            document.getElementById('doneShow').href = "main.php";
         }
     }
 
@@ -352,3 +410,37 @@
     }
 
 </script>
+<script>
+
+
+// 笔记根据状态修改图标
+// function setNoteIcon(){
+//     var bar =  document.getElementsByClassName('iconBar');
+//     for(let i=0; i<bar.length;i++){
+//         var a = bar[i].parentNode.getElementsByTagName('a')[0];
+//         var id = a.getAttribute('href').substring(12);
+//         var star = bar[i].getElementsByClassName('fa-star-o')[0];
+//         var del = bar[i].getElementsByClassName('fa-trash-o')[0];
+
+
+//     }
+// }
+
+
+// 随写板部分
+var notes = (document.getElementById("notes"));
+if (localStorage.getItem("noteData")) {
+  var noteData = localStorage.getItem("noteData");
+}
+else {
+  var noteData = "";
+}
+notes.value = noteData;
+notes.oninput = function(){noteDataObjectUpdated();
+};
+function noteDataObjectUpdated(){
+  noteData = notes.value;
+  console.log(noteData);
+  localStorage.setItem("noteData", noteData);
+}
+</script>

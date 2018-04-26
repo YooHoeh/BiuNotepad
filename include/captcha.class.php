@@ -131,17 +131,7 @@ class Captcha {
 		//释放图像资源
 	}
 
-	/**
-	 * 检测验证码
-	 *
-	 * @param string $inputstr输入验证码
-	 * @param string $code图中验证码
-	 */
-	public function check_code($inputstr, $code) {
-		if ($inputstr != $code) {
-			echo "<script>alarm('验证码错误')</script>";
-		}
-	}
+
 
 }
 
