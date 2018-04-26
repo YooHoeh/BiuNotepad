@@ -166,10 +166,10 @@ if(an == "null") {
         layui.use('form', function () {
             var form = layui.form;
             
-            // //监听提交
-            // form.on('submit(formDemo)', function (data) {
-            //     layer.msg(JSON.stringify(data.field));
-            //     return false;
-            // });
+        //     //监听提交
+        //     form.on('submit(formDemo)', function (data) {
+        //         layer.msg(JSON.stringify(data.field));
+        //         return false;
+        //     });
         });
 </script></html>
