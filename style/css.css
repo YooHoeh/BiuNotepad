@@ -133,7 +133,6 @@ body{
 	position:absolute;
 	float: left;
 	left:93%;
-	/* margin-top:10%; */
 	text-align: center;
 	color: #1170b4;
 	background-color: #F8F8F8;
@@ -391,7 +390,7 @@ i:hover{
 	color: #06324F;
 }
 a:hover{
-	background-color:#79aed5;
+	/*background-color:#79aed5;*/
 	transition: 0.4s;
     background-position: -60px -60px;
 }

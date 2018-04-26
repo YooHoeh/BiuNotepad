@@ -169,13 +169,6 @@ body {
     font-size: 3em;
 }
 
-.class5::-webkit-input-placeholder,    /* 使用webkit内核的浏览器 */
-.class5:-moz-placeholder,                 /* Firefox版本4-18 */
-.class5::-moz-placeholder,                 /* Firefox版本19+ */
-.class5:-ms-input-placeholder{          /* IE浏览器 */
-
-    color:green;
-}
 .class5 input[type=submit]:hover {
     color: #349EE8;
 }

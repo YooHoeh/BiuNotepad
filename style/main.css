@@ -62,7 +62,6 @@ hr {
   color: #fff;
   margin: 15px 5px;
   top: 5px;
-  cursor:pointer;
   /* width: 100px; */
 }
 
@@ -88,7 +87,7 @@ hr {
   font-size: 15px;
   text-align: center;
   width: 100px;
-  height: 68px;
+  height: 50px;
   background-color: #0096f9;
   -webkit-box-shadow: #000 3px 3px 5px;
           box-shadow: #000 3px 3px 5px;
