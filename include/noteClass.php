@@ -1,4 +1,5 @@
 <?php
+	include_once "database.php";
 	header('content-type:text/html;charset=utf-8');
 	class noteClass{
 		private $userid;
@@ -58,6 +59,19 @@
 			$sql = "update note set isStart = $isStart where id = '$id_1'";
 			$con->runSQL($sql);
 			$con->closeLink();
+		}
+		//判断笔记是否加星
+		public static function getStart($userid,$content){
+            $con = new connetMysqli();
+            $id_1 = $con->getNotelId($userid, $content);
+            $sql = "select * from note where id = '$id_1'";
+            $arr = $con->getRow($sql);
+            $con->closeLink();
+            if($arr['isStart']==1){
+            	return 1;
+			}else{
+            	return 0;
+			}
 		}
 		
 //---------------------------------------------------------------	
@@ -223,6 +237,5 @@ echo "<pre>";
 	echo "<pre>";
 	print_r($arr);
 	echo "</pre>"*/
-	
 ?>
 

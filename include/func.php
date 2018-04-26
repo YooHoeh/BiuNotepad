@@ -48,6 +48,12 @@ function alert_close($info) {
 	exit();
 }
 
+/**
+ * 生成动态标识符
+ */
+function _sha1_uniqid() {
+	return _mysql_string(sha1(uniqid(rand(), true)));
+}
 
 /**
  * 消息弹窗并回到指定位置
@@ -71,24 +77,5 @@ function _is_repeat($_sql, $_info,$conn) {
 	if ($conn->getRow ( $_sql )) {
 		alert_back ( $_info );
 	}
-}
-/**
- * _mysql_string
- * 
- * @param string $_string        	
- * @return string $_string
- */
- function _mysql_string($_string,$conn) {
-	// get_magic_quotes_gpc()如果开启状态，那么就不需要转义
-	if (! get_magic_quotes_gpc ()) {
-		if (is_array ( $_string )) {
-			foreach ( $_string as $_key => $_value ) {
-				$_string [$_key] = mysqli_real_escape_string ($_value,$conn);
-			}
-		} else {
-			$_strin = mysqli_real_escape_string ($_string,$conn);
-		}
-	}
-	return $_string;
 }
 ?>

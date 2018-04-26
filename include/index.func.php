@@ -70,7 +70,7 @@ function check_name($string, $min_num, $max_num) {
 	$string = trim ( $string );
 	
 	// 限制长度
-	if (mb_strlen ( $string, 'utf-8' ) < $min_num || mb_strlen ( $string . 'utf-8' ) > $max_num) {
+	if (mb_strlen ( $string, 'utf-8' ) < 2 || mb_strlen ( $string . 'utf-8' ) > 20) {
 		alert_back ( '用户名长度超出范围！' );
 	}
 	
@@ -81,7 +81,7 @@ function check_name($string, $min_num, $max_num) {
 	}
 	
 	// 将字符串myaql转义
-	return $string;
+	return _mysql_string ( $string );
 }
 
 /**
@@ -103,7 +103,7 @@ function check_password($firstpassword, $repeatword, $minlen) {
 	}
 	
 	// 返回密码
-	return sha1($firstpassword);
+	return sha1 ( $firstpassword );
 }
 
 /**
