@@ -8,7 +8,7 @@
 		
 		
 		//构造函数
-		public function __construct($userid,$content,$notebookid = 0){
+		public function __construct($userid,$content,$notebookid = 1){
 			$this->userid = $userid;
 			$this->content = $content;
 			$this->notebookid = $notebookid;
@@ -118,6 +118,15 @@
 			$arr = array();
 			$sql = "select * from note where createTime like '$time%'";
 			$arr = $con->getAll($sql);
+			$con->closeLink();
+			return $arr;
+		}
+		//内容查找
+		public static function noteContentSearch($content){
+			$con = new connetMysqli();
+			$arr = array();
+			$sql = "select * from note where content like '%$content%' limit 1";
+			$arr = $con->getRow($sql);
 			$con->closeLink();
 			return $arr;
 		}

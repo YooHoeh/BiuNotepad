@@ -122,9 +122,8 @@ function labelFunction(){
 function DocInfoWindow() {
     var card = document.getElementsByClassName('userView')[0];
     var closebtn = card.getElementsByClassName('close')[0];
-    var openbtn = document.getElementsByClassName('fa-info-circle')[0];
+	var openbtn = document.getElementsByClassName('fa-info-circle')[0];
     openbtn.onclick = function () {
-		card.children[0].setAttribute("scr",'document')
         card.style.display = "block";
 
     }

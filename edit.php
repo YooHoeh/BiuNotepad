@@ -104,7 +104,7 @@ if ($_GET['_value']!=null){
 										_location('笔记更新成功！','edit.php');
 									}else{
 										new noteClass($_SESSION['userid'],$_GET['newV']);
-										// _location('新建笔记成功！','edit.php');
+										_location('新建笔记成功！','edit.php');
 									}
 									
                                 }
@@ -290,7 +290,8 @@ if ($_GET['_value']!=null){
             }else{
                 document.getElementById("isStart").style.color = "white";
             }
-            oldV = text;
+			oldV = text;
+			document.getElementsByTagName('iframe')[0].setAttribute('src','documentInfo.php?content='+oldV);
         }
         function update() {
             var newV = document.getElementById("content").value;
@@ -305,7 +306,7 @@ if ($_GET['_value']!=null){
             document.getElementById("isStart").href = "edit.php?_value="+_value;
         }
 	
-	   DocInfoWindow(de);
+	   DocInfoWindow();
     </script>
 
 

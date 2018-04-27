@@ -412,24 +412,26 @@ a:hover{
 
 .userView {
   position: absolute;
-  top: 30%;
-  left: 28%;
+  top: 31%;
+  left: 38%;
   -webkit-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   /* border-radius: 5%; */
-  width: 50%;
-  height: 35%;
-  -webkit-box-shadow: #8DB6CD 0px 0px 500000px;
-          box-shadow: #8DB6CD 0px 0px 500000px;
+  width: 25%;
+  height: 25%;
+  -webkit-box-shadow: #000 0px 0px 500000px;
+          box-shadow: #000 0px 0px 500000px;
   z-index: 99999999999999999999999999999999999;
   display: none;
 }
 
 .userView iframe {
+position: relative;
   width: 100%;
   /* border-radius: 5%; */
   height: 100%;
+  overflow: hidden;
 }
 
 .userView .close {
