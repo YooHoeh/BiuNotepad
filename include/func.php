@@ -49,12 +49,6 @@ function alert_close($info) {
 	exit();
 }
 
-/**
- * 生成动态标识符
- */
-function _sha1_uniqid() {
-	return _mysql_string(sha1(uniqid(rand(), true)));
-}
 
 /**
  * 消息弹窗并回到指定位置

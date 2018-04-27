@@ -6,38 +6,26 @@ icon = document.getElementsByClassName('hideicon');
 window.onload = function () {
     var i = 0;
     var oTag = null;
-
     oDiv = document.getElementsByClassName('tags')[0];
-
     aA = oDiv.getElementsByTagName('a');
-
     for (i = 0; i < aA.length; i++) {
         oTag = {};
-
         oTag.offsetWidth = aA[i].offsetWidth;
         oTag.offsetHeight = aA[i].offsetHeight;
-
         mcList.push(oTag);
     }
-
     sineCosine(0, 0, 0);
-
     positionAll();
-
     oDiv.onmouseover = function () {
         active = true;
     };
-
     oDiv.onmouseout = function () {
         active = false;
     };
-
     oDiv.onmousemove = function (ev) {
         var oEvent = window.event || ev;
-
         mouseX = oEvent.clientX - (oDiv.offsetLeft + oDiv.offsetWidth / 2);
         mouseY = oEvent.clientY - (oDiv.offsetTop + oDiv.offsetHeight / 2);
-
         mouseX /= 5;
         mouseY /= 5;
     };
@@ -45,6 +33,7 @@ window.onload = function () {
     setInterval(update, 30);
     refreshNavBGC();
     userSet();
+    iconBarSrcSet();
 
    
 };
@@ -93,9 +82,15 @@ function toedit(id) {
 function userSet() {
     var card = document.getElementsByClassName('userView')[0];
     var closebtn = document.getElementsByClassName('close')[0];
-    var openbtn = document.getElementsByClassName('openuser')[0];
+    var userbtn = document.getElementsByClassName('openuser')[0];
+    var pskbtn = document.getElementsByClassName('openpsk')[0];
 
-    openbtn.onclick = function () {
+    userbtn.onclick = function () {
+        card.getElementsByTagName('iframe')[0].setAttribute('src','user.php');
+        card.style.display = "block";
+    }
+    pskbtn.onclick = function () {
+        card.getElementsByTagName('iframe')[0].setAttribute('src','setpsk.php');
         card.style.display = "block";
     }
   
@@ -106,10 +101,6 @@ function userSet() {
 
         },500);
     }
-    //   $(".close").bind("click", function () {
-    //     $(".userView").removeAttr("style");
-    //     $(".userView").fadeOut("4000");
-    // });
 }
 
  //根据笔记链接获取笔记id对图标添加相应链接

@@ -71,8 +71,8 @@ function check_name($string, $min_num, $max_num) {
 	$string = trim ( $string );
 	
 	// 限制长度
-	if (mb_strlen ( $string, 'utf-8' ) < 2 || mb_strlen ( $string . 'utf-8' ) > 20) {
-		alert_back ( '用户名长度超出范围！' );
+	if (mb_strlen ( $string, 'utf-8' ) < $min_num || mb_strlen ( $string . 'utf-8' ) > $max_num) {
+		alert_back ( '用户名长度超出范围！（大于'.$min_num.' 小于'.$max_num.'位）' );
 	}
 	
 	// 限制敏感字符
@@ -82,7 +82,7 @@ function check_name($string, $min_num, $max_num) {
 	}
 	
 	// 将字符串myaql转义
-	return _mysql_string ( $string );
+	return $string;
 }
 
 /**
@@ -104,7 +104,7 @@ function check_password($firstpassword, $repeatword, $minlen) {
 	}
 	
 	// 返回密码
-	return sha1 ( $firstpassword );
+	return sha1($firstpassword);
 }
 
 /**

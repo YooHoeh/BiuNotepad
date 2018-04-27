@@ -93,7 +93,17 @@
             $str = $con->getRow($sql);
             $con->closeLink();
             return $str;
-        }
+		}
+
+
+		// 通过ID获取该笔记下的标签
+		public static function getMarkById($id) {
+			$con = new connetMysqli();
+            $sql = "select markName from mark where id = '$id'";
+            $str = $con->getRow($sql);
+            $con->closeLink();
+            return $str;
+		}
 	}
 
 //$a3 = new labelClass(4,'234567');

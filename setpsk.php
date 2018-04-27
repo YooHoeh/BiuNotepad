@@ -24,7 +24,7 @@ if (isset($_SESSION['userid'])) {
     exit();
 }
 
-if ('setpsk' == $_GET['action']) {
+if ( $_GET['action'] == 'setpsk') {
     $form = [];
     $form['oldpsk'] = sha1($_POST['oldpsk']);
     $form['newpsk'] = $_POST['newpsk'];

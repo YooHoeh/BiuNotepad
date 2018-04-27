@@ -16,22 +16,24 @@ include './include/common.php';
 require './include/index.func.php';
 
 session_start();
-if ('updata' == $_GET['action']) {
-    $psd = _fetch_array("select $name from $table where $userID = '{$_COOKIE['userID']}'")[$name];
-    $newpsd = check_password($_POST['newpsd'], 6);
-    if (sha1($_POST['oldpsd']) == $psd) {
-        _query("update $table set $name = '$newpsd' where $userID = '{$_COOKIE['userID']}'");
-        alert_back('密码修改成功');
-    }
-}
-print_r($_SESSION);
 if (isset($_SESSION['userid'])) {
-    
-    echo $_SESSION['userid'];
+    $a = $conn->getRow("select * from user where id = $_SESSION[userid]");
 } else {
-    echo '嘛也没有';
+    echo "非法闯入!";
+    exit();
 }
 
+if ('updata' == $_GET['action']) {
+    $form = [];
+    $form['name'] = check_name($_POST['name'],4,20);
+    $form['email'] = check_email($_POST['email']);
+    print_r($form);
+    if($conn->update('user',"username='$form[name]'","id='$a[id]'") == 1) {
+        alert_close('用户信息修改成功');
+    }else{
+        alert_back('修改失败');
+    }
+}
 ?>
 <html>
 
@@ -46,51 +48,48 @@ if (isset($_SESSION['userid'])) {
 </head>
 
 <body>
-    <!-- <div class="user-center"> -->
+    <div class='userdata'>
+    <form class="layui-form" action="user.php?action=updata" method="post" id="userform">
 
-        <form class="layui-form" action="user.php?action=updata" method="post" id="userform">
-            
-            <div class="layui-form-item">
-                <label class="layui-form-label">用户名:</label>
-                <div class="layui-input-inline">
-                    <input type="text" name="password" required lay-verify="required" placeholder=$username autocomplete="off" class="layui-input">
-                </div>
-            </div>
-            <div class="layui-form-item">
-            <label class="layui-form-label">密码修改:</label>
+        <div class="layui-form-item">
+            <label class="layui-form-label">用户名:</label>
             <div class="layui-input-inline">
-                <input type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+                <input type="text" name="name" required lay-verify="required" value=<?php echo $a[username] ?> placeholder=
+                <?php echo $a[username] ?> autocomplete="off" class="layui-input">
             </div>
         </div>
+
         <div class="layui-form-item">
             <label class="layui-form-label">Email:</label>
             <div class="layui-input-inline">
-                <input type="password" name="password" required lay-verify="required|email" placeholder="" utocomplete="off" class="layui-input">
+                <input type="text" name="email" required lay-verify="required|email" value="<?php echo $a[email] ?>" utocomplete="off" class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label">创建时间:</label>
             <div class="layui-input-inline">
-                <input type="password" name="password" placeholder="" autocomplete="off" class="layui-input" disabled="disabled">
+                <input type="text" name="createtime" value="<?php echo $a[createTime] ?>" placeholder="<?php echo $a[createTime] ?>" autocomplete="off"
+                    class="layui-input" disabled="disabled">
             </div>
         </div>
-        
+
         <div class="layui-form-item">
             <div class="layui-input-block">
                 <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
             </div>
         </div>
     </form>
-    <!-- </div> -->
+        </div>
+    
     <script>
         layui.use('form', function () {
             var form = layui.form;
-            
-            //监听提交
-            form.on('submit(formDemo)', function (data) {
-                layer.msg(JSON.stringify(data.field));
-                return false;
-            });
+
+            // //监听提交
+            // form.on('submit(formDemo)', function (data) {
+            //     layer.msg(JSON.stringify(data.field));
+            //     return false;
+            // });
         });
     </script>
 </body>

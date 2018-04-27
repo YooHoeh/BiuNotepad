@@ -285,6 +285,11 @@ if ($_GET['_value']!=null){
             var _value = document.getElementById("content").value;
             document.getElementById("isStart").href = "edit.php?_value="+_value;
         }
+		// 笔记信息获取弹窗显示
+		 function showDocInfo() {
+		 	// <?php echo "<script> var content = \"\"</scipt>"?>
+			
+		 }
     </script>
 
 	<!-- header部分js -->
