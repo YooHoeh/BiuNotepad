@@ -20,4 +20,3 @@ $("#fileMutiply").change(function eventStart() {
         	+ (sfileSize) + "</span></li>");
     }
 })
-}

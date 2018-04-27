@@ -117,7 +117,34 @@ function labelFunction(){
    		newopt.options.add(option);     
 		}
 
+// 文档信息弹窗
 
+function DocInfoWindow() {
+    var card = document.getElementsByClassName('userView')[0];
+    var closebtn = card.getElementsByClassName('close')[0];
+    var openbtn = document.getElementsByClassName('fa-info-circle')[0];
+    openbtn.onclick = function () {
+		card.children[0].setAttribute("scr",'document')
+        card.style.display = "block";
+
+    }
+    closebtn.onclick = function (){
+        card.style.animation='uptoremove 0.5s';
+        setTimeout(function(){
+            card.removeAttribute('style');
+        },500);
+    }
+    	// 笔记信息获取弹窗显示
+		//  function showDocInfo() {
+		// 	var infoIcon = document.getElementsByClassName('fa-info-circle')[0];
+			
+		// 	infoIcon.onclick = function(){
+
+		//  	// <?php echo "<script> var content = \"\"</scipt>"?>
+		// 	}
+			
+		//  }
+}
 //  文本框数字长度指示器
 $(function(){
   $("#content").keyup(function(event) {
@@ -129,4 +156,5 @@ $(function(){
      }
      $("#word").text(800-current); 
   }); 
+
 })

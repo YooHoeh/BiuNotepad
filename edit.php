@@ -3,6 +3,7 @@ require "./include/database.php";
 require "./include/labelClass.php";
 require "./include/nbClass.php";
 require "./include/noteClass.php";
+require './include/func.php';
 session_start();
 //$note = $arr();
 
@@ -55,6 +56,7 @@ if ($_GET['_value']!=null){
 	</head>
 
 	<body>
+		<!-- 导航栏部分  -->
 		<div class="navbaraa">
 			<div class="title">
 				Biu笔记本
@@ -88,7 +90,6 @@ if ($_GET['_value']!=null){
 			</div>
 		</div>
 
-		<!-- 导航栏部分  -->
 
 		<div class="edit">
 			<div class="active">
@@ -97,11 +98,19 @@ if ($_GET['_value']!=null){
 					<div class="notebook">
 						<div class="panel-group" id="accordion">
                             <?php
-                                if($_GET['oldV']!=null&&$_GET['newV']!=null){
-                                    noteClass::updateNote($_SESSION['userid'],$_GET['oldV'],$_GET['newV']);
+                                if($_GET['newV']!=null){
+									if($_GET['oldV']!=undefined){
+										noteClass::updateNote($_SESSION['userid'],$_GET['oldV'],$_GET['newV']);
+										_location('笔记更新成功！','edit.php');
+									}else{
+										new noteClass($_SESSION['userid'],$_GET['newV']);
+										// _location('新建笔记成功！','edit.php');
+									}
+									
                                 }
                                 if($_GET['deContent']!=null){
-                                    noteClass::deNote($_SESSION['userid'],$_GET['deContent']);
+									noteClass::deNote($_SESSION['userid'],$_GET['deContent']);
+									_location('笔记删除成功！','edit.php');
                                 }
                                 //noteClass::updateNote(1,$_GET['oldV'],$_GET['newV']);
                                 $num = 0;
@@ -120,21 +129,22 @@ if ($_GET['_value']!=null){
                                         echo "</div>
                                     <div id=\"collapse".$num."\" class=\"panel-collapse collapse\" role=\"tabpanel\" aria-labelledby=\"heading".$num."\">
                                         <div class=\"panel-body\" style='font-size: 14px'>";
-
-                                    foreach ($arr_note as $arr1) {
-                                        echo "<a role=\"button\" onclick='innerHtml(\"".$arr1['content']."\",\"".noteClass::getStart($_SESSION['userid'],$arr1['content'])."\")'>".$arr1['content']."</a ><br><br>";
-                                    }
-
+										
+										foreach ($arr_note as $arr1) {
+											echo "<a role=\"button\" onclick='innerHtml(\"".$arr1['content']."\",\"".noteClass::getStart($_SESSION['userid'],$arr1['content'])."\")'>".$arr1['content']."</a ><br><br>";
+										}
+										
                                         echo "</div>
                                     </div>
-                                </div>";
+									</div>";
                                 $num++;
-                                }
+							}
                             ?>
 						</div>
 					</div>
 				</div>
 			</div>
+			<!-- 功能部分  -->
 			<div class="function">
 				<div class="icon1">
 					<i id="icon01" class="fa fa-bold fa-lg"></i>
@@ -199,7 +209,6 @@ if ($_GET['_value']!=null){
 				</div>
 			</div>
 
-			<!-- 功能部分  -->
 
 			<!-- 笔记本部分 -->
 			<div class="note02">
@@ -209,7 +218,7 @@ if ($_GET['_value']!=null){
                         $arr_nb = nbClass::fristSearch($_SESSION['userid']);
                         $num = 0;
                         foreach($arr_nb as $arr1){
-                            echo '<option value="nb'.$num.'">'.$arr1["bookName"].'</option>';
+							echo '<option value="nb'.$num.'">'.$arr1["bookName"].'</option>';
                             $num++;
                         }
                         ?>
@@ -229,7 +238,7 @@ if ($_GET['_value']!=null){
                         $arr_mark = labelClass::fristSearch($_SESSION['userid']);
                         $num = 0;
                         foreach($arr_mark as $arr1){
-                            echo '<option value="label'.$num.'">'.$arr1["markName"].'</option>';
+							echo '<option value="label'.$num.'">'.$arr1["markName"].'</option>';
                             $num++;
                         }
                         ?>
@@ -237,6 +246,7 @@ if ($_GET['_value']!=null){
 
 					</select>
 					<br>
+						<!-- 标签部分 -->
 					<span>新标签:</span>
                     <form method="get" action="edit.php">
                         <input type="text" name="newlabel" placeholder="新标题" id="label">
@@ -245,29 +255,38 @@ if ($_GET['_value']!=null){
 				</div>
 			</div>
 
-			<!-- 标签部分 -->
 
+		<!-- 写笔记部分  -->
 			<div class="hr"></div>
 			<textarea id="content"></textarea>
 		</div>
 
-		<!-- 写笔记部分  -->
 
+		<!-- 评论部分 -->
 		<div class="comment">
 			<div class="comment01">
 				请开始你的评论→_→
 			</div>
 		</div>
-
-		<!-- 评论部分 -->
-
+		<!-- 文档信息弹窗 -->
+		<div class="userView layui-anim layui-anim-up ">
+        	<iframe  frameborder="0" src="documentInfo.php"></iframe>
+       		<div class="close">
+		</div>
 	</body>
+	<!-- header部分js -->
+	<script src="js/header.js"></script>
+	<!-- function部分js -->
+	<script src="js/function.js"></script>
+	<!-- notebook部分js -->
+	<!--文件上传-->
+	<script src="js/updatafile.js"></script>
     <script>
         var oldV;
         function innerHtml(text,a) {
             document.getElementById("content").innerHTML =text;
             if (a==1){
-                document.getElementById("isStart").style.color = "red";
+                document.getElementById("isStart").style.color = "#1483d4";
             }else{
                 document.getElementById("isStart").style.color = "white";
             }
@@ -285,20 +304,9 @@ if ($_GET['_value']!=null){
             var _value = document.getElementById("content").value;
             document.getElementById("isStart").href = "edit.php?_value="+_value;
         }
-		// 笔记信息获取弹窗显示
-		 function showDocInfo() {
-		 	// <?php echo "<script> var content = \"\"</scipt>"?>
-			
-		 }
+	
+	   DocInfoWindow(de);
     </script>
 
-	<!-- header部分js -->
-	<script src="js/header.js"></script>
-	<!-- function部分js -->
-	<script src="js/function.js"></script>
-	<!-- notebook部分js -->
-	<!--文件上传-->
-	<script src="js/updatafile.js"></script>
-	<!-- <script src="js/jquery-3.2.0.min.js"></script> -->
 
 </html>

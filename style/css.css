@@ -401,22 +401,135 @@ a:hover{
 	max-width: 32%;
 	
 }
+
 #fileMutiply {
 	position: relative;
 	width: 100%;
 	max-width: 100%;
 }
-.documentInfo {
-	display:none;
-	position:absolute;
-	top:50%;
-	left:50%;
-	transition:translate(-50%.-50%);
-	width:800px;
-	height:500px;
+
+
+
+.userView {
+  position: absolute;
+  top: 30%;
+  left: 28%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  /* border-radius: 5%; */
+  width: 50%;
+  height: 35%;
+  -webkit-box-shadow: #8DB6CD 0px 0px 500000px;
+          box-shadow: #8DB6CD 0px 0px 500000px;
+  z-index: 99999999999999999999999999999999999;
+  display: none;
 }
 
+.userView iframe {
+  width: 100%;
+  /* border-radius: 5%; */
+  height: 100%;
+}
 
+.userView .close {
+  position: absolute;
+  right: -25px;
+  top: -25px;
+  width: 50px;
+  height: 50px;
+  background: silver;
+  border-radius: 25px;
+  -webkit-box-shadow: 2px 2px 5px 0px black;
+          box-shadow: 2px 2px 5px 0px black;
+  cursor: pointer;
+}
+
+.userView .close:hover {
+  background: #1274bb;
+}
+
+.userView .close:before {
+  position: absolute;
+  content: '';
+  width: 30px;
+  height: 10px;
+  background: white;
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+  top: 20px;
+  left: 10px;
+}
+
+.userView .close:after {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 10px;
+  background: white;
+  -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  top: 20px;
+  left: 10px;
+}
+
+@-webkit-keyframes uptoremove {
+  0% {
+    top: 50%;
+    left: 50%;
+    opacity: 0.8;
+  }
+  30% {
+    top: 20%;
+    left: 50%;
+    opacity: 0.6;
+  }
+  60% {
+    top: -10%;
+    left: 50%;
+    opacity: .3;
+  }
+  90% {
+    top: -40%;
+    left: 50%;
+    opacity: .2;
+  }
+  100% {
+    top: -40%;
+    left: 50%;
+    opacity: .1;
+  }
+}
+
+@keyframes uptoremove {
+  0% {
+    top: 50%;
+    left: 50%;
+    opacity: 0.8;
+  }
+  30% {
+    top: 20%;
+    left: 50%;
+    opacity: 0.6;
+  }
+  60% {
+    top: -10%;
+    left: 50%;
+    opacity: .3;
+  }
+  90% {
+    top: -40%;
+    left: 50%;
+    opacity: .2;
+  }
+  100% {
+    top: -40%;
+    left: 50%;
+    opacity: .1;
+  }
+}
 @media screen and (max-width: 1124px) {
 
 	*{
