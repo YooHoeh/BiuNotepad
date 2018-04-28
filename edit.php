@@ -34,6 +34,7 @@ if ($_GET['_value']!=null){
         noteClass::isStart($_SESSION['userid'],$_GET['_value']);
     }
 }
+
 ?>
 
 
@@ -94,18 +95,19 @@ if ($_GET['_value']!=null){
 
 
 		<div class="edit">
-			<div class="active">
+			<div class="active layui-anim layui-anim-scale">
 				<div class="note01" style="font-size: 32px;">
 					笔记薄
 					<div class="notebook">
 						<div class="panel-group" id="accordion">
-                            <?php
+							<?php
+							
                                 if($_GET['newV']!=null){
 									if($_GET['oldV']!=undefined){
 										noteClass::updateNote($_SESSION['userid'],$_GET['oldV'],$_GET['newV']);
 										_location('笔记更新成功！','edit.php');
 									}else{
-										new noteClass($_SESSION['userid'],$_GET['newV']);
+										new noteClass($_SESSION['userid'],$_GET['newV'],$_GET['style']);
 										_location('新建笔记成功！','edit.php');
 									}
 									
@@ -133,7 +135,7 @@ if ($_GET['_value']!=null){
                                         <div class=\"panel-body\" style='font-size: 14px'>";
 										
 										foreach ($arr_note as $arr1) {
-											echo "<a role=\"button\" onclick='innerHtml(\"".$arr1['content']."\",\"".noteClass::getStart($_SESSION['userid'],$arr1['content'])."\")'>".$arr1['content']."</a ><br><br>";
+											echo "<a role=\"button\" onclick='innerHtml(\"".$arr1['content']."\",\"".noteClass::getStart($_SESSION['userid'],$arr1['content'])."\")'noteid=".$arr1['id'].">".$arr1['content']."</a ><br><br>";
 										}
 										
                                         echo "</div>
@@ -213,7 +215,7 @@ if ($_GET['_value']!=null){
 
 
 			<!-- 笔记本部分 -->
-			<div class="note02">
+			<div class="note02 layui-anim layui-anim-scale">
 				<div>
 					<select id="newopt">
                         <?php
@@ -233,7 +235,7 @@ if ($_GET['_value']!=null){
                     </form>
 				</div>
 			</div>
-			<div class="label">
+			<div class="label layui-anim layui-anim-scale">
 				<div>
 					<select id="newopt">
                         <?php
@@ -260,7 +262,15 @@ if ($_GET['_value']!=null){
 
 		<!-- 写笔记部分  -->
 			<div class="hr"></div>
-			<textarea id="content"></textarea>
+			<textarea id="content" class="layui-anim layui-anim-scale" >
+				<?php if (isset($_GET['id']) ) {
+						$arr = noteClass::idSearch($_GET['id']);
+						echo $arr['content'];
+					}
+					?>
+				
+			</textarea>
+			<script> document.getElementById('content').setAttribute('style',"<?php echo $arr['style']?> ");</script>
 		</div>
 
 
@@ -284,20 +294,26 @@ if ($_GET['_value']!=null){
 	<!--文件上传-->
 	<script src="js/updatafile.js"></script>
     <script>
-        var oldV;
+		var oldV;
+		var str;
         function innerHtml(text,a) {
+
             document.getElementById("content").innerHTML =text;
             if (a==1){
                 document.getElementById("isStart").style.color = "#1483d4";
             }else{
                 document.getElementById("isStart").style.color = "white";
-            }
+			}
+			
 			oldV = text;
+			// noteClass::idSearch()
 			document.getElementsByTagName('iframe')[0].setAttribute('src','documentInfo.php?content='+oldV);
+			
         }
         function update() {
-            var newV = document.getElementById("content").value;
-            document.getElementById("get_newV").href = "edit.php?oldV="+oldV+"&newV="+newV;
+			var newV = document.getElementById("content").value;
+			var style = document.getElementById("content").getAttribute('style');
+            document.getElementById("get_newV").href = "edit.php?oldV="+oldV+"&newV="+newV+'&style='+style;
         }
         function deContent() {
             var de = document.getElementById("content").value;
@@ -306,8 +322,10 @@ if ($_GET['_value']!=null){
         function isStart() {
             var _value = document.getElementById("content").value;
             document.getElementById("isStart").href = "edit.php?_value="+_value;
-        }
-	
+		}
+
+
+
 	   DocInfoWindow();
     </script>
 

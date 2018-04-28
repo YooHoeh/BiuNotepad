@@ -23,7 +23,9 @@ body{
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
-
+.fa-home{
+	color:#fff;
+}
 .user {
   position: absolute;
   left: 15px;
@@ -123,10 +125,10 @@ body{
 .function select{
 	position: relative;
 	float:left;
-	top:-2px;
+	top:-5px;
 	padding:0;
-	width:10%;
-	height: 90%;
+	width:8%;
+	height: 70%;
 	text-align: center;
 }
 .function .save{
@@ -163,7 +165,7 @@ body{
 	left:3%;
 	top:26px;
 	width:23%;
-	height:48%;
+	height:50%;
 	box-shadow: 5px 5px 3px #79aed5;
 	border: 2px solid #1170b4;
 	overflow:scroll;
@@ -218,7 +220,7 @@ body{
 	position: relative;
 	float:left;
 	left:25%;
-	margin-top:4%;
+	margin-top:3%;
 	border-style:solid;
 	border-width:medium;
 	border:0;
@@ -232,7 +234,7 @@ body{
 	position: relative;
 	float:left;
 	left:-20%;
-	margin-top:7%;
+	margin-top:9%;
 	width: 21%;
 	height: 30%;
 	padding:0;
@@ -288,7 +290,7 @@ body{
 	position: relative;
 	float:left;
 	left:25%;
-	margin-top:5%;
+	margin-top:4%;
 	border-style:solid;
 	border-width:medium;
 	border:0;
@@ -302,7 +304,7 @@ body{
 	position: relative;
 	float:left;
 	left:-20%;
-	margin-top:10%;
+	margin-top:13%;
 	width: 21%;
 	height: 30%;
 	padding: 1px 1px;
@@ -352,7 +354,7 @@ body{
 	left:29%;
 	margin-top: 8%;
 	width:68%;
-	height:77%;
+	height:79%;
 	resize:none;
 	border:5px groove #1170b4;
 	overflow:scroll;
@@ -369,7 +371,7 @@ body{
     /*float: left;*/
     left:50%;
     transform: translate(-50%,0);
-	margin-top:7%;
+	margin-top:8%;
 	/*margin-top: 100px;*/
 	width: 78%;
 	height:7%;
@@ -383,8 +385,10 @@ body{
 .comment .comment01{
 	font-family:'Work Sans', sans-serif;
 	color: #000000;
-	font-size:15px;
+	font-size:20px;
 	padding:2px;
+	text-align: center;
+	margin-top: 1%;
 }
 i:hover{
 	color: #06324F;
@@ -398,10 +402,7 @@ a:hover{
 	position: relative;
 	float: left;
 	width: 32%;
-	max-width: 32%;
-	
 }
-
 #fileMutiply {
 	position: relative;
 	width: 100%;

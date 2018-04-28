@@ -117,21 +117,29 @@ function labelFunction(){
    		newopt.options.add(option);     
 		}
 
-// 文档信息弹窗
-
+// 文档信息弹窗笔记二维码分享
 function DocInfoWindow() {
     var card = document.getElementsByClassName('userView')[0];
     var closebtn = card.getElementsByClassName('close')[0];
 	var openbtn = document.getElementsByClassName('fa-info-circle')[0];
 	var openshare = document.getElementsByClassName('fa-share-alt')[0];
-	var st = document.getElementById('content').value;
-
-	openshare.onclick = function (){
-		card.getElementsByTagName('iframe')[0].setAttribute('src','http://qr.liantu.com/api.php?text='+st);
+	// var st = document.getElementById('content');
+	// st.oninput = function(){
+		// 	 str = document.getElementById('content').innerHTML;
+		// 	 console.log(str);
+		
+		// }
+		$("#content").bind("input propertychange",function(){
+			str = $("#content").val();
+			console.log(str);
+		});
+		openshare.onclick = function (){
+		card.getElementsByTagName('iframe')[0].setAttribute('src','http://qr.liantu.com/api.php?text='+str);
 		card.style.display = "block";
 		
 	}
-    openbtn.onclick = function () {
+	openbtn.onclick = function () {
+		
 		document.getElementsByTagName('iframe')[0].setAttribute('src','documentInfo.php?content='+oldV);
         card.style.display = "block";
 
@@ -153,7 +161,6 @@ function DocInfoWindow() {
 			
 		//  }
 }
-// 笔记二维码分享
 function noteShare(){
 	
 

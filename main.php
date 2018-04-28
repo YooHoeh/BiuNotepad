@@ -129,7 +129,7 @@
             </div>
         </div>
         <div class="search">
-            <input type="text" name="search" id="search_text" placeholder="笔记本、笔记、标签、时间">
+            <input type="text" name="search" id="search_text" placeholder="笔记本、笔记、标签...">
             <a href="" id="search_a">
                 <i class="fa fa-search" onclick="_onclick()"></i>
             </a>

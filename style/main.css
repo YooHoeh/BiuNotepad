@@ -53,6 +53,7 @@ hr {
   display: inline;
 }
 
+}
 .user-set i {
   margin-right: 10px;
 }
@@ -73,26 +74,32 @@ hr {
   color: #000;
 }
 
-.user:hover div.user-set {
-  display: block;
-}
 
 .user:hover h2 {
   display: none;
 }
 
 .user .user-set {
+  overflow: hidden;
+  transition: height 0.3s;
+-moz-transition:height 0.3s;
+-webkit-transition:height 0.3s;
+-o-transition:height 0.3s;
   top: 8px;
-  display: none;
+  /* display: none; */
   font-size: 15px;
   text-align: center;
   width: 100px;
-  height: 67px;
+  height: 0;
   background-color: #0096f9;
   -webkit-box-shadow: #000 3px 3px 5px;
-          box-shadow: #000 3px 3px 5px;
+  box-shadow: #000 3px 3px 5px;
 }
 
+.user:hover div.user-set {
+  /* display: block; */
+  height: 67px;
+}
 .title {
   font-family: 'Work Sans', sans-serif;
   margin-top: 12px;

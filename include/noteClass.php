@@ -8,12 +8,12 @@
 		
 		
 		//构造函数
-		public function __construct($userid,$content,$notebookid = 1){
+		public function __construct($userid,$content,$style,$notebookid = 1){
 			$this->userid = $userid;
 			$this->content = $content;
 			$this->notebookid = $notebookid;
 			$con = new connetMysqli();
-			$sql = "insert into note (userid,content,notebookid) values($userid,'$content',$notebookid)";
+			$sql = "insert into note (userid,content,style,notebookid) values($userid,'$content','$style',$notebookid)";
 			$con->runSQL($sql);
 			$con->closeLink();
 		}
