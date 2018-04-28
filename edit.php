@@ -53,6 +53,8 @@ if ($_GET['_value']!=null){
 		<script src="./js/jquery-3.2.0.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/layui.js"></script>
+		<link rel="shortcut icon" href="biuicon.ico" type="image/x-icon">
+		<title>Biu记事本</title>
 	</head>
 
 	<body>

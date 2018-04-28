@@ -123,7 +123,16 @@ function DocInfoWindow() {
     var card = document.getElementsByClassName('userView')[0];
     var closebtn = card.getElementsByClassName('close')[0];
 	var openbtn = document.getElementsByClassName('fa-info-circle')[0];
+	var openshare = document.getElementsByClassName('fa-share-alt')[0];
+	var st = document.getElementById('content').value;
+
+	openshare.onclick = function (){
+		card.getElementsByTagName('iframe')[0].setAttribute('src','http://qr.liantu.com/api.php?text='+st);
+		card.style.display = "block";
+		
+	}
     openbtn.onclick = function () {
+		document.getElementsByTagName('iframe')[0].setAttribute('src','documentInfo.php?content='+oldV);
         card.style.display = "block";
 
     }
@@ -143,6 +152,11 @@ function DocInfoWindow() {
 		// 	}
 			
 		//  }
+}
+// 笔记二维码分享
+function noteShare(){
+	
+
 }
 //  文本框数字长度指示器
 $(function(){

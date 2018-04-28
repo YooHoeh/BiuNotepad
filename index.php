@@ -78,7 +78,8 @@ if (@$_GET ['action'] == 'register') {
   <script src="./js/jquery.min.js"></script>
   <script src="./js/index.js"></script>
   <script src="./layui/layui.js"></script>
-  <title>Biu记事本</title>
+  <link rel="shortcut icon" href="biuicon.ico">
+	<title>Biu记事本</title>
 </head>
 
 

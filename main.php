@@ -99,6 +99,7 @@
     <script src="./js/emoji.js"></script>
     <script src="./js/im.js"></script>
 
+    <link rel="shortcut icon" href="biuicon.ico">
     <title>Biu记事本</title>
 </head>
 
